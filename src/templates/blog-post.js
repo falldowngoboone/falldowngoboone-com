@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Bio from '../components/bio';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import Bio from '../components/bio';
 
 export default function BlogPostTemplate({ data, pageContext, location }) {
   const post = data.markdownRemark;
@@ -23,20 +23,20 @@ export default function BlogPostTemplate({ data, pageContext, location }) {
       <Bio />
 
       <ul>
-        <li>
-          {previous && (
+        {previous && (
+          <li>
             <Link to={previous.fields.slug} rel="prev">
               ← {previous.frontmatter.title}
             </Link>
-          )}
-        </li>
-        <li>
-          {next && (
+          </li>
+        )}
+        {next && (
+          <li>
             <Link to={next.fields.slug} rel="next">
               {next.frontmatter.title} →
             </Link>
-          )}
-        </li>
+          </li>
+        )}
       </ul>
     </Layout>
   );
