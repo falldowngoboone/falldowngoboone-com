@@ -1,33 +1,11 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import React from 'react';
 
 export default function Bio() {
-  const { site } = useStaticQuery(bioQuery)
-  const { author, social } = site.siteMetadata
-
   return (
-    <div>
-      <p>
-        <strong>{author}</strong> lives in Fort Worth, TX, and works as a
-        developer at The Container Store in Coppell.
-        {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
-      </p>
-    </div>
-  )
+    <p>
+      Hi. My name is Ryan. I’m a front-end developer and designer based in Fort
+      Worth, TX. I currently help make the space that comes from The Container
+      Store.
+    </p>
+  );
 }
-
-const bioQuery = graphql`
-  query BioQuery {
-    site {
-      siteMetadata {
-        author
-        social {
-          twitter
-        }
-      }
-    }
-  }
-`
