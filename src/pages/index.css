@@ -1,0 +1,15 @@
+/* 8, 16, 24, 44, 68, 110 */
+/* 12, 24, 48, 96 */
+
+.story-list {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 1fr;
+}
+
+.story {
+  background-color: rgb(250, 250, 255);
+  padding: 24px;
+}

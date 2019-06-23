@@ -12,12 +12,16 @@ export default function BlogPostTemplate({ data, pageContext, location }) {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
       <h1>{post.frontmatter.title}</h1>
+      <p>{post.frontmatter.subtitle}</p>
       <p>{post.frontmatter.date}</p>
+      <ul>
+        {post.frontmatter.keywords.map(keyword => (
+          <li key={keyword}>{keyword}</li>
+        ))}
+      </ul>
+      <p>Current mood: {post.frontmatter.currentmood}</p>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
       <hr />
       <Bio />
@@ -56,8 +60,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        subtitle
         date(formatString: "MMMM DD, YYYY")
-        description
+        currentmood
+        keywords
       }
     }
   }

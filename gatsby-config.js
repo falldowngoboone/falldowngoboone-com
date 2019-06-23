@@ -78,9 +78,9 @@ module.exports = {
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
-                })
-              })
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                });
+              });
             },
             query: `
               {
@@ -101,13 +101,14 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
-            title: "fall down go boone",
+            output: '/rss.xml',
+            title: 'fall down go boone',
           },
         ],
       },
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-emotion`,
   ],
-}
+};
