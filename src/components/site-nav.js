@@ -1,24 +1,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-export default function SiteNav({ title, location }) {
-  const rootPath = `${__PATH_PREFIX__}/`;
-  let homeLink;
-
-  if (location.pathname === rootPath) {
-    homeLink = (
-      <h1>
-        <Link to={`/`}>{title}</Link>
-      </h1>
-    );
-  } else {
-    homeLink = <Link to={`/`}>{title}</Link>;
-  }
+export default function SiteNav({ title, isHomePage }) {
+  const homeLink = <Link to={`/`}>{title}</Link>;
 
   return (
     <nav>
       <ul>
-        <li>{homeLink}</li>
+        <li>{isHomePage ? <h1>{homeLink}</h1> : homeLink}</li>
         <li>
           <Link to="about">About</Link>
         </li>
