@@ -9,10 +9,10 @@ export default function SiteNav({ title, isHomePage }) {
       <ul>
         <li>{isHomePage ? <h1>{homeLink}</h1> : homeLink}</li>
         <li>
-          <Link to="about">About</Link>
+          <Link to="/about/">About</Link>
         </li>
         <li>
-          <Link to="contact">Contact</Link>
+          <Link to="/contact/">Contact</Link>
         </li>
         <li>
           <a
