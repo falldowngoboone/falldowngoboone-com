@@ -6,8 +6,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Bio from '../components/bio';
 
-import './index.css';
-
 const StoryList = styled.ul`
   list-style-type: none;
   padding: 0;
