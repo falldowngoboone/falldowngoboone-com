@@ -15,17 +15,31 @@ export default function Layout({ location, title, children }) {
     >
       <Global
         styles={css`
+          *,
+          *::before,
+          *::after {
+            box-sizing: inherit;
+            margin: 0;
+          }
+
+          html,
+          body {
+            height: 100%;
+          }
+
           html {
-            text-size-adjust: 100%;
+            background-color: #d2fff7;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+              Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+              'Segoe UI Emoji', 'Segoe UI Symbol';
             font-size: 100%;
-            background-color: rgb(179, 255, 242);
+            text-size-adjust: 100%;
           }
 
           body {
-            margin: 0;
             background-color: inherit;
             color: #494949;
-            font-family: Helvetica, Arial, sans-serif;
           }
         `}
       />

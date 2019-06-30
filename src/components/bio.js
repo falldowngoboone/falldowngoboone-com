@@ -4,7 +4,9 @@ import styled from '@emotion/styled';
 const HomePageBio = styled.p`
   text-align: center;
   font-size: 44px;
-  font-family: 'BwDarius-Bold', Helvetica;
+  font-family: 'BwDarius-Bold', Constantia, 'Lucida Bright', Lucidabright,
+    'Lucida Serif', Lucida, 'DejaVu Serif', 'Bitstream Vera Serif',
+    'Liberation Serif', Georgia, serif;
 `;
 
 export default function Bio({ isHomePage }) {
