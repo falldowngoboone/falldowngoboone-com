@@ -2,10 +2,14 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import SiteNav from './site-nav';
 import { Global, css } from '@emotion/core';
+import { Link } from 'gatsby';
 
 import '../../static/fonts.css';
 
 export default function Layout({ location, title, children }) {
+  const isHomePage = location.pathname === `${__PATH_PREFIX__}/`;
+  const homeLink = <Link to={`/`}>{title}</Link>;
+
   return (
     <div
       css={css`
@@ -44,11 +48,15 @@ export default function Layout({ location, title, children }) {
         `}
       />
       <BackgroundAnimation />
-      <header>
-        <SiteNav
-          title={title}
-          isHomePage={location.pathname === `${__PATH_PREFIX__}/`}
-        />
+      <header
+        css={css`
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        `}
+      >
+        {isHomePage ? <h1>{homeLink}</h1> : homeLink}
+        <SiteNav />
       </header>
       <main
         css={css`
@@ -78,16 +86,14 @@ function BackgroundAnimation() {
     ? createPortal(
         <canvas
           ref={el => (canvasRef.current = el)}
-          height="2000"
-          width="2000"
           css={css`
             background: black;
             mix-blend-mode: screen;
             position: fixed;
             top: 0;
             left: 0;
-            min-width: 100%;
-            min-height: 100%;
+            width: 100%;
+            height: 100%;
           `}
         ></canvas>,
         document.body
