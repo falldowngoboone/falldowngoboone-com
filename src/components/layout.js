@@ -5,12 +5,14 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
 import { fluidSizeBetween } from '../utils';
+import { useTheme } from '../context/theme';
 
 import '../../static/fonts.css';
 
 export default function Layout({ location, title, children }) {
   const isHomePage = location.pathname === `${__PATH_PREFIX__}/`;
   const homeLink = <Link to={`/`}>{title}</Link>;
+  const { color } = useTheme();
 
   return (
     <Page>
@@ -29,7 +31,7 @@ export default function Layout({ location, title, children }) {
           }
 
           html {
-            background-color: #d2fff7;
+            background-color: ${color.TEAL};
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
               Helvetica, Arial, sans-serif, 'Apple Color Emoji',
@@ -40,31 +42,26 @@ export default function Layout({ location, title, children }) {
 
           body {
             background: inherit;
-            color: #494949;
+            color: ${color.BLACK};
           }
 
           a {
-            color: #af15b2;
+            color: ${color.FUSCIA};
             text-decoration: none;
-            position: relative;
+            text-decoration: none;
+            background-image: linear-gradient(${color.YELLOW}, ${color.YELLOW});
+            background-position: 0% 100%;
+            background-repeat: no-repeat;
+            background-size: 0% 50%;
+            transition: background-size 0.3s;
 
-            &::after {
-              content: '';
-              display: block;
-              position: absolute;
-              width: 100%;
-              height: 50%;
-              left: 0;
-              bottom: 0;
-              background-color: #fdff65;
-              mix-blend-mode: multiply;
-              transform: scaleX(0);
-              transform-origin: bottom left;
-              transition: transform 0.3s;
+            &:hover,
+            &:focus {
+              background-size: 100% 50%;
             }
 
-            &:hover::after {
-              transform: scaleX(1);
+            &:focus {
+              outline: none;
             }
           }
         `}
@@ -85,6 +82,10 @@ export default function Layout({ location, title, children }) {
           max-width: 1024px;
           margin-left: auto;
           margin-right: auto;
+
+          & > * + * {
+            margin-top: 1.5em;
+          }
         `}
       >
         {children}
@@ -125,19 +126,29 @@ const Page = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 1448px;
-  padding-left: ${fluidSizeBetween(8, 24, 320, 800)};
-  padding-right: ${fluidSizeBetween(8, 24, 320, 800)};
+  padding: ${fluidSizeBetween(8, 40, 320, 1440)}
+    ${fluidSizeBetween(8, 24, 320, 1440)};
   position: relative;
   z-index: 1; /* layout should be on top of background animation */
 
-  @media screen and (max-width: 320) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+  & > * + * {
+    margin-top: ${fluidSizeBetween(24, 64, 320, 1440)};
   }
 
-  @media screen and (min-width: 800) {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  @media screen and (max-width: 320px) {
+    padding: 0.5rem;
+
+    & > * + * {
+      margin-top: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 2.5rem 1.5rem;
+
+    & > * + * {
+      margin-top: 4rem;
+    }
   }
 `;
 
@@ -181,9 +192,13 @@ function SiteNav() {
 }
 
 const StyledLink = styled.a`
-  background: linear-gradient(130deg, #494949 50%, #49494900 50%) no-repeat;
+  background: linear-gradient(
+      130deg,
+      ${({ theme }) => theme.color.BLACK} 50%,
+      ${({ theme }) => theme.color.transparentize(theme.color.BLACK, 0)} 50%
+    )
+    no-repeat;
   background-position: 300% 100%;
-  background-size: 300% 100%;
   color: inherit;
   display: inline-block;
   font-weight: 700;
@@ -192,17 +207,16 @@ const StyledLink = styled.a`
   transition: background 0.4s, color 0.2s;
 
   &,
-  &:hover {
+  &:hover,
+  &:focus {
     text-decoration: none;
+    background-size: 300% 100%;
   }
 
-  &:hover {
-    color: #d2fff7;
+  &:hover,
+  &:focus {
+    color: ${({ theme }) => theme.color.TEAL};
     background-position: 0 100%;
-  }
-
-  &::after {
-    content: none;
   }
 `;
 

@@ -42,7 +42,11 @@ function BioInner() {
     <>
       Hi. My name is Ryan. I’m a front-end developer and designer based in Fort
       Worth, TX. I currently help make the space that comes from{' '}
-      <a href="https://www.containerstore.com/welcome.htm" target="_blank">
+      <a
+        href="https://www.containerstore.com/welcome.htm"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         The{' '}
         <span
           css={css`
