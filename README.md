@@ -10,3 +10,5 @@ This is my personal blog.
   - [ ] Design
   - [ ] Build
 - [ ] Restyle to new design
+- [ ] Add "Edit this post" links to the raw files on GitHub
+- [ ] Add "Discuss this post" links to Twitter
