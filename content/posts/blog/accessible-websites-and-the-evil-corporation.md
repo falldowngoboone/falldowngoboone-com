@@ -8,9 +8,6 @@ keywords:
 readtime: 4
 ---
 
-Created By: Ryan Boone
-Last Edited: Oct 27, 2019 11:19 AM
-
 Recently I made the trek to New York City to attend SmashingConf. A recurring theme this year was accessibility, and for good reason. The Domino's Pizza case has been trending in the Front End Dev community for a while now, and I've been preoccupied with accessibility as of late as well, due to circumstances surrounding my current place of employment (I think this would be a good time to state that my opinions expressed are solely my own and do not express the views or opinions of my employer, blah, blah, blah).
 
 While I was in New York, I read Robin Rindle's CSS-Tricks article [Why Are Accessible Websites so Hard to Build](https://css-tricks.com/why-are-accessible-websites-so-hard-to-build/), and I think it helps bring to light one of the common misconceptions about corporations and the lack of accessible websites. If I were to sum up my belief why accessible websites are difficult to make, it would be ignorance.
