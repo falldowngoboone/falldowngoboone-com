@@ -1,16 +1,39 @@
 {
-  "name": "gatsby-starter-blog-theme",
-  "private": true,
-  "version": "0.0.1",
+  "name": "falldowngoboone-com",
+  "version": "0.1.0",
+  "description": "Built on top of the Eleventy static site generator.",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "npm-run-all clean build:*",
+    "build:css": "sass ./src/sass/:./_site/css/",
+    "build:html": "eleventy --input=src",
+    "build:webpack": "webpack --env.production",
+    "clean": "rimraf _site",
+    "debug": "DEBUG=* eleventy",
+    "watch": "run-p watch:*",
+    "watch:css": "sass --watch ./src/sass/:./_site/css/",
+    "watch:html": "eleventy --serve --input=src",
+    "watch:webpack": "webpack",
+    "start": "npm run watch"
   },
-  "dependencies": {
-    "gatsby": "^2.15.9",
-    "gatsby-theme-blog": "^1.0.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/falldowngoboone/falldowngoboone-com.git"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy-navigation": "^0.1.3",
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
+    "dotenv": "^8.2.0",
+    "liquidjs": "^9.11.10",
+    "luxon": "^1.21.3",
+    "markdown-it": "^8.4.2",
+    "markdown-it-anchor": "^5.2.5",
+    "mkdirp": "^1.0.3",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.1",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
   }
 }
