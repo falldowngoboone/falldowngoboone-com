@@ -1,20 +1,68 @@
 const { DateTime } = require('luxon');
 const fs = require('fs');
-const pluginRss = require('@11ty/eleventy-plugin-rss');
+const dateToISO = require('@11ty/eleventy-plugin-rss/src/dateToISO');
+const absoluteUrl = require('@11ty/eleventy-plugin-rss/src/absoluteUrl');
+const htmlToAbsoluteUrls = require('@11ty/eleventy-plugin-rss/src/htmlToAbsoluteUrls');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const pluginNavigation = require('@11ty/eleventy-navigation');
+const pluginNavigation = require('@11ty/eleventy-navigation/eleventy-navigation');
 const markdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
 require('dotenv').config();
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
-  eleventyConfig.addPlugin(pluginNavigation);
+
+  // TODO: remove after updating to v0.11.0
+  eleventyConfig.addFilter('log', console.log);
+
+  // manually add RSS stuff as liquid filters and shortcode
+  eleventyConfig.addFilter('rssLastUpdatedDate', (collection) => {
+    if (!collection || !collection.length) {
+      throw new Error('Collection is empty in rssLastUpdatedDate filter.');
+    }
+
+    // Newest date in the collection
+    return dateToISO(collection[collection.length - 1].date);
+  });
+
+  eleventyConfig.addFilter('rssDate', (dateObj) => dateToISO(dateObj));
+
+  eleventyConfig.addFilter('absoluteUrl', (href, base) =>
+    absoluteUrl(href, base)
+  );
+
+  eleventyConfig.addPairedLiquidShortcode(
+    'htmlToAbsoluteUrls',
+    async (content, base) => {
+      if (!content) {
+        return '';
+      }
+
+      const result = await htmlToAbsoluteUrls(content, base);
+
+      return result.html;
+    }
+  );
+
+  // manually adding navigation filters as universal
+  eleventyConfig.addFilter(
+    'eleventyNavigation',
+    pluginNavigation.findNavigationEntries
+  );
+  eleventyConfig.addFilter(
+    'eleventyNavigationBreadcrumb',
+    pluginNavigation.findBreadcrumbEntries
+  );
+  eleventyConfig.addFilter('eleventyNavigationToHtml', function (
+    pages,
+    options
+  ) {
+    return pluginNavigation.toHtml.call(eleventyConfig, pages, options);
+  });
 
   eleventyConfig.setDataDeepMerge(true);
 
-  eleventyConfig.addLayoutAlias('post', 'layouts/post.njk');
+  eleventyConfig.addLayoutAlias('post', 'layouts/post.liquid');
 
   eleventyConfig.addFilter('readableDate', (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(
@@ -84,8 +132,8 @@ module.exports = function (eleventyConfig) {
     // pathPrefix: "/",
 
     markdownTemplateEngine: 'liquid',
-    htmlTemplateEngine: 'njk',
-    dataTemplateEngine: 'njk',
+    htmlTemplateEngine: 'liquid',
+    dataTemplateEngine: 'liquid',
 
     // These are all optional, defaults are shown:
     dir: {

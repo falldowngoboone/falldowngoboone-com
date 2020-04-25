@@ -8,7 +8,7 @@
     "build:html": "eleventy --input=src",
     "build:webpack": "webpack --env.production",
     "clean": "rimraf _site",
-    "debug": "DEBUG=* eleventy",
+    "debug": "DEBUG=* npm run build:html",
     "watch": "run-p watch:*",
     "watch:css": "sass --watch ./src/sass/:./_site/css/",
     "watch:html": "eleventy --serve --input=src",

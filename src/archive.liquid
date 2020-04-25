@@ -1,0 +1,12 @@
+---
+layout: layouts/home.liquid
+permalink: /blog/
+eleventyNavigation:
+  key: Archive
+  order: 2
+---
+
+<h1>Archive</h1>
+
+{% assign postslist = collections.posts %}
+{% include postslist %}

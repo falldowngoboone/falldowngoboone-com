@@ -10,14 +10,14 @@ pagination:
     - posts
     - tagList
   addAllPagesToCollections: true
-layout: layouts/home.njk
+layout: layouts/home.liquid
 renderData:
-  title: Tagged “{{ tag }}”
+  title: Posts tagged “{{ tag }}”
 permalink: /tags/{{ tag }}/
 ---
-<h1>Tagged “{{ tag }}”</h1>
 
-{% set postslist = collections[ tag ] %}
-{% include "postslist.njk" %}
+<h1>{{ renderData.title }}</h1>
+
+{% assign postslist = collections[tag] %} {% include postslist %}
 
 <p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>

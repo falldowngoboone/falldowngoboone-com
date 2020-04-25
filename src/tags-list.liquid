@@ -1,10 +1,13 @@
 ---
 permalink: /tags/
-layout: layouts/home.njk
+layout: layouts/home.liquid
 ---
+
 <h1>Tags</h1>
 
 {% for tag in collections.tagList %}
-  {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+  {% capture tagUrl %}
+    /tags/{{ tag }}/
+  {% endcapture %}
   <a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a>
 {% endfor %}
