@@ -8,6 +8,7 @@ tags:
   - design
   - development
 readtime: 4
+layout: layouts/post.liquid
 ---
 
 One of my favorite pastimes is reading. When I started out as a developer, I would read anything I could get my hands on. And, since I was cheap, I tried to find as many free books as I could. What follows is a list that I've accumulated over the past few years of fantastic, completely free material that has helped me grow as a developer.

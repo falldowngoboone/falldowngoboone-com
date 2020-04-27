@@ -6,6 +6,7 @@ currentmood: Loopy
 tags:
   - development
 readtime: 4
+layout: layouts/post.liquid
 ---
 
 Getting feedback fast is one of the most important things in development. What do I mean about feedback?

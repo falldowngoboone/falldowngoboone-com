@@ -8,6 +8,7 @@ tags:
   - tips
   - coding
 readtime: 4
+layout: layouts/post.liquid
 ---
 
 Becoming a career developer can be challenging at times. With a ton of material out of the internet, it can be difficult to know where to start. And even if you know where to start, it can be difficult to stay motivated.

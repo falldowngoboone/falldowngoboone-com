@@ -6,6 +6,7 @@ currentmood: hopeful
 tags:
   - a11y
 readtime: 4
+layout: layouts/post.liquid
 ---
 
 Recently I made the trek to New York City to attend SmashingConf. A recurring theme this year was accessibility, and for good reason. The Domino's Pizza case has been trending in the Front End Dev community for a while now, and I've been preoccupied with accessibility as of late as well, due to circumstances surrounding my current place of employment (I think this would be a good time to state that my opinions expressed are solely my own and do not express the views or opinions of my employer, blah, blah, blah).
