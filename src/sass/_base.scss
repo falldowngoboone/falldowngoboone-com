@@ -18,7 +18,7 @@
   --darkred: #7f0036;
   --lightgray: #e0e0e0;
   --gray: #c0c0c0;
-  --darkgray: #333;
+  --darkgray: #282520;
   --navy: #17050f;
   --blue: #082840;
   --white: #fff;
@@ -54,7 +54,6 @@ h1 {
   line-height: 1.1;
   font-weight: 900;
   font-family: 'BwDarius-Black';
-  letter-spacing: -2%;
 }
 
 p:last-child {
@@ -86,30 +85,40 @@ table th {
 .page-header {
   border-bottom: 1px dashed var(--lightgray);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  padding: 2.5rem;
 }
 .page-header__link--home {
-  padding: 0 1rem;
-  margin: 1rem 0;
+  margin-right: auto;
   line-height: 1;
 }
 
 /* Nav */
 .nav {
   @include unstyle-list;
-  margin-left: 1em;
+  margin: 0;
+  display: flex;
 }
 .nav-item {
-  display: inline-block;
-  margin-right: 1em;
+  font-family: 'MartelSans-Black';
+  text-transform: lowercase;
+  border: 2px solid transparent;
+  line-height: 1;
 
-  & a[href]:not(:hover) {
+  & a {
+    padding: 0.5rem;
+    display: inline-block;
     text-decoration: none;
   }
 
-  &--active {
-    font-weight: 700;
-    text-decoration: underline;
+  & + & {
+    margin-left: 1rem;
+  }
+
+  &--active,
+  &:hover {
+    border-bottom-color: currentColor;
   }
 }
 
