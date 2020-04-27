@@ -6,23 +6,20 @@
   {% assign reversePostsList = postslist | reverse %}
   {% for post in reversePostsList %}
     <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
-      <a href="{{ post.url | url }}" class="postlist-link">
-        {% if post.data.title %}
-          {{ post.data.title }}
-        {% else %}
-          <code>{{ post.url }}</code>
-        {% endif %}
-      </a>
-      <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">
-        {{ post.date | readableDate }}
-      </time>
-      {% for tag in post.data.tags %}
-        {%- if collections.tagList contains tag -%}
-          {% capture tagUrl %}/tags/{{ tag }}/
-          {% endcapture %}
-          <a href="{{ tagUrl | url }}" class="tag">{{ tag }}</a>
-        {%- endif -%}
-      {% endfor %}
+      <span>
+        <a href="{{ post.url | url }}" class="postlist-link">
+          {{ post.data.title | default: post.url }}</a>
+        <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">
+          {{ post.date | readableDate }}
+        </time>
+        {% for tag in post.data.tags %}
+          {%- if collections.tagList contains tag -%}
+            {% capture tagUrl %}/tags/{{ tag }}/
+            {% endcapture %}
+            <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+          {%- endif -%}
+        {% endfor %}
+      </span>
     </li>
   {% endfor %}
 </ol>
