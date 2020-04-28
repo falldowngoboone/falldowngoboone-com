@@ -3,8 +3,7 @@
 {% endunless %}
 
 <ol class="postlist" reversed style="counter-reset: start-from {{ postslistCounter | plus: 1 }};">
-  {% assign reversePostsList = postslist | reverse %}
-  {% for post in reversePostsList %}
+  {% for post in postslist reversed %}
     <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
       <span>
         <a href="{{ post.url | url }}" class="postlist-link">
