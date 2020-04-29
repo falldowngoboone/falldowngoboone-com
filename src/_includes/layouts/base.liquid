@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>
       {{ renderData.title | default: title | default: metadata.title }}
     </title>
-    <meta name="Description" content="{{ renderData.description | default: description | default: metadata.description }}"/>
-    <link rel="stylesheet" href="{{ '/css/index.css' | url }}"/>
-    <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}"/>
-    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}"/>
+    <meta
+      name="Description"
+      content="{{
+        renderData.description
+          | default: description
+          | default: metadata.description
+      }}"
+    />
+    <link rel="stylesheet" href="{{ '/css/index.css' | url }}" />
+    <link
+      rel="stylesheet"
+      href="{{ '/css/prism-base16-monokai.dark.css' | url }}"
+    />
+    <link
+      rel="alternate"
+      href="{{ metadata.feed.path | url }}"
+      type="application/atom+xml"
+      title="{{ metadata.title }}"
+    />
   </head>
   <body>
-    <header class="page-header">
-      <a class="page-header__link--home" href="{{ '/' | url }}"><img src="{{ '/img/fdgb-logo.svg' | url }}"/></a>
+    <header class="main-header">
+      <a class="main-header__link--home" href="{{ '/' | url }}"
+        ><img src="{{ '/img/fdgb-logo.svg' | url }}"
+      /></a>
 
       <ul class="nav">
-        {% assign allNavigation = collections.all | eleventyNavigation %}
-        {% for
+        {% assign allNavigation = collections.all | eleventyNavigation %} {% for
         entry in allNavigation %}
-          <li class="nav-item{% if entry.url == page.url %} nav-item--active{% endif %}">
-            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-          </li>
+        <li
+          class="nav-item{% if entry.url == page.url %} nav-item--active{% endif %}"
+        >
+          <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+        </li>
         {% endfor %}
       </ul>
     </header>
 
     <main {% if templateClass %} class="{{ templateClass }}" {% endif %}>
-      {% comment %}
-      {% include message %}
-      {% endcomment %}
+      {% comment %} {% include message %} {% endcomment %}
 
       {{ content }}
     </main>

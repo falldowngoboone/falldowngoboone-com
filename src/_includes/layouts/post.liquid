@@ -2,9 +2,17 @@
 layout: layouts/base.liquid
 templateClass: tmpl-post
 ---
-<h1>{{ title }}</h1>
 
-{{ content }}
+<article>
+  <header>
+    <time class="post__date" datetime="{{ date | htmlDateString }}">
+      <span role="presentation">{{ date | readableDate }}</span>
+    </time>
+    <h1 class="page__title">{{ title }}</h1>
+  </header>
+
+  {{ content }}
+</article>
 
 <p>
   <a href="{{ '/' | url }}">← Home</a>

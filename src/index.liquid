@@ -5,7 +5,7 @@ eleventyNavigation:
   order: 1
 ---
 
-<h1>Latest 3 Posts</h1>
+<h1 class="page__title">Latest 3 Posts</h1>
 {% assign postslist = collections.posts | head: -3 %}
 {% assign postslistCounter = collections.posts | size %}
 {% include postslist %}

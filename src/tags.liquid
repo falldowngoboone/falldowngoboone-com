@@ -16,8 +16,10 @@ renderData:
 permalink: /tags/{{ tag }}/
 ---
 
-<h1>{{ renderData.title }}</h1>
+<h1 class="page__title">{{ renderData.title }}</h1>
 
-{% assign postslist = collections[tag] %} {% include postslist %}
+{% assign postslist = collections[tag] %}
+{% include postslist %}
 
-<p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>
+<p>See
+  <a href="{{ '/tags/' | url }}">all tags</a>.</p>
