@@ -55,7 +55,7 @@ h3 {
 }
 
 p {
-  max-width: 65ch;
+  max-width: 67ch;
 }
 a[href] {
   color: var(--blue);
@@ -139,7 +139,7 @@ table th {
   line-height: 1.1;
   font-weight: 900;
   font-family: 'BwDarius-Black';
-  margin: 0 0 1.5em 0;
+  margin: 0 0 1em 0;
   line-height: clamp(1.1em, calc(4.75em - 21.9vw), 1.25em);
 }
 
