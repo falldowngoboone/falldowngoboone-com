@@ -95,11 +95,15 @@ table th {
 
 /* Header */
 .main-header {
-  border-bottom: 1px dashed var(--lightgray);
+  border-bottom: 1px dashed var(--darkgray);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 2.5rem;
+  padding: 1.5rem min(2vw, 2.5rem);
+  position: sticky;
+  top: 0;
+  background-color: var(--light-mint);
+  margin-bottom: 4rem;
 }
 .main-header__link--home {
   margin-right: auto;
