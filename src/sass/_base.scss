@@ -26,6 +26,10 @@
   --light-mint: #eff4f1;
 
   --base-size: 16;
+
+  @media screen and (min-width: 1400px) {
+    --base-size: 18;
+  }
 }
 
 html {
@@ -65,7 +69,7 @@ a[href]:visited {
 }
 main {
   padding: 0 min(2vw, 2.5rem);
-  margin: auto;
+  margin: 0 auto;
   max-width: 1040px;
 
   > * {
@@ -76,7 +80,7 @@ main {
     margin-top: 1.5em;
   }
 }
-article {
+.post {
   > * {
     margin: 0;
   }
@@ -136,6 +140,13 @@ table th {
   &:hover {
     border-bottom-color: currentColor;
   }
+}
+
+.main__footer {
+  margin-top: 4rem;
+  background-color: var(--darkgray);
+  padding: 1.5rem min(2vw, 2.5rem) 6rem;
+  color: var(--light-mint);
 }
 
 .page__title {

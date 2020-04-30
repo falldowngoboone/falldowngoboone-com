@@ -3,11 +3,13 @@ layout: layouts/base.liquid
 templateClass: tmpl-post
 ---
 
-<article>
+<article class="post">
   <header>
-    <time class="post__date" datetime="{{ date | htmlDateString }}">
-      <span role="presentation">{{ date | readableDate }}</span>
-    </time>
+    {% if date %}
+      <time class="post__date" datetime="{{ date | htmlDateString }}">
+        <span role="presentation">{{ date | readableDate }}</span>
+      </time>
+    {% endif %}
     <h1 class="page__title">{{ title }}</h1>
   </header>
 
@@ -17,3 +19,5 @@ templateClass: tmpl-post
 <p>
   <a href="{{ '/' | url }}">← Home</a>
 </p>
+
+{% include bio %}
