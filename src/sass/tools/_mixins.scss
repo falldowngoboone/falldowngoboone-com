@@ -1,0 +1,14 @@
+@use "sass:selector";
+
+@mixin with-parent($children...) {
+  @each $child in $children {
+    @at-root #{selector.unify(&, $child)} {
+      @content;
+    }
+  }
+}
+
+@mixin unstyle-list {
+  list-style: none;
+  padding: 0;
+}

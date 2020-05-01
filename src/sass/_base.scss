@@ -1,17 +1,12 @@
+// settings
+// tools
+// global
+// elements
+// objects
+// components
+// utility
 @use "sass:selector";
-
-@mixin with-parent($children...) {
-  @each $child in $children {
-    @at-root #{selector.unify(&, $child)} {
-      @content;
-    }
-  }
-}
-
-@mixin unstyle-list {
-  list-style: none;
-  padding: 0;
-}
+@use "tools/mixins" as mx;
 
 :root {
   --red: #c5004a;
@@ -70,7 +65,9 @@ a[href]:visited {
 main {
   padding: 0 min(2vw, 2.5rem);
   margin: 0 auto;
-  max-width: 1040px;
+  width: 100%;
+  // contain <pre>s; see https://css-tricks.com/preventing-a-grid-blowout/
+  max-width: 100%;
 
   > * {
     margin: 0;
@@ -78,6 +75,10 @@ main {
 
   > * + * {
     margin-top: 1.5em;
+  }
+
+  @media screen and (min-width: 1124px) {
+    max-width: 1124px;
   }
 }
 .post {
@@ -97,17 +98,24 @@ table th {
   padding-right: 1em;
 }
 
+.page__wrapper {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
+}
+
 /* Header */
 .main-header {
-  border-bottom: 1px dashed var(--darkgray);
+  border-bottom: 2px dashed var(--darkgray);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 1.5rem min(2vw, 2.5rem);
+  padding: 1.5rem 0;
   position: sticky;
   top: 0;
   background-color: var(--light-mint);
-  margin-bottom: 4rem;
+  margin: 0 min(2vw, 2.5rem) 4rem;
 }
 .main-header__link--home {
   margin-right: auto;
@@ -116,7 +124,7 @@ table th {
 
 /* Nav */
 .nav {
-  @include unstyle-list;
+  @include mx.unstyle-list;
   margin: 0;
   display: flex;
 }
@@ -160,7 +168,7 @@ table th {
 
 /* Posts list */
 .postlist {
-  @include unstyle-list;
+  @include mx.unstyle-list;
 }
 .postlist-item {
   counter-increment: start-from -1;
@@ -205,7 +213,7 @@ table th {
     color: #fff;
   }
 
-  @include with-parent('a[href]', 'a[href]:visited') {
+  @include mx.with-parent('a[href]', 'a[href]:visited') {
     @extend %tag-link;
   }
 }
@@ -242,7 +250,7 @@ table th {
     color: transparent;
   }
 
-  @include with-parent('a[href]', 'a[href]:visited') {
+  @include mx.with-parent('a[href]', 'a[href]:visited') {
     @extend %hidden-direct-link;
   }
 
@@ -250,12 +258,12 @@ table th {
     color: #aaa;
   }
 
-  @include with-parent('a[href]:focus', 'a[href]:focus:visited') {
+  @include mx.with-parent('a[href]:focus', 'a[href]:focus:visited') {
     @extend %visible-direct-link;
   }
 
   :hover > & {
-    @include with-parent('a[href]', 'a[href]:visited') {
+    @include mx.with-parent('a[href]', 'a[href]:visited') {
       @extend %visible-direct-link;
     }
   }
