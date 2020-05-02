@@ -115,7 +115,8 @@ table th {
   position: sticky;
   top: 0;
   background-color: var(--light-mint);
-  margin: 0 min(2vw, 2.5rem) 4rem;
+  margin: 0 min(2vw, 2.5rem) max(1.5rem, min(6vw, 4rem)); // iOS Safari support
+  margin: 0 min(2vw, 2.5rem) clamp(1.5rem, 6vw, 4rem);
 }
 .main-header__link--home {
   margin-right: auto;
@@ -158,11 +159,17 @@ table th {
 }
 
 .page__title {
+  font-size: 1.5rem;
+  font-size: max(1.5rem, min(6.2vw, 4rem)); // iOS Safari support
   font-size: clamp(1.5rem, 6.2vw, 4rem);
-  line-height: 1.1;
   font-weight: 900;
   font-family: 'BwDarius-Black';
   margin: 0 0 1em 0;
+  line-height: 1.5;
+  line-height: max(
+    1.1em,
+    min(calc(4.75em - 21.9vw), 1.25em)
+  ); // iOS Safari support
   line-height: clamp(1.1em, calc(4.75em - 21.9vw), 1.25em);
 }
 
@@ -277,10 +284,24 @@ table th {
   display: inline-block;
   border-radius: calc(3 / 16 * 1rem);
   padding: 0 0.25em;
+  font-size: max(
+    0.75rem,
+    min(calc(16 / 1040 * 100vw), 1rem)
+  ); // iOS Safari support
   font-size: clamp(0.75rem, calc(16 / 1040 * 100vw), 1rem);
   margin-bottom: 0.5em;
 
   span {
     vertical-align: text-top;
   }
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
