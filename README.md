@@ -6,9 +6,16 @@ This is my personal blog.
 
 ## TODOS
 
+- [ ] Navigation
+- [ ] Home page - single page?
+  - [ ] About
+  - [ ] Latest blog post links
+  - [ ] Contact
+  - [ ] Something fun
 - [ ] About Page
-  - [ ] Design
-  - [ ] Build
-- [ ] Restyle to new design
+- [ ] Contact Page/Widget
 - [ ] Add "Edit this post" links to the raw files on GitHub
 - [ ] Add "Discuss this post" links to Twitter
+- [ ] Add reading time plugin
+- [ ] Add GitHub, Codepen, Twitter, LinkedIn links in footer (or maybe nav?)
+- [ ] Reading list
