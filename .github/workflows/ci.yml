@@ -1,5 +1,7 @@
 name: Build project and Run Lighthouse CI
 on: [push]
+env:
+  LHCI_GITHUB_APP_TOKEN: rcoSCZ5Eq19XR4:8861163:8cqEG3RjT6
 jobs:
   lhci:
     name: Lighthouse CI
