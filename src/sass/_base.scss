@@ -1,24 +1,17 @@
-// settings
-// tools
-// global
-// elements
-// objects
-// components
-// utility
 @use "sass:selector";
-@use "tools/mixins" as mx;
+@use "tools.mixins" as mx;
 
 :root {
   --red: #c5004a;
-  --darkred: #7f0036;
-  --lightgray: #e0e0e0;
-  --gray: #c0c0c0;
-  --darkgray: #282520;
-  --navy: #17050f;
-  --blue: #082840;
+  --black: #282520;
   --white: #fff;
-
-  --light-mint: #eff4f1;
+  --purple: #7e06dd;
+  --dark-purple: #3a0267;
+  --purple-gradient: linear-gradient(
+    -225deg,
+    var(--purple),
+    var(--dark-purple) 75%
+  );
 
   --base-size: 16;
 
@@ -29,7 +22,7 @@
 
 html {
   box-sizing: border-box;
-  font-size: calc(var(--base-size) * 1px);
+  font-size: 100%;
 }
 *,
 *::before,
@@ -41,26 +34,14 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica,
-    Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
-  color: var(--darkgray);
-  background-color: var(--light-mint);
+  font-family: 'Rotunda', system-ui, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  color: var(--black);
   line-height: 1.5;
-}
-
-h2,
-h3 {
-  font-family: 'Rotunda-Bold';
 }
 
 p {
   max-width: 67ch;
-}
-a[href] {
-  color: var(--blue);
-}
-a[href]:visited {
-  color: var(--navy);
 }
 main {
   padding: 0 min(2vw, 2.5rem);
@@ -107,20 +88,25 @@ table th {
 
 /* Header */
 .main-header {
-  border-bottom: 2px dashed var(--darkgray);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   padding: 1.5rem 0;
   position: sticky;
   top: 0;
-  background-color: var(--light-mint);
   margin: 0 min(2vw, 2.5rem) max(1.5rem, min(6vw, 4rem)); // iOS Safari support
   margin: 0 min(2vw, 2.5rem) clamp(1.5rem, 6vw, 4rem);
+  z-index: 100;
 }
 .main-header__link--home {
   margin-right: auto;
   line-height: 1;
+  width: 3.25rem;
+  height: 3.25rem;
+
+  img {
+    max-width: 100%;
+  }
 }
 
 /* Nav */
@@ -130,7 +116,8 @@ table th {
   display: flex;
 }
 .nav-item {
-  font-family: 'Rotunda-Bold';
+  font-family: 'Rotunda';
+  font-weight: 700;
   text-transform: lowercase;
   border: 2px solid transparent;
   line-height: 1;
@@ -153,9 +140,9 @@ table th {
 
 .main__footer {
   margin-top: 4rem;
-  background-color: var(--darkgray);
+  background-color: var(--black);
   padding: 1.5rem min(2vw, 2.5rem) 6rem;
-  color: var(--light-mint);
+  color: white;
 }
 
 .page__title {
@@ -163,14 +150,13 @@ table th {
   font-size: max(1.5rem, min(6.2vw, 4rem)); // iOS Safari support
   font-size: clamp(1.5rem, 6.2vw, 4rem);
   font-weight: 900;
-  font-family: 'BwDarius-Black';
+  font-family: 'Rotunda';
   margin: 0 0 1em 0;
-  line-height: 1.5;
-  line-height: max(
-    1.1em,
-    min(calc(4.75em - 21.9vw), 1.25em)
-  ); // iOS Safari support
-  line-height: clamp(1.1em, calc(4.75em - 21.9vw), 1.25em);
+  line-height: 1.1;
+  background: var(--purple-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 /* Posts list */
@@ -190,7 +176,7 @@ table th {
 .postlist-date,
 .postlist-item::before {
   font-size: calc(13 / var(--base-size) * 1em); /* 13px /16 */
-  color: var(--darkgray);
+  color: var(--black);
 }
 .postlist-date {
   word-spacing: -0.5px;
@@ -277,7 +263,8 @@ table th {
 }
 
 .post__date {
-  font-family: 'Rotunda-Bold';
+  font-family: 'Rotunda';
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   background-color: #efe667;
@@ -296,7 +283,18 @@ table th {
   }
 }
 
-.sr-only {
+.show-on-focus {
+  position: absolute;
+  display: block;
+  padding: 20px;
+  background: black;
+  color: white;
+  border-radius: 3px;
+  z-index: 900;
+}
+
+.sr-only,
+.show-on-focus:not(:focus) {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;

@@ -65,15 +65,43 @@
 @import url('//hello.myfonts.net/count/3b70e3');
 
 @font-face {
-  font-family: 'BwDarius-Black';
-  src: url('/fonts/BwDarius-Black.woff2') format('woff2'),
-    url('/fonts/BwDarius-Black.woff') format('woff');
+  font-family: 'Rotunda';
+  src: url('/fonts/Rotunda.woff2') format('woff2'),
+    url('/fonts/Rotunda.woff') format('woff');
   font-display: swap;
+  font-weight: 400;
 }
 
 @font-face {
-  font-family: 'Rotunda-Bold';
+  font-family: 'Rotunda';
+  src: url('/fonts/Rotunda-Italic.woff2') format('woff2'),
+    url('/fonts/Rotunda-Italic.woff') format('woff');
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Rotunda';
   src: url('/fonts/Rotunda-Bold.woff2') format('woff2'),
     url('/fonts/Rotunda-Bold.woff') format('woff');
   font-display: swap;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Rotunda';
+  src: url('/fonts/Rotunda-ItalicBold.woff2') format('woff2'),
+    url('/fonts/Rotunda-ItalicBold.woff') format('woff');
+  font-display: swap;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Rotunda';
+  src: url('/fonts/Rotunda-Black.woff2') format('woff2'),
+    url('/fonts/Rotunda-Black.woff') format('woff');
+  font-display: swap;
+  font-weight: 900;
 }
