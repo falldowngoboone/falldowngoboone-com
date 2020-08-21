@@ -5,6 +5,9 @@ module.exports = function (eleventyConfig) {
     files: '_site/**/*.css',
   });
 
+  eleventyConfig.addLayoutAlias('post', 'post.liquid');
+  eleventyConfig.addLayoutAlias('default', 'default.liquid');
+
   return {
     dir: {
       input: 'src',
