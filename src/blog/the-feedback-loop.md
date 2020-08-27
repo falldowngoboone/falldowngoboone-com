@@ -3,7 +3,7 @@ title: The Feedback Loop
 blurb: Getting feedback fast is one of the most important things in development
 date: '2019-09-29'
 currentmood: Loopy
-keywords:
+tags:
   - development
 readtime: 4
 ---

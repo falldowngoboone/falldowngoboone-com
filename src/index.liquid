@@ -2,9 +2,10 @@
 layout: default
 ---
 
-<div>
-  <h1><span class="u-visually-hidden">falldowngoboone</span></h1>
-  <p class="c-hero__lede">Full-stack front end development</p>
+<h1><span class="u-visually-hidden">falldowngoboone</span></h1>
+
+<section class="c-hero">
+  <h2 class="c-hero__lede">Full-stack front end development</h2>
   <p>
     Hi, I’m Ryan Boone. I’m a web developer and designer from Texas with a
     passion for open, accessible front end development. I love exploring new
@@ -13,16 +14,20 @@ layout: default
     want to work with me, book me for a speaking engagement, or just want to
     talk shop, <a href="/contact">drop me a line</a>!
   </p>
-</div>
-<div>
+</section>
+<section>
   <h2>What Others Have Said About Me</h2>
-</div>
-<div>
+</section>
+<section>
   <h2>My Latest Posts</h2>
-</div>
-<div>
+</section>
+<section>
   <h2><abbr title="Today I learned">TIL</abbr></h2>
-</div>
-<div>
+</section>
+{% assign book = bookshelf[0].books[0] %} {% if book %}
+<section>
   <h2>Currently Reading</h2>
-</div>
+  <p>{{ book.title }}</p>
+  <img src="{{book.img}}" alt="" />
+</section>
+{% endif book %}

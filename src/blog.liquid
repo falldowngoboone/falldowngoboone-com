@@ -4,4 +4,8 @@ title: Blog
 ---
 
 <h1>My Blog Archive</h1>
-<p>Looks like I haven't written anything!</p>
+{% for tag in collections.tagList %} {% capture tagUrl %}/tags/{{ tag }}/{%
+endcapture %}
+<a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+{% endfor %}
+<p>I should have a list of tags here.</p>

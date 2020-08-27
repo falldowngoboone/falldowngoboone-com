@@ -3,7 +3,7 @@ title: Where to start your development career
 blurb: A brain dump of software development sign posts
 date: '2019-06-18T00:33:32.166Z'
 currentmood: jazzy
-keywords:
+tags:
   - education
   - tips
   - coding

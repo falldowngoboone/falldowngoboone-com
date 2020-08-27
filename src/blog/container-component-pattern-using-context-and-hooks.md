@@ -3,7 +3,7 @@ title: React Presentational and Container Components Using Context and Hooks
 blurb: An updated version of a useful pattern with new APIs
 date: '2019-09-15T15:59:42.417Z'
 currentmood: caffeinated
-keywords:
+tags:
   - react
   - javascript
   - patterns
@@ -20,7 +20,7 @@ export default function List({ items = [] }) {
   return (
     <ul class="styled-list">
       {Boolean(items.length) &&
-        items.map(item => <li class="styled-item" {...item} />)}
+        items.map((item) => <li class="styled-item" {...item} />)}
     </ul>
   );
 }
@@ -41,10 +41,7 @@ export default class MovieContainer extends React.Component {
   render() {
     return typeof this.props.children === 'function'
       ? this.props.children(this.state)
-      : React.Children.map(
-          this.props.children,
-          { movies: this.state.movies },
-        );
+      : React.Children.map(this.props.children, { movies: this.state.movies });
   }
 }
 
@@ -53,11 +50,7 @@ export default class MovieContainer extends React.Component {
 // put it together (children as function FTW!)
 export default function MovieList() {
   return (
-    <MovieContainer>{
-      ({ movies }) => (
-        <List items={movies} />
-      )
-    }</MovieContainer>
+    <MovieContainer>{({ movies }) => <List items={movies} />}</MovieContainer>
   );
 }
 ```
@@ -98,9 +91,7 @@ export function MovieProvider({ children }) {
     movieService.fetch().then(setMovies);
   }, [setMovies]);
   return (
-    <MovieContext.Provider value={movies}>
-      {children}
-    </MovieContext.Provider>
+    <MovieContext.Provider value={movies}>{children}</MovieContext.Provider>
   );
 }
 

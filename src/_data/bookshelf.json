@@ -1,0 +1,16 @@
+[
+  {
+    "year": 2020,
+    "books": [
+      {
+        "title": "The Pragmatic Programmer",
+        "subtitle": "Your Journey To Mastery, 20th Anniversary Edition (2nd Edition)",
+        "author": "David Thomas and Andrew Hunt",
+        "img": "https://images-na.ssl-images-amazon.com/images/P/0135957052.01._SCLZZZZZZZ_.jpg",
+        "url": "https://www.amazon.com/David-Thomas/dp/0135957052/",
+        "rating": "(In Progress)",
+        "notes": ""
+      }
+    ]
+  }
+]
