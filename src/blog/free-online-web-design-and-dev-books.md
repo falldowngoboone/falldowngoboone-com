@@ -1,13 +1,12 @@
 ---
 title: Free Online Web Design and Development Books
 blurb: Free, high-quality online books from my personal bookmarks
-date: '2019-09-08T16:13:00.877Z'
+date: 2019-09-08
 currentmood: collegiate
 tags:
   - education
   - design
   - development
-readtime: 4
 ---
 
 One of my favorite pastimes is reading. When I started out as a developer, I would read anything I could get my hands on. And, since I was cheap, I tried to find as many free books as I could. What follows is a list that I've accumulated over the past few years of fantastic, completely free material that has helped me grow as a developer.

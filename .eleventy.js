@@ -1,4 +1,5 @@
 const fs = require('fs');
+const readingTime = require('reading-time');
 
 module.exports = function (eleventyConfig) {
   // merge all data arrays
@@ -62,6 +63,11 @@ module.exports = function (eleventyConfig) {
     }
 
     return array.slice(0, n);
+  });
+
+  eleventyConfig.addShortcode('readingTime', function (content) {
+    const { text } = readingTime(content);
+    return text;
   });
 
   return {

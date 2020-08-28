@@ -1,13 +1,12 @@
 ---
 title: Where to start your development career
 blurb: A brain dump of software development sign posts
-date: '2019-06-18T00:33:32.166Z'
+date: 2019-06-18
 currentmood: jazzy
 tags:
   - education
   - tips
   - coding
-readtime: 4
 ---
 
 Becoming a career developer can be challenging at times. With a ton of material out of the internet, it can be difficult to know where to start. And even if you know where to start, it can be difficult to stay motivated.

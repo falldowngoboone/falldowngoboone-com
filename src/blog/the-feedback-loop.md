@@ -1,11 +1,10 @@
 ---
 title: The Feedback Loop
 blurb: Getting feedback fast is one of the most important things in development
-date: '2019-09-29'
+date: 2019-09-29
 currentmood: Loopy
 tags:
   - development
-readtime: 4
 ---
 
 Getting feedback fast is one of the most important things in development. What do I mean about feedback?
