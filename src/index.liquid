@@ -15,18 +15,21 @@ layout: default
     talk shop, <a href="/contact">drop me a line</a>!
   </p>
 </section>
+{% if testimonials %}
 <section>
   <h2>What Others Have Said About Me</h2>
 </section>
+{% endif %} {% if collections.post %}
 <section>
   <h2>My Latest Posts</h2>
   {% assign postslist = collections.post | head: -3 %} {% assign
   postslistCounter = collections.post | size %} {% include postslist %}
 </section>
+{% endif %} {% if til %}
 <section>
   <h2><abbr title="Today I learned">TIL</abbr></h2>
 </section>
-{% assign book = bookshelf[0].books[0] %} {% if book %}
+{% endif %} {% assign book = bookshelf[0].books[0] %} {% if book %}
 <section>
   <h2>Currently Reading</h2>
   <p>{{ book.title }}</p>

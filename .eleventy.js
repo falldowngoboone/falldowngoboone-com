@@ -1,11 +1,24 @@
+const fs = require('fs');
+
 module.exports = function (eleventyConfig) {
   // merge all data arrays
   eleventyConfig.setDataDeepMerge(true);
 
-  // handle the CSS injection in BrowserSync correctly
-  // when watching Sass, we output to the `_site` directory
   eleventyConfig.setBrowserSyncConfig({
-    files: '_site/**/*.css',
+    files: '_site/**/*.css', // sync on new CSS files
+    ghostMode: false,
+    ui: false,
+    callbacks: {
+      ready: function (err, browserSync) {
+        const content_404 = fs.readFileSync('_site/404.html');
+
+        browserSync.addMiddleware('*', (req, res) => {
+          // Provides the 404 content without redirect.
+          res.write(content_404);
+          res.end();
+        });
+      },
+    },
   });
 
   eleventyConfig.addLayoutAlias('post', 'post.liquid');
