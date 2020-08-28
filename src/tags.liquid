@@ -16,6 +16,5 @@ eleventyComputed:
 permalink: /tags/{{ tag }}/
 ---
 
-{{collections[tag].length | log}}
 <h1>Tagged “{{ tag }}”</h1>
-{% assign postslist = collections[ tag ] %} {% include postslist %}
+{% assign postslist = collections[tag] %} {% include postslist %}

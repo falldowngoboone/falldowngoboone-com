@@ -1,7 +1,10 @@
+{% unless postslistCounter %} {% assign postslistCounter = postslist | size %}
+{% endunless %}
+
 <ol
   reversed
   class="postlist"
-  style="counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }}"
+  style="counter-reset: start-from {{ postslistCounter | plus: 1 }}"
 >
   {% for post in postslist reversed %}
   <li
@@ -15,8 +18,8 @@
     <time class="postlist-date" datetime="{{ post.date | htmlDateString }}"
       >{{ post.date | readableDate }}</time
     >
-    {% for tag in post.data.tags %} {%- if collections.tagList.indexOf(tag) !=
-    -1 -%} {% capture tagUrl %}/tags/{{ tag }}/{% endcapture %}
+    {% for tag in post.data.tags %} {%- if collections.tagList contains tag -%}
+    {% capture tagUrl %}/tags/{{ tag }}/ {% endcapture %}
     <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
     {%- endif -%} {% endfor %}
   </li>

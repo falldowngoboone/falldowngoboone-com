@@ -1,4 +1,7 @@
 module.exports = function (eleventyConfig) {
+  // merge all data arrays
+  eleventyConfig.setDataDeepMerge(true);
+
   // handle the CSS injection in BrowserSync correctly
   // when watching Sass, we output to the `_site` directory
   eleventyConfig.setBrowserSyncConfig({
@@ -38,6 +41,14 @@ module.exports = function (eleventyConfig) {
 
     // returning an array in addCollection works in Eleventy 0.5.3
     return [...tagSet];
+  });
+
+  eleventyConfig.addFilter('head', (array, n) => {
+    if (n < 0) {
+      return array.slice(n);
+    }
+
+    return array.slice(0, n);
   });
 
   return {

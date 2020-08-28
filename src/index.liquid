@@ -20,6 +20,8 @@ layout: default
 </section>
 <section>
   <h2>My Latest Posts</h2>
+  {% assign postslist = collections.post | head: -3 %} {% assign
+  postslistCounter = collections.post | size %} {% include postslist %}
 </section>
 <section>
   <h2><abbr title="Today I learned">TIL</abbr></h2>

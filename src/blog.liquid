@@ -7,5 +7,4 @@ title: Blog
 {% for tag in collections.tagList %} {% capture tagUrl %}/tags/{{ tag }}/{%
 endcapture %}
 <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-{% endfor %}
-<p>I should have a list of tags here.</p>
+{% endfor %} {% assign postslist = collections.post %} {% include postslist %}
