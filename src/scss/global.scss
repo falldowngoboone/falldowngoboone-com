@@ -1,4 +1,4 @@
-@use 'variables' as vars;
+@use 'variables' as *;
 @use 'fonts';
 
 @function neg($val) {
@@ -6,16 +6,8 @@
 }
 
 :root {
-  --color-text: #{vars.$color-black};
-  --color-link: #{vars.$color-purple};
-
-  --grid-base: 0.25rem; // 4px
-  --space-1: calc(var(--grid-base) * 2); // 8px
-  --space-2: calc(var(--space-1) * 2); // 16px
-  --space-3: calc(var(--space-1) + var(--space-2)); // 24px
-  --space-4: calc(var(--space-2) + var(--space-3)); // 40px
-  --space-5: calc(var(--space-3) + var(--space-4)); // 64px
-  --space-6: calc(var(--space-4) + var(--space-5)); // 104px
+  --color-text: #{$color-black};
+  --color-link: #{$color-purple};
 }
 
 * {
@@ -26,7 +18,7 @@ html {
   box-sizing: border-box;
   font-size: 100%;
   text-rendering: optimizeLegibility;
-  font-family: vars.$font-sans;
+  font-family: $font-sans;
   color: var(--color-text);
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
@@ -103,14 +95,14 @@ a {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 0 clamp(var(--space-1), 2.4vw, var(--space-4));
+  padding: 0 clamp($s-1, 2.4vw, $s-4);
 }
 
 .c-page-bar {
   @media screen and (min-width: 660px) {
-    --bar-width: min(1vw, 0.5rem);
+    $bar-width: min(1vw, 0.5rem);
 
-    margin-left: var(--bar-width, 0);
+    margin-left: $bar-width;
 
     &::before {
       content: '';
@@ -119,8 +111,8 @@ a {
       top: 0;
       left: 0;
       bottom: 0;
-      width: var(--bar-width, 0);
-      background: vars.$gradient-fun no-repeat;
+      width: $bar-width;
+      background: $gradient-fun no-repeat;
     }
   }
 }
@@ -130,9 +122,9 @@ a {
   flex-wrap: wrap;
   align-items: center;
   padding: clamp(
-      var(--space-2),
+      $s-2,
       calc(16px + (64 - 16) * (100vw - 660px) / (1680 - 660)),
-      var(--space-5)
+      $s-5
     )
     0;
 }
@@ -151,22 +143,22 @@ a {
 }
 
 .c-page-footer {
-  --color-link: vars.$color-gray-dark;
-  color: vars.$color-gray-dark;
+  --color-link: $color-gray-dark;
+  color: $color-gray-dark;
   font-weight: 700;
-  background-color: vars.$color-gray;
-  margin: var(--space-4) neg(clamp(var(--space-1), 2.4vw, var(--space-4))) 0;
+  background-color: $color-gray;
+  margin: $s-4 neg(clamp($s-1, 2.4vw, $s-4)) 0;
   padding: clamp(
-      var(--space-2),
+      $s-2,
       calc(16px + (40 - 16) * (100vw - 660px) / (1680 - 660)),
-      var(--space-4)
+      $s-4
     )
-    clamp(var(--space-1), 2.4vw, var(--space-4));
+    clamp($s-1, 2.4vw, $s-4);
 }
 
 .c-page-nav {
   --link-padding: 0.5em;
-  --color-link: #{vars.$color-black};
+  --color-link: #{$color-black};
 
   display: flex;
   margin: 0 neg(var(--link-padding));
@@ -181,18 +173,17 @@ a {
 
 .c-skip-link {
   display: block;
-  padding: var(--space-2);
-  background-color: vars.$color-purple;
-  color: vars.$color-white;
+  padding: $s-2;
+  background-color: $color-purple;
+  color: $color-white;
   border-radius: 0.25rem;
 }
 
 .c-hero {
-  background-color: vars.$color-gray;
-  padding: clamp(1.5rem, 3.81vw, var(--space-5))
-    clamp(var(--space-1), 2.4vw, var(--space-4));
-  margin-left: neg(clamp(var(--space-1), 2.4vw, var(--space-4)));
-  margin-right: neg(clamp(var(--space-1), 2.4vw, var(--space-4)));
+  background-color: $color-gray;
+  padding: clamp($s-3, 3.81vw, $s-5) clamp($s-1, 2.4vw, $s-4);
+  margin-left: neg(clamp($s-1, 2.4vw, $s-4));
+  margin-right: neg(clamp($s-1, 2.4vw, $s-4));
 
   & > * + * {
     margin-top: 1.5em;
@@ -207,8 +198,8 @@ a {
 .c-title {
   font-size: clamp(2rem, 5vw, 4.5rem);
   font-weight: 900;
-  font-family: vars.$font-display;
-  color: vars.$color-purple;
+  font-family: $font-display;
+  color: $color-purple;
   line-height: 1.125;
 }
 
