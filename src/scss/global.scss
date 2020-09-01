@@ -1,6 +1,10 @@
 @use 'variables' as vars;
 @use 'fonts';
 
+@function neg($val) {
+  @return calc(#{$val} * -1);
+}
+
 :root {
   --color-text: #{vars.$color-black};
   --color-link: #{vars.$color-purple};
@@ -77,26 +81,87 @@ a {
   }
 }
 
+.o-unstyled-list {
+  list-style: none;
+  padding: 0;
+}
+
+.o-cluster {
+  --margin: 0.25em;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: neg(var(--margin));
+
+  & > *:not(.o-cluster) {
+    margin: var(--margin);
+  }
+}
+
 .c-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: clamp(var(--space-1), 2.4vw, var(--space-4));
+  padding: 0 clamp(var(--space-1), 2.4vw, var(--space-4));
+}
+
+.c-page-bar {
+  @media screen and (min-width: 660px) {
+    --bar-width: min(1vw, 0.5rem);
+
+    margin-left: var(--bar-width, 0);
+
+    &::before {
+      content: '';
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: var(--bar-width, 0);
+      background: vars.$gradient-fun no-repeat;
+    }
+  }
 }
 
 .c-page-header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  padding: clamp(
+      var(--space-2),
+      calc(16px + (64 - 16) * (100vw - 660px) / (1680 - 660)),
+      var(--space-5)
+    )
+    0;
+}
 
-  & > *:first-child {
-    margin-right: auto;
-    padding-right: 1rem;
-  }
+.c-page-header__brand {
+  margin-right: auto;
+  padding-right: 1rem;
 }
 
 .c-page-main {
   flex: 1;
+
+  & > * + * {
+    margin-top: 1.5em;
+  }
+}
+
+.c-page-footer {
+  --color-link: vars.$color-gray-dark;
+  color: vars.$color-gray-dark;
+  font-weight: 700;
+  background-color: vars.$color-gray;
+  margin: var(--space-4) neg(clamp(var(--space-1), 2.4vw, var(--space-4))) 0;
+  padding: clamp(
+      var(--space-2),
+      calc(16px + (40 - 16) * (100vw - 660px) / (1680 - 660)),
+      var(--space-4)
+    )
+    clamp(var(--space-1), 2.4vw, var(--space-4));
 }
 
 .c-page-nav {
@@ -104,7 +169,7 @@ a {
   --color-link: #{vars.$color-black};
 
   display: flex;
-  margin: 0 calc(var(--link-padding) * -1);
+  margin: 0 neg(var(--link-padding));
 
   & a {
     font-weight: 700;
@@ -120,22 +185,26 @@ a {
   background-color: vars.$color-purple;
   color: vars.$color-white;
   border-radius: 0.25rem;
-  margin: 1rem;
 }
 
 .c-hero {
   background-color: vars.$color-gray;
-  padding: clamp(var(--space-2), 3.81vw, var(--space-5))
+  padding: clamp(1.5rem, 3.81vw, var(--space-5))
     clamp(var(--space-1), 2.4vw, var(--space-4));
-  margin-left: calc(clamp(var(--space-1), 2.4vw, var(--space-4)) * -1);
-  margin-right: calc(clamp(var(--space-1), 2.4vw, var(--space-4)) * -1);
+  margin-left: neg(clamp(var(--space-1), 2.4vw, var(--space-4)));
+  margin-right: neg(clamp(var(--space-1), 2.4vw, var(--space-4)));
 
   & > * + * {
     margin-top: 1.5em;
   }
+
+  @media screen and (min-width: 660px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
-.c-hero__lede {
+.c-title {
   font-size: clamp(2rem, 5vw, 4.5rem);
   font-weight: 900;
   font-family: vars.$font-display;
@@ -156,31 +225,4 @@ a {
   overflow: hidden;
   white-space: nowrap;
   width: 1px;
-}
-
-@media screen and (min-width: 660px) {
-  .c-page-bar {
-    --bar-width: min(1vw, 0.5rem);
-
-    margin-left: var(--bar-width, 0);
-
-    &::before {
-      content: '';
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: var(--bar-width, 0);
-      background: vars.$gradient-fun no-repeat;
-    }
-  }
-
-  .c-hero {
-    margin-left: 0;
-    margin-right: 0;
-  }
-  // add fun bar
-  // padding around images/hero
-  // go from abbreviated to full logo
 }

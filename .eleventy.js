@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { DateTime } = require('luxon');
 const readingTime = require('reading-time');
 
 module.exports = function (eleventyConfig) {
@@ -34,18 +35,7 @@ module.exports = function (eleventyConfig) {
       if ('tags' in item.data) {
         let tags = item.data.tags;
 
-        tags = tags.filter(function (item) {
-          switch (item) {
-            // this list should match the `filter` list in tags.njk
-            case 'all':
-            case 'nav':
-            case 'post':
-            case 'posts':
-              return false;
-          }
-
-          return true;
-        });
+        tags = tags.filter(isDisplayTag);
 
         for (const tag of tags) {
           tagSet.add(tag);
@@ -54,7 +44,39 @@ module.exports = function (eleventyConfig) {
     });
 
     // returning an array in addCollection works in Eleventy 0.5.3
-    return [...tagSet];
+    return [...tagSet].sort();
+  });
+
+  addFilters(eleventyConfig);
+
+  eleventyConfig.addShortcode('readingTime', function (content) {
+    const { minutes } = readingTime(content);
+    return `${Math.round(minutes) || 1} minute read`;
+  });
+
+  eleventyConfig.addPairedShortcode('title', function (content) {
+    return `<h1 class="c-title">${content}</h1>`;
+  });
+
+  return {
+    dir: {
+      input: 'src',
+      layouts: '_includes/layouts',
+    },
+  };
+};
+
+function addFilters(eleventyConfig) {
+  eleventyConfig.addFilter(
+    'readableDate',
+    (dateObj, format = 'dd LLL yyyy') => {
+      return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat(format);
+    }
+  );
+
+  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
 
   eleventyConfig.addFilter('head', (array, n) => {
@@ -65,15 +87,9 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, n);
   });
 
-  eleventyConfig.addShortcode('readingTime', function (content) {
-    const { text } = readingTime(content);
-    return text;
-  });
+  eleventyConfig.addFilter('displayTags', (tags) => tags.filter(isDisplayTag));
+}
 
-  return {
-    dir: {
-      input: 'src',
-      layouts: '_includes/layouts',
-    },
-  };
-};
+function isDisplayTag(item) {
+  return !['all', 'nav', 'post', 'posts'].includes(item);
+}

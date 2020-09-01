@@ -1,10 +1,15 @@
 ---
-layout: default
+layout: page
 title: Blog
+displayTitle: My Blog Archive
 ---
 
-<h1>My Blog Archive</h1>
-{% for tag in collections.tagList %} {% capture tagUrl %}/tags/{{ tag }}/{%
-endcapture %}
-<a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-{% endfor %} {% assign postslist = collections.post %} {% include postslist %}
+<p>
+  I like to write about {% for tag in collections.tagList %} {% capture tagUrl
+  %}/tags/{{ tag }}/{% endcapture %} {% if forloop.last%}and {% endif %}<a
+    href="{{ tagUrl | url }}"
+    class="post-tag"
+    >{{ tag }}</a
+  >{% if forloop.last %}.{% else %},{% endif %} {% endfor %}
+</p>
+{% assign postslist = collections.post %} {% include postslist %}
