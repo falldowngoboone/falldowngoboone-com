@@ -88,6 +88,10 @@ function addFilters(eleventyConfig) {
   });
 
   eleventyConfig.addFilter('displayTags', (tags) => tags.filter(isDisplayTag));
+
+  eleventyConfig.addFilter('currentlyReading', (bookshelf) =>
+    bookshelf[0].books.find(({ status }) => status === 'reading')
+  );
 }
 
 function isDisplayTag(item) {
