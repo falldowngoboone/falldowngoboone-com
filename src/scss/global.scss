@@ -23,6 +23,10 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   line-height: 1.5;
+
+  @media screen and (min-width: 1200px) {
+    font-size: 112.5%;
+  }
 }
 
 *,
@@ -92,10 +96,27 @@ a {
 }
 
 .c-page {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-areas:
+    '. header .'
+    '. main .'
+    'footer footer footer';
+  grid-template-columns: 1fr minmax(0, 1400px) 1fr;
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   padding: 0 clamp($s-1, 2.4vw, $s-4);
+
+  & > header {
+    grid-area: header;
+  }
+
+  & > main {
+    grid-area: main;
+  }
+
+  & > footer {
+    grid-area: footer;
+  }
 }
 
 .c-page-bar {
@@ -135,25 +156,31 @@ a {
 }
 
 .c-page-main {
-  flex: 1;
-
   & > * + * {
     margin-top: 1.5em;
   }
 }
 
 .c-page-footer {
+  $py: clamp($s-1, 2.4vw, $s-4);
   --color-link: $color-gray-dark;
+
   color: $color-gray-dark;
   font-weight: 700;
   background-color: $color-gray;
-  margin: $s-4 neg(clamp($s-1, 2.4vw, $s-4)) 0;
+  margin: (2 * $s-6) neg($py) 0;
   padding: clamp(
       $s-2,
       calc(16px + (40 - 16) * (100vw - 660px) / (1680 - 660)),
       $s-4
     )
-    clamp($s-1, 2.4vw, $s-4);
+    $py;
+
+  & > * {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .c-page-nav {
@@ -180,10 +207,12 @@ a {
 }
 
 .c-hero {
+  $px: clamp($s-1, 2.4vw, $s-4);
+
   background-color: $color-gray;
-  padding: clamp($s-3, 3.81vw, $s-5) clamp($s-1, 2.4vw, $s-4);
-  margin-left: neg(clamp($s-1, 2.4vw, $s-4));
-  margin-right: neg(clamp($s-1, 2.4vw, $s-4));
+  padding: clamp($s-3, 3.81vw, $s-5) $px;
+  margin-left: neg($px);
+  margin-right: neg($px);
 
   & > * + * {
     margin-top: 1.5em;
@@ -196,7 +225,7 @@ a {
 }
 
 .c-title {
-  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 900;
   font-family: $font-display;
   color: $color-purple;
