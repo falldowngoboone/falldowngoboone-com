@@ -1,5 +1,5 @@
 @use 'settings' as *;
-@use 'tools' as *;
+@use 'tools' as fn;
 
 .c-page {
   display: grid;
@@ -68,7 +68,7 @@
   color: $color-gray-dark;
   font-weight: 700;
   background-color: $color-gray;
-  margin: (2 * $s-6) neg($py) 0;
+  margin: (2 * $s-6) fn.neg($py) 0;
   padding: clamp(
       $s-2,
       calc(16px + (40 - 16) * (100vw - 660px) / (1680 - 660)),
@@ -88,7 +88,7 @@
   --color-link: #{$color-black};
 
   display: flex;
-  margin: 0 neg(var(--link-padding));
+  margin: 0 fn.neg(var(--link-padding));
 
   & a {
     font-weight: 700;
@@ -111,15 +111,16 @@
 
   background-color: $color-gray;
   padding: clamp($s-3, 3.81vw, $s-5) $px;
-  margin-left: neg($px);
-  margin-right: neg($px);
-
-  & > * + * {
-    margin-top: 1.5em;
-  }
+  margin-left: fn.neg($px);
+  margin-right: fn.neg($px);
 
   @media screen and (min-width: 660px) {
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+.c-post {
+  display: grid;
+  gap: 1.5rem;
 }

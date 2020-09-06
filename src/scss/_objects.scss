@@ -1,4 +1,4 @@
-@use 'tools' as *;
+@use 'tools' as fn;
 
 @keyframes o-background-slide {
   0% {
@@ -24,7 +24,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: neg(calc(var(--space) / 2));
+  margin: fn.neg(calc(var(--space) / 2));
 
   & > *:not(.o-cluster) {
     margin: calc(var(--space) / 2);
