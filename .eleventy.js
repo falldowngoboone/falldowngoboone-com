@@ -54,6 +54,13 @@ module.exports = function (eleventyConfig) {
     return `${Math.round(minutes) || 1} minute read`;
   });
 
+  eleventyConfig.addShortcode('tagLink', function (tag) {
+    const urlify = eleventyConfig.getFilter('url');
+    const tagUrl = `/tags/${tag}`;
+
+    return `<a href="${urlify(tagUrl)}">${tag}</a>`;
+  });
+
   return {
     dir: {
       input: 'src',

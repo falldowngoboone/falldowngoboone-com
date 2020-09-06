@@ -1,26 +1,25 @@
 ---
 layout: default
+mainClass: c-post
 ---
 
 <header>
-  <p class="c-post-eyebrow">
-    <time datetime="{{ post.date | htmlDateString }}"
-      >{{ date | readableDate: 'LLLL dd, yyyy' }}</time
-    >
-  </p>
   <h1>{{title}}</h1>
 </header>
 {% if featuredImage %}
 <img class="c-featured-image" src="{{ featuredImage | url }}" alt="" />
 {% endif %}
 <footer>
+  <p>
+    <time datetime="{{ post.date | htmlDateString }}">
+      {{ date | readableDate: 'LLLL dd, yyyy' }}
+    </time>
+  </p>
   <p>{% readingTime content %}</p>
-  <ul>
+  <p>
     {% assign displayTags = tags | displayTags %} {% for tag in displayTags %}
-    {% capture tagUrl %}/tags/{{ tag }}/{% endcapture %}
-    <li><a href="{{ tagUrl | url }}" class="c-post-tag">{{ tag }}</a></li>
-    {% endfor %}
-  </ul>
+    {% tagLink tag %} {%- unless forloop.last -%}, {%- endunless -%}{% endfor %}
+  </p>
 </footer>
 <div class="c-post-content o-stack">{{content}}</div>
 <aside>

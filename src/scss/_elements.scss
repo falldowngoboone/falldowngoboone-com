@@ -1,0 +1,39 @@
+@use 'settings' as *;
+
+html {
+  color: var(--color-text);
+
+  @media screen and (min-width: 1200px) {
+    font-size: 112.5%;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:not([class]) {
+  color: var(--color-link);
+
+  &:hover {
+    color: var(--color-link);
+
+    background: linear-gradient(-40deg, rgba(#ce0bff, 0), #ce0bff 120%),
+      linear-gradient(#00ff84, #0be2ff);
+    background-size: 400% 400%;
+    animation: o-background-slide 5s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  font-family: $font-display;
+  color: $color-purple;
+  line-height: 1.125;
+}

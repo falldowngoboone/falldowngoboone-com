@@ -5,11 +5,8 @@ displayTitle: My Blog Archive
 ---
 
 <p>
-  I like to write about {% for tag in collections.tagList %} {% capture tagUrl
-  %}/tags/{{ tag }}/{% endcapture %} {% if forloop.last%}and {% endif %}<a
-    href="{{ tagUrl | url }}"
-    class="post-tag"
-    >{{ tag }}</a
-  >{% if forloop.last %}.{% else %},{% endif %} {% endfor %}
+  I like to write about{% for tag in collections.tagList %} {% if
+  forloop.last%}and {% endif %}{% tagLink tag %}{%- if forloop.last -%}.{%- else
+  -%}, {%- endif -%}{% endfor %}
 </p>
 {% assign postslist = collections.post %} {% include postslist %}

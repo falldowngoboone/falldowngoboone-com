@@ -4,20 +4,20 @@
 <ol reversed style="counter-reset: start-from {{ postslistCounter | plus: 1 }}">
   {% for post in postslist reversed %}
   <li>
-    <a href="{{ post.url | url }}" class="postlist-link"
-      >{% if post.data.title %}{{ post.data.title }}{% else %}<code
-        >{{ post.url }}</code
-      >{% endif %}</a
-    >
-    <div>
-      <time datetime="{{ post.date | htmlDateString }}"
-        >{{ post.date | readableDate }}</time
-      >
+    <p>
+      <time datetime="{{ post.date | htmlDateString }}">
+        {{ post.date | readableDate }}
+      </time>
+    </p>
+    <a href="{{ post.url | url }}">
+      {%- if post.data.title -%}{{ post.data.title }}{%- else -%}
+      <code>{{ post.url }}</code>
+      {%- endif -%}
+    </a>
+    <p>
       {% for tag in post.data.tags %} {%- if collections.tagList contains tag
-      -%} {% capture tagUrl %}/tags/{{ tag }}/ {% endcapture %}
-      <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-      {%- endif -%} {% endfor %}
-    </div>
+      -%} {% tagLink tag %}{{ " " }} {%- endif -%} {% endfor %}
+    </p>
   </li>
   {% endfor %}
 </ol>

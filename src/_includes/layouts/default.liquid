@@ -13,7 +13,7 @@
   <body class="c-page-bar">
     <div class="c-page">
       <header class="c-page-header">
-        <a class="u-visible-on-focus c-skip-link" href="#main"
+        <a class="o-visible-on-focus c-skip-link" href="#main"
           >Skip to main content</a
         >
         <a class="c-page-header__brand" href="/"
@@ -31,10 +31,12 @@
           <a href="/contact">Contact</a>
         </nav>
       </header>
-      <main class="o-stack" id="main">{{ content }}</main>
+      <main {% if mainClass %}class="{{ mainClass }}" {% endif %}id="main">
+        {{ content }}
+      </main>
       <footer class="c-page-footer">
         <div>
-          <ul class="u-list-unstyled o-cluster">
+          <ul class="o-cluster">
             <li><a href="/">Home</a></li>
             <li><a href="/blog">Blog</a></li>
             <li><a href="/about">About</a></li>
@@ -44,7 +46,7 @@
           </ul>
           <div class="o-cluster">
             <p>© 2020 Ryan Boone.</p>
-            <ul class="u-list-unstyled o-cluster">
+            <ul class="o-cluster">
               <li>
                 <a href="https://twitter.com/therealboone">Twitter</a>
               </li>

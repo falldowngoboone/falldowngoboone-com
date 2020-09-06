@@ -1,0 +1,6 @@
+@use 'settings' as *;
+
+:root {
+  --color-text: #{$color-black};
+  --color-link: #{$color-purple};
+}
