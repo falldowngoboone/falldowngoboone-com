@@ -10,9 +10,10 @@ pagination:
     - posts
     - tagList
   addAllPagesToCollections: true
-layout: default
+layout: page
 permalink: /tags/{{ tag }}/
+eleventyComputed:
+  title: Tagged “{{ tag }}”
 ---
 
-{% title %}Tagged “{{ tag }}”{% endtitle %} {% assign postslist =
-collections[tag] %} {% include postslist %}
+{% assign postslist = collections[tag] %} {% include postslist %}

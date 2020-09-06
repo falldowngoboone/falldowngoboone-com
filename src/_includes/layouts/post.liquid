@@ -2,46 +2,41 @@
 layout: default
 ---
 
-<article>
-  <header>
-    <p class="c-post-eyebrow">
-      <time datetime="{{ post.date | htmlDateString }}"
-        >{{ date | readableDate: 'LLLL dd, yyyy' }}</time
-      >
-    </p>
-    {% title %}{{title}}{% endtitle %}
-  </header>
-  {% if featuredImage %}
-  <img class="c-featured-image" src="{{ featuredImage | url }}" alt="" />
-  {% endif %}
-  <footer>
-    <p>{% readingTime content %}</p>
-    <ul>
-      {% assign displayTags = tags | displayTags %} {% for tag in displayTags %}
-      {% capture tagUrl %}/tags/{{ tag }}/{% endcapture %}
-      <li><a href="{{ tagUrl | url }}" class="c-post-tag">{{ tag }}</a></li>
-      {% endfor %}
-    </ul>
-  </footer>
-  <div class="c-post-content">{{content}}</div>
-  <aside>
-    <p class="c-post-interaction">
-      <a href="#">Discuss on Twitter</a> <span aria-hidden="true">•</span>
-      <a href="#">Edit post on GitHub</a>
-    </p>
-    <p class="c-post-share">
-      Share: <a href="#">Twitter</a> <span aria-hidden="true">•</span> <a
-        href="#"
-        >Facebook</a
-      >
-    </p>
-  </aside>
-  <div>
-    <p class="c-bio">
-      Ryan Boone is a real-life human front-end developer and designer based in
-      Fort Worth, TX with a passion for web technologies, inclusivity, and Texas
-      BBQ. He currently helps make the space that comes from The Container
-      Store.
-    </p>
-  </div>
-</article>
+<header>
+  <p class="c-post-eyebrow">
+    <time datetime="{{ post.date | htmlDateString }}"
+      >{{ date | readableDate: 'LLLL dd, yyyy' }}</time
+    >
+  </p>
+  <h1>{{title}}</h1>
+</header>
+{% if featuredImage %}
+<img class="c-featured-image" src="{{ featuredImage | url }}" alt="" />
+{% endif %}
+<footer>
+  <p>{% readingTime content %}</p>
+  <ul>
+    {% assign displayTags = tags | displayTags %} {% for tag in displayTags %}
+    {% capture tagUrl %}/tags/{{ tag }}/{% endcapture %}
+    <li><a href="{{ tagUrl | url }}" class="c-post-tag">{{ tag }}</a></li>
+    {% endfor %}
+  </ul>
+</footer>
+<div class="c-post-content o-stack">{{content}}</div>
+<aside>
+  <p>
+    <a href="#">Discuss on Twitter</a> <span aria-hidden="true">•</span>
+    <a href="#">Edit post on GitHub</a>
+  </p>
+  <p>
+    Share: <a href="#">Twitter</a> <span aria-hidden="true">•</span>
+    <a href="#">Facebook</a>
+  </p>
+</aside>
+<div>
+  <p class="c-bio">
+    Ryan Boone is a real-life human front-end developer and designer based in
+    Fort Worth, TX with a passion for web technologies, inclusivity, and Texas
+    BBQ. He currently helps make the space that comes from The Container Store.
+  </p>
+</div>

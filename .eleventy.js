@@ -54,10 +54,6 @@ module.exports = function (eleventyConfig) {
     return `${Math.round(minutes) || 1} minute read`;
   });
 
-  eleventyConfig.addPairedShortcode('title', function (content) {
-    return `<h1 class="c-title">${content}</h1>`;
-  });
-
   return {
     dir: {
       input: 'src',
