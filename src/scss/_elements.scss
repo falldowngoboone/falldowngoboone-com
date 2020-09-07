@@ -30,10 +30,24 @@ a:not([class]) {
   }
 }
 
+h1,
+h2,
+h3 {
+  font-family: $font-display;
+  font-weight: 700;
+  line-height: 1.125;
+}
+
 h1 {
   font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 900;
-  font-family: $font-display;
   color: $color-purple;
-  line-height: 1.125;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
 }
