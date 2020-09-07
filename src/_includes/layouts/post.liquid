@@ -10,12 +10,22 @@ layout: default
 {% endif %}
 <footer>
   <p>
+    <b>Published:</b>
     <time datetime="{{ post.date | htmlDateString }}">
       {{ date | readableDate: 'LLLL dd, yyyy' }}
     </time>
   </p>
-  <p>{% readingTime content %}</p>
+  {% if updated %}
   <p>
+    <b>Last updated:</b>
+    <time datetime="{{ updated | htmlDateString }}">
+      {{ updated | readableDate: 'LLLL dd, yyyy' }}
+    </time>
+  </p>
+  {% endif %}
+  <p><b>Reading time:</b> {% readingTime content %}</p>
+  <p>
+    <b>Tags:</b>
     {% assign displayTags = tags | displayTags %} {% for tag in displayTags %}
     {% tagLink tag %} {%- unless forloop.last -%}, {%- endunless -%}{% endfor %}
   </p>

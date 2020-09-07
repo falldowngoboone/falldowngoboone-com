@@ -1,23 +1,31 @@
 {% unless postslistCounter %} {% assign postslistCounter = postslist | size %}
 {% endunless %}
 
-<ol reversed style="counter-reset: start-from {{ postslistCounter | plus: 1 }}">
+<ul>
   {% for post in postslist reversed %}
   <li>
-    <p>
-      <time datetime="{{ post.date | htmlDateString }}">
-        {{ post.date | readableDate }}
-      </time>
-    </p>
     <a href="{{ post.url | url }}">
       {%- if post.data.title -%}{{ post.data.title }}{%- else -%}
       <code>{{ post.url }}</code>
       {%- endif -%}
     </a>
     <p>
+      <b>Published:</b>
+      <time datetime="{{ post.date | htmlDateString }}">
+        {{ post.date | readableDate }}
+      </time>
+      {% if post.data.updated %} | <b>Last updated:</b>
+      <time datetime="{{ post.data.updated | htmlDateString }}">
+        {{ post.data.updated | readableDate }}
+      </time>
+      {% endif %}
+    </p>
+    <p>
+      <b>Tags:</b>
       {% for tag in post.data.tags %} {%- if collections.tagList contains tag
-      -%} {% tagLink tag %}{{ " " }} {%- endif -%} {% endfor %}
+      -%} {% tagLink tag %}{% unless forloop.last%}, {% endunless %} {%- endif
+      -%} {% endfor %}
     </p>
   </li>
   {% endfor %}
-</ol>
+</ul>
