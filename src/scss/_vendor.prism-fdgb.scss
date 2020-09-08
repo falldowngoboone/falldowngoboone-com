@@ -1,10 +1,12 @@
+$font-code: 'Fira Code', Consolas, Menlo, Monaco, 'Andale Mono WT',
+  'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono',
+  'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', 'Courier New',
+  Courier, monospace !default;
+
 code[class*='language-'],
 pre[class*='language-'] {
-  font-family: 'Fira Code', Consolas, Menlo, Monaco, 'Andale Mono WT',
-    'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter',
-    'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono',
-    'Nimbus Mono L', 'Courier New', Courier, monospace !important;
-  font-size: 14px;
+  font-family: $font-code;
+  font-size: 0.875rem;
   line-height: 1.375;
   direction: ltr;
   text-align: left;
@@ -18,15 +20,14 @@ pre[class*='language-'] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
-  background: #1b2b34;
-  color: #c0c5ce;
-  margin: 30px 0 !important;
+  background: #122d3d;
+  color: #bdc5d5;
   border-radius: 5px;
+  margin: 3rem 0;
 }
 
 pre[class*='language-'] {
   padding: 1em;
-  margin: 0.5em 0;
   overflow: auto;
 }
 
@@ -35,7 +36,7 @@ pre[class*='language-'] ::-moz-selection,
 code[class*='language-']::-moz-selection,
 code[class*='language-'] ::-moz-selection {
   text-shadow: none;
-  background: #a7adba;
+  background: #95aac3;
 }
 
 pre[class*='language-']::selection,
@@ -43,7 +44,7 @@ pre[class*='language-'] ::selection,
 code[class*='language-']::selection,
 code[class*='language-'] ::selection {
   text-shadow: none;
-  background: #a7adba;
+  background: #95aac3;
 }
 
 :not(pre) > code[class*='language-'] {
@@ -55,7 +56,7 @@ code[class*='language-'] ::selection {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #65737e;
+  color: #62829e;
 }
 
 .token.namespace {
@@ -65,35 +66,35 @@ code[class*='language-'] ::selection {
 .token.operator,
 .token.boolean,
 .token.number {
-  color: #f99157;
+  color: #ff8720;
 }
 
 .token.property {
-  color: #fac863;
+  color: #ffc61a;
 }
 
 .token.tag {
-  color: #69c;
+  color: #749eff;
 }
 
 .token.symbol,
 .token.string {
-  color: #99c794;
+  color: #2edd8b;
 }
 
 .token.selector {
-  color: #c594c5;
+  color: #d98ce2;
 }
 
 .token.attr-name {
-  color: #f99157;
+  color: #ff8720;
 }
 
 .token.entity,
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #5fb3b3;
+  color: #34dee0;
 }
 
 .token.attr-value,
@@ -101,23 +102,23 @@ code[class*='language-'] ::selection {
 .token.control,
 .token.directive,
 .token.unit {
-  color: #b294bb;
+  color: #d284f6;
 }
 
 .token.statement,
 .token.regex,
 .token.atrule {
-  color: #5fb3b3;
+  color: #34dee0;
 }
 
 .token.placeholder,
 .token.variable {
-  color: #69c;
+  color: #749eff;
 }
 
 .token.punctuation,
 .token.operator {
-  color: #5fb3b3;
+  color: #34dee0;
 }
 
 .token.deleted {
@@ -140,11 +141,11 @@ code[class*='language-'] ::selection {
 
 .token.constant,
 .token.class-name {
-  color: #f99157;
+  color: #ff8720;
 }
 
 .token.important {
-  color: #c66;
+  color: #ff5955;
 }
 
 .token.entity {
@@ -152,15 +153,15 @@ code[class*='language-'] ::selection {
 }
 
 .token.function {
-  color: #69c;
+  color: #749eff;
 }
 
 pre > code.highlight {
-  outline: 0.4em solid #c66;
+  outline: 0.4em solid #ff5955;
   outline-offset: 0.4em;
 }
 
 .gatsby-highlight-code-line {
   display: block;
-  background-color: rgb(51, 66, 76);
+  background-color: #33424c;
 }
