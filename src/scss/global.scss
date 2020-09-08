@@ -4,3 +4,6 @@
 @use 'elements';
 @use 'objects';
 @use 'components';
+@use 'vendor.prism-oceanic-next' as prism;
+@use 'vendor.prism-oceanic-next.overrides' as prism-overrides;
+@use 'utilities';
