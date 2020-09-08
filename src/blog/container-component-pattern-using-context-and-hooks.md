@@ -2,12 +2,15 @@
 title: React Presentational and Container Components Using Context and Hooks
 blurb: An updated version of a useful pattern with new APIs
 date: 2019-09-15
+updated: 2020-09-08
 currentmood: caffeinated
 tags:
   - react
   - javascript
   - patterns
 ---
+
+**Updated:** I've updated the code to export a named function, not an anonymous arrow function.
 
 When I first started using React, I learned about [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) from Dan Abramov. This pattern prescribed splitting UI into smart (container) components that encapsulated state and logic, and dumb (presentational) components that simply presented data in a styled manner. In general, the containers were class components that managed state and lifecycle methods, whereas presentational components were stateless function components.
 
@@ -105,11 +108,13 @@ export function MovieList() {
 // provider somewhere. Here we've exported a "connected"
 // version already wrapped. Don't do this if you need
 // to consume a single provider in multiple components.
-export default () => (
-  <MovieProvider>
-    <MovieList />
-  </MovieProvider>
-);
+export default function ConnectedMovieList() {
+  return (
+    <MovieProvider>
+      <MovieList />
+    </MovieProvider>
+  );
+}
 ```
 
 Note that the presentational `<List />` component remains unchanged, but now we are grabbing the `movies` state from a custom hook and applying it directly to `<List />` without the need for a child function. This ends up being so much more readable and, in my opinion, easier to follow compared to the original. The "Container" component becomes a combination of a context provider and hook.
@@ -156,9 +161,7 @@ const initialState = {
 };
 
 export function MovieProvider({ children }) {
-  const [movieState, dispatch] = React.useReducer(
-    movieReducer, initialState
-  );
+  const [movieState, dispatch] = React.useReducer(movieReducer, initialState);
   React.useEffect(() => fetchMovies(dispatch), [dispatch]);
   return (
     <MovieStateContext.Provider value={movieState}>
@@ -175,10 +178,9 @@ export async function fetchMovies(dispatch) {
   dispatch({ type: 'pending' });
   try {
     const movies = await movieService.fetch();
-    dispatch({ type: 'success', payload: movies })
-  }
-  catch (error) {
-    dispatch({ type: 'error', payload: error.message })
+    dispatch({ type: 'success', payload: movies });
+  } catch (error) {
+    dispatch({ type: 'error', payload: error.message });
   }
 }
 
@@ -186,16 +188,18 @@ export async function fetchMovies(dispatch) {
 
 export function MovieList() {
   const { isLoading, error, movies } = useMovies();
-  return isLoading
-    ? <LoadingAnimation />
-    : error
-      ? <Message type="error">{error}</Message>
-      : <List items={movies} />;
+  return isLoading ? (
+    <LoadingAnimation />
+  ) : error ? (
+    <Message type="error">{error}</Message>
+  ) : (
+    <List items={movies} />
+  );
 }
 
-export default () => (
+export default function ConnectedMovieList() {
   /* same as above */
-);
+}
 ```
 
 This is pretty much how I structure my components now. The advantage of this pattern is that I can wrap components with providers that override state for use in Storybook or tests. I can also easily keep my styled presentational components separate from my logic.
