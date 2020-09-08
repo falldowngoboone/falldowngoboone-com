@@ -1,8 +1,11 @@
+@use 'settings';
 @use 'generic.fonts' as fonts;
 @use 'generic.root' as root;
 @use 'generic.reset' as reset;
 @use 'elements';
 @use 'objects';
 @use 'components';
-@use 'vendor.prism-fdgb' as prism;
+@use 'vendor.prism-fdgb' as prism with (
+  $font-code: settings.$font-mono
+);
 @use 'utilities';
