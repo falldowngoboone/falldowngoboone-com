@@ -27,7 +27,7 @@ layout: default
 <div>
   <h2><abbr title="Today I learned">TIL</abbr></h2>
 </div>
-{% endif %} {% assign book = bookshelf | currentlyReading %} {% if book %}
+{% endif %} {% assign book = bookshelf.currentlyReading %} {% if book %}
 <div>
   <h2>Currently Reading</h2>
   <p>{{ book.title }}</p>
