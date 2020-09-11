@@ -1,6 +1,12 @@
 @use 'settings' as *;
 
 :root {
-  --color-text: #{$color-black};
-  --color-link: #{$color-purple};
+  --text-color: #{$color-black};
+  --link-color: #{$color-purple};
+
+  --title-color: #{$color-purple};
+
+  --code-bg: #e6f5fb;
+  --code-color: #007d42;
+  --code-border: #aeeccf;
 }

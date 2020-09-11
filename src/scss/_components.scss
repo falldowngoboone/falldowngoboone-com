@@ -63,7 +63,7 @@
 
 .c-page-footer {
   $py: clamp($s-1, 2.4vw, $s-4);
-  --color-link: $color-gray-dark;
+  --link-color: $color-gray-dark;
 
   color: $color-gray-dark;
   font-weight: 700;
@@ -85,10 +85,11 @@
 
 .c-page-nav {
   --link-padding: 0.5em;
-  --color-link: #{$color-black};
+  --link-color: #{$color-black};
 
   display: flex;
   margin: 0 fn.neg(var(--link-padding));
+  font-family: $font-display;
 
   & a {
     font-weight: 700;
