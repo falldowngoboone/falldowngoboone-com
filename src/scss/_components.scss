@@ -167,5 +167,9 @@
 }
 
 .c-post__aside {
+  --link-color: var(--color-secondary);
   color: var(--color-secondary);
+  padding-top: 3rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--color-border);
 }

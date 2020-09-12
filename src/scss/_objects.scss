@@ -29,6 +29,11 @@
   & > *:not(.o-cluster) {
     margin: calc(var(--space) / 2);
   }
+
+  & > .o-cluster {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .o-stack {
