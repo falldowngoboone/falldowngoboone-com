@@ -11,22 +11,22 @@ layout: default
 <div class="c-post__grid c-post__content">
   <footer class="c-post__footer">
     <p>
-      <b>Published:</b>
+      <b class="u-block">Published:</b>
       <time datetime="{{ post.date | htmlDateString }}">
         {{ date | readableDate: 'LLLL dd, yyyy' }}
       </time>
     </p>
     {% if updated %}
     <p>
-      <b>Last updated:</b>
+      <b class="u-block">Last updated:</b>
       <time datetime="{{ updated | htmlDateString }}">
         {{ updated | readableDate: 'LLLL dd, yyyy' }}
       </time>
     </p>
     {% endif %}
-    <p><b>Reading time:</b> {% readingTime content %}</p>
+    <p><b class="u-block">Reading time:</b> {% readingTime content %}</p>
     <p>
-      <b>Tags:</b>
+      <b class="u-block">Tags:</b>
       {% assign displayTags = tags | displayTags %} {% for tag in displayTags %}
       {% tagLink tag %} {%- unless forloop.last -%}, {%- endunless -%}{% endfor
       %}

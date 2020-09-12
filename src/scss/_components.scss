@@ -161,6 +161,11 @@
 }
 
 .c-post__footer {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 0.5rem 1rem;
+
   @media screen and (min-width: 660px) {
     grid-column: 1 / 2;
   }
