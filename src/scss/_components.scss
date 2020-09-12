@@ -63,11 +63,11 @@
 
 .c-page-footer {
   $py: clamp($s-1, 2.4vw, $s-4);
-  --link-color: #{$color-gray-dark};
+  --link-color: var(--color-secondary);
 
-  color: $color-gray-dark;
+  color: var(--color-secondary);
   font-weight: 700;
-  background-color: $color-gray;
+  background-color: var(--color-bg-secondary);
   margin: (2 * $s-6) fn.neg($py) 0;
   padding: clamp(
       $s-2,
@@ -85,7 +85,7 @@
 
 .c-page-nav {
   --link-padding: 0.5em;
-  --link-color: #{$color-black};
+  --link-color: var(--color-main);
 
   display: flex;
   margin: 0 fn.neg(var(--link-padding));
@@ -110,7 +110,7 @@
 .c-hero {
   $px: clamp($s-1, 2.4vw, $s-4);
 
-  background-color: $color-gray;
+  background-color: var(--color-bg-secondary);
   padding: clamp($s-3, 3.81vw, $s-5) $px;
   margin-left: fn.neg($px);
   margin-right: fn.neg($px);
@@ -152,7 +152,7 @@
 .c-post__content::before {
   content: '';
   height: $s-1;
-  background-color: $color-black;
+  background-color: var(--color-main);
 
   @media screen and (min-width: 660px) {
     height: $s-2;
@@ -164,4 +164,8 @@
   @media screen and (min-width: 660px) {
     grid-column: 1 / 2;
   }
+}
+
+.c-post__aside {
+  color: var(--color-secondary);
 }

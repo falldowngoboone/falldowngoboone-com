@@ -3,8 +3,8 @@
 html {
   font-family: $font-body;
   line-height: 1.5;
-  color: var(--text-color);
-  background: var(--site-bg, white);
+  color: var(--color-main);
+  background: var(--color-bg, white);
 
   @media screen and (min-width: 1200px) {
     font-size: 112.5%;

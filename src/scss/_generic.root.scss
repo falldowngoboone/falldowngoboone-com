@@ -1,9 +1,12 @@
 @use 'settings' as *;
 
 :root {
-  --text-color: #{$color-black};
-  --link-color: #{$color-purple};
+  --color-main: #{$color-black};
+  --color-secondary: #{$color-gray-dark};
+  --color-bg: white;
+  --color-bg-secondary: #{$color-gray};
 
+  --link-color: #{$color-purple};
   --title-color: #{$color-purple};
 
   --code-bg: #e6f5fb;
