@@ -63,7 +63,7 @@
 
 .c-page-footer {
   $py: clamp($s-1, 2.4vw, $s-4);
-  --link-color: $color-gray-dark;
+  --link-color: #{$color-gray-dark};
 
   color: $color-gray-dark;
   font-weight: 700;

@@ -1,6 +1,8 @@
 @use 'settings' as *;
 
 html {
+  font-family: $font-body;
+  line-height: 1.5;
   color: var(--text-color);
   background: var(--site-bg, white);
 

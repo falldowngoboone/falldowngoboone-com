@@ -3,11 +3,12 @@
 $font-body: sans-serif !default;
 
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+/*! modified by falldowngoboone */
 html,
 body,
 p,
-ol[class],
-ul[class],
+ol,
+ul,
 li,
 dl,
 dt,
@@ -28,6 +29,30 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+html,
+body,
+p,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+figcaption,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   padding: 0;
 }
 
@@ -44,6 +69,7 @@ h6 {
 ul[class],
 ol[class] {
   list-style: none;
+  padding: 0;
 }
 
 button,
@@ -56,13 +82,10 @@ textarea {
 
 html {
   box-sizing: border-box;
-
   font-size: 100%;
   text-rendering: optimizeLegibility;
-  font-family: $font-body;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  line-height: 1.5;
 }
 
 *,
