@@ -92,6 +92,10 @@ function addFilters(eleventyConfig) {
   });
 
   eleventyConfig.addFilter('displayTags', (tags) => tags.filter(isDisplayTag));
+
+  eleventyConfig.addFilter('encodeUriComponent', (string) =>
+    encodeURIComponent(string)
+  );
 }
 
 function isDisplayTag(item) {
