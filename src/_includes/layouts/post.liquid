@@ -37,7 +37,7 @@ layout: default
   <div class="o-stack u-mw-0">
     {{content}}
     <aside class="c-post__aside">
-      {% capture postUrl %}{{ site.rootUrl}}{{ page.url | url }}{% endcapture %}
+      {% capture postUrl %}{{ site.url}}{{ page.url | url }}{% endcapture %}
       <p>
         <a
           target="_blank"
