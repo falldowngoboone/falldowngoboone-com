@@ -55,6 +55,12 @@ h3 {
   font-size: 1.25rem;
 }
 
+h2 + *:not(h3),
+h3 + * {
+  --space: 0.5em;
+  margin-top: var(--space);
+}
+
 code:not([class]) {
   background-color: var(--code-bg);
   color: var(--code-color);
