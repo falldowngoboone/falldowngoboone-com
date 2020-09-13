@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { DateTime } = require('luxon');
 const readingTime = require('reading-time');
+const EMPTY = require('./src/_data/empty');
 
 module.exports = function (eleventyConfig) {
   // merge all data arrays
@@ -51,8 +52,10 @@ module.exports = function (eleventyConfig) {
   addFilters(eleventyConfig);
 
   eleventyConfig.addShortcode('readingTime', function (content) {
-    const { minutes } = readingTime(content);
-    return `${Math.round(minutes) || 1} minute read`;
+    const minutes = Math.round(readingTime(content).minutes);
+    return isNaN(minutes)
+      ? EMPTY
+      : `${minutes} minute${minutes > 1 ? 's' : ''}`;
   });
 
   eleventyConfig.addShortcode('tagLink', function (tag) {

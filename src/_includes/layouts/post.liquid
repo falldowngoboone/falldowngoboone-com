@@ -23,8 +23,10 @@ layout: default
         {{ updated | readableDate: 'LLLL dd, yyyy' }}
       </time>
     </p>
-    {% endif %}
-    <p><b class="u-block">Reading time:</b> {% readingTime content %}</p>
+    {% endif %} {% capture time %}{% readingTime content %}{% endcapture %} {%
+    unless time == empty %}
+    <p><b class="u-block">Reading time:</b> {{ time }}</p>
+    {% endunless %}
     <p>
       <b class="u-block">Tags:</b>
       {% assign displayTags = tags | displayTags %} {% for tag in displayTags %}
