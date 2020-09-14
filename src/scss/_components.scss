@@ -62,19 +62,29 @@
 }
 
 .c-page-footer {
-  $py: clamp($s-1, 2.4vw, $s-4);
+  $pt: clamp(
+    $s-2,
+    calc(16px + (40 - 16) * (100vw - 660px) / (1680 - 660)),
+    $s-4
+  );
+  $px: clamp($s-1, 2.4vw, $s-4);
+  $pb: clamp(
+    $s-3,
+    calc(24px + (64 - 24) * (100vw - 1200px) / (1680 - 1200)),
+    $s-5
+  );
+  $mt: clamp(
+    2 * $s-3,
+    calc(48px + (208 - 48) * (100vw - 660px) / (1200 - 660)),
+    2 * $s-6
+  );
   --link-color: var(--color-secondary);
 
   color: var(--color-secondary);
   font-weight: 700;
   background-color: var(--color-bg-secondary);
-  margin: (2 * $s-6) fn.neg($py) 0;
-  padding: clamp(
-      $s-2,
-      calc(16px + (40 - 16) * (100vw - 660px) / (1680 - 660)),
-      $s-4
-    )
-    $py;
+  margin: $mt fn.neg($px) 0;
+  padding: $pt $px $pb;
 
   & > * {
     max-width: 1400px;
