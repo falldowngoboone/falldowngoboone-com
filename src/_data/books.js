@@ -10,7 +10,7 @@ const instanceBooks = new WeakMap();
  *   title: string;
  *   subtitle?: string;
  *   author: string;
- *   img: string;
+ *   img?: string;
  *   url: string;
  *   rating?: 1|1.5|2|2.5|3|3.5|4|4.5|5;
  *   notes?: string;
@@ -32,7 +32,7 @@ class Book {
       title,
       subtitle = null,
       author,
-      img,
+      img = '/images/no-cover.svg',
       url,
       rating = null,
       notes = null,
@@ -131,6 +131,12 @@ class Books {
 }
 
 module.exports = Books.from([
+  {
+    title: 'Tackling TypeScript',
+    subtitle: 'Upgrading from JavaScript',
+    author: 'Dr.Axel Rauschmayer',
+    url: 'https://exploringjs.com/tackling-ts/',
+  },
   {
     title: 'Demystifying Public Speaking',
     author: 'Lara Hogan',
