@@ -24,10 +24,10 @@
           </picture>
         </a>
         <nav class="c-page-nav">
-          <a href="/">Home</a>
-          <a href="/blog">Blog</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
+          <a {% if page.url == '/' %}aria-current="page"{% endif %} href="/">Home</a>
+          <a {% if page.url == '/blog/' %}aria-current="page"{% endif %} href="/blog/">Blog</a>
+          <a {% if page.url == '/about/' %}aria-current="page"{% endif %} href="/about/">About</a>
+          <a {% if page.url == '/contact/' %}aria-current="page"{% endif %} href="/contact/">Contact</a>
         </nav>
       </header>
       <main class="o-stack" id="main">{{ content }}</main>
