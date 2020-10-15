@@ -30,7 +30,6 @@ layout: default
 {% endif %} {% assign book = books.reading[0] %} {% if book %}
 <div>
   <h2>Currently Reading</h2>
-  <p>{{ book.title }}</p>
-  <img src="{{book.img}}" alt="" />
+  {% include book %}
 </div>
 {% endif book %}
