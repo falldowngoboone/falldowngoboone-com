@@ -1,6 +1,5 @@
 ---
-title: Accessible Websites and the Evil Corporation
-blurb: Accessibility is hard, but we can do better
+title: Accessibility is hard, but we can do better
 date: 2019-10-27
 currentmood: hopeful
 tags:
