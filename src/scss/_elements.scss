@@ -1,0 +1,73 @@
+@use 'settings' as *;
+
+html {
+  font-family: $font-body;
+  line-height: 1.5;
+  color: var(--color-main);
+  background: var(--color-bg, white);
+
+  @media screen and (min-width: 1200px) {
+    font-size: 112.5%;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:not([class]) {
+  color: var(--link-color);
+
+  &:hover {
+    color: var(--link-color);
+
+    background: linear-gradient(-40deg, rgba(#ce0bff, 0), #ce0bff 120%),
+      linear-gradient(#00ff84, #0be2ff);
+    background-size: 400% 400%;
+    animation: o-background-slide 5s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-display;
+  font-weight: 700;
+  line-height: 1.125;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--title-color);
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h2 + *:not(h3),
+h3 + * {
+  --space: 0.5em;
+  margin-top: var(--space);
+}
+
+code:not([class]) {
+  background-color: var(--code-bg);
+  color: var(--code-color);
+  font-family: $font-mono;
+  font-size: 0.875em;
+  padding: 0.125em 0.5em;
+  border-radius: 0.125em;
+  border: solid 1px var(--code-border);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}

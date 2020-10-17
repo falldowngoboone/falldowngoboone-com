@@ -1,0 +1,130 @@
+@use 'settings' as *;
+@use 'tools' as fn;
+
+.c-page {
+  display: grid;
+  grid-template-areas:
+    '. header .'
+    '. main .'
+    'footer footer footer';
+  grid-template-columns: 1fr minmax(0, 1400px) 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  padding: 0 clamp($s-1, 2.4vw, $s-4);
+
+  & > header {
+    grid-area: header;
+  }
+
+  & > main {
+    grid-area: main;
+  }
+
+  & > footer {
+    grid-area: footer;
+  }
+}
+
+.c-page__bar {
+  @media screen and (min-width: 660px) {
+    $bar-width: min(1vw, 0.5rem);
+
+    margin-left: $bar-width;
+
+    &::before {
+      content: '';
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: $bar-width;
+      background: $gradient-fun no-repeat;
+    }
+  }
+}
+
+.c-page__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: clamp(
+      $s-3,
+      calc(24px + (104 - 24) * (100vw - 660px) / (1680 - 660)),
+      $s-6
+    )
+    0;
+}
+
+.c-page__brand {
+  margin-right: auto;
+  padding-right: 1rem;
+}
+
+.c-page__footer {
+  $pt: clamp(
+    $s-2,
+    calc(16px + (40 - 16) * (100vw - 660px) / (1680 - 660)),
+    $s-4
+  );
+  $px: clamp($s-1, 2.4vw, $s-4);
+  $pb: clamp(
+    $s-3,
+    calc(24px + (64 - 24) * (100vw - 1200px) / (1680 - 1200)),
+    $s-5
+  );
+  $mt: clamp(
+    2 * $s-3,
+    calc(48px + (208 - 48) * (100vw - 660px) / (1200 - 660)),
+    2 * $s-6
+  );
+  --link-color: var(--color-secondary);
+
+  color: var(--color-secondary);
+  background-color: var(--color-bg-secondary);
+  margin: $mt fn.neg($px) 0;
+  padding: $pt $px $pb;
+
+  & > * {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.c-page__nav {
+  --link-padding: 0.5em;
+  --link-color: var(--color-main);
+
+  display: flex;
+  margin: 0 fn.neg(var(--link-padding));
+  font-family: $font-display;
+
+  & a {
+    font-weight: 700;
+    text-transform: lowercase;
+    text-decoration: none;
+    padding: var(--link-padding);
+    position: relative;
+  }
+
+  & [aria-current='page']::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    border: solid 0.55em transparent;
+    border-right-width: 0.33em;
+    border-left-width: 0.33em;
+    border-top-color: var(--title-color);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.c-page__skip-link {
+  display: block;
+  padding: $s-2;
+  background-color: $color-purple;
+  color: $color-white;
+  border-radius: 0.25rem;
+}

@@ -1,0 +1,3 @@
+@function neg($val) {
+  @return calc(#{$val} * -1);
+}

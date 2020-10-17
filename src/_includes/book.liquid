@@ -1,0 +1,24 @@
+<div class="book" itemscope itemtype="https://schema.org/Book">
+  <a href="{{ book.url }}" aria-label="Buy {{ book.title }}">
+    <img src="{{book.img}}" alt="{{ book.title }} cover art" itemprop="image" />
+  </a>
+  <p class="book__title" itemprop="name">{{ book.title }}</p>
+  {% if book.subtitle %}
+  <p class="book__subtitle" itemprop="alternateName">{{ book.subtitle }}</p>
+  {% endif %}
+  <p class="book__author" itemprop="author">{{ book.author }}</p>
+  {% if book.rating %}
+  <div itemprop="review" itemscope itemtype="https://schema.org/Review">
+    {% if book.rating == 0 %}
+    <p itemprop="name">Gave up</p>
+    {% else %}
+    <p>
+      <span itemprop="reviewRating">{{ book.rating }}</span> star{% unless
+      book.rating == 1 %}s{% endunless %}
+    </p>
+    {% endif %} {% if book.notes %}
+    <div itemprop="reviewBody">{{ book.notes }}</div>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>

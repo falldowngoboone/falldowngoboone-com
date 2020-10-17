@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="o-stack">
+  <h1>Full-stack front end development</h1>
+  <p>
+    Hi, I’m Ryan Boone. I’m a web developer and designer from Texas with a
+    passion for open, accessible front end development. I love exploring new
+    ideas and sharing the
+    <a href="/blog">lessons I’ve learned along the way</a> with others. If you
+    want to work with me, book me for a speaking engagement, or just want to
+    talk shop, <a href="/contact">drop me a line</a>!
+  </p>
+</div>
+{% if collections.post %}
+<div>
+  <h2>My Latest Posts</h2>
+  {% assign postslist = collections.post %} {% assign
+  postslistCounter = collections.post | size %} {% include postslist %}
+</div>
+{% endif %}

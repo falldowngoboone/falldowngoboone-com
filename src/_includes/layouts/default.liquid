@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title | default: site.title }} | {{ site.branding }}</title>
+    <link rel="stylesheet" href="/css/global.css" />
+  </head>
+
+  <body class="c-page__bar">
+    <div class="c-page">
+      <header class="c-page__header">
+        <a class="o-visible-on-focus c-page__skip-link" href="#main">
+          Skip to main content
+        </a>
+        <a class="c-page__brand" href="/">
+          <picture>
+            <source srcset="/images/logo.png 2x" media="(min-width: 660px)" />
+            <img
+              srcset="/images/logo-sm.png 2x"
+              src="/images/logo-sm.png 2x"
+              alt="falldowngoboone"
+            />
+          </picture>
+        </a>
+      </header>
+      <main class="o-stack" id="main">{{ content }}</main>
+      <footer class="c-page__footer">
+        <div>
+          <div class="o-cluster">
+            <p>© 2020 Ryan Boone.</p>
+            <ul class="o-cluster">
+              <li>
+                <a href="https://twitter.com/therealboone">Twitter</a>
+              </li>
+              <li>
+                <a href="https://github.com/falldowngoboone">GitHub</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/ryan-boone-320bbb30/">
+                  LinkedIn
+                </a>
+              </li>
+              <li><a href="https://codepen.io/falldowngoboone">CodePen</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="/js/vendor/prism.js"></script>
+  </body>
+</html>

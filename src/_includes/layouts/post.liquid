@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+<header class="c-post__grid">
+  <h1 class="c-post__title">{{title}}</h1>
+</header>
+{% if featuredImage %}
+<img class="c-featured-image" src="{{ featuredImage | url }}" alt="" />
+{% endif %}
+<div class="c-post__grid c-post__content">
+  <footer class="c-post__footer">
+    <p>
+      <b class="u-block">Published:</b>
+      <time datetime="{{ post.date | htmlDateString }}">
+        {{ date | readableDate: 'LLLL dd, yyyy' }}
+      </time>
+    </p>
+    {% if updated %}
+    <p>
+      <b class="u-block">Last updated:</b>
+      <time datetime="{{ updated | htmlDateString }}">
+        {{ updated | readableDate: 'LLLL dd, yyyy' }}
+      </time>
+    </p>
+    {% endif %} {% capture time %}{% readingTime content %}{% endcapture %} {%
+    unless time == empty %}
+    <p><b class="u-block">Reading time:</b> {{ time }}</p>
+    {% endunless %}
+    <p>
+      <b class="u-block">Tags:</b>
+      {% assign displayTags = tags | displayTags %} {% for tag in displayTags %}
+      {% tagLink tag %} {%- unless forloop.last -%}, {%- endunless -%}{% endfor
+      %}
+    </p>
+  </footer>
+  <div class="o-stack u-mw-0">
+    {{content}}
+    <aside class="c-post__aside">
+      {% capture postUrl %}{{ site.url}}{{ page.url | url }}{% endcapture %}
+      <p>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://mobile.twitter.com/search?q={{ postUrl | encodeUriComponent }}"
+          >Discuss on Twitter</a
+        >
+        <span aria-hidden="true">•</span>
+        <a
+          href="https://github.com/falldowngoboone/falldowngoboone-com/blob/master/{{ page.inputPath | url }}"
+          >Edit post on GitHub</a
+        >
+      </p>
+      <p>
+        Share:
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://twitter.com/intent/tweet?text={{ title | encodeUriComponent }}&url={{ postUrl | encodeUriComponent }}&via=therealboone"
+          >Twitter</a
+        >
+
+        <span aria-hidden="true">•</span>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.linkedin.com/shareArticle?url={{ postUrl | encodeUriComponent }}&title={{ title | encodeUriComponent }}"
+          >LinkedIn</a
+        >
+      </p>
+    </aside>
+  </div>
+</div>
