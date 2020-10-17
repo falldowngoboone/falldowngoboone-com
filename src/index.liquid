@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="c-hero o-stack">
+<div class="o-stack">
   <h1>Full-stack front end development</h1>
   <p>
     Hi, I’m Ryan Boone. I’m a web developer and designer from Texas with a
@@ -13,23 +13,10 @@ layout: default
     talk shop, <a href="/contact">drop me a line</a>!
   </p>
 </div>
-{% if testimonials %}
-<div>
-  <h2>What Others Have Said About Me</h2>
-</div>
-{% endif %} {% if collections.post %}
+{% if collections.post %}
 <div>
   <h2>My Latest Posts</h2>
-  {% assign postslist = collections.post | head: -3 %} {% assign
+  {% assign postslist = collections.post %} {% assign
   postslistCounter = collections.post | size %} {% include postslist %}
 </div>
-{% endif %} {% if til %}
-<div>
-  <h2><abbr title="Today I learned">TIL</abbr></h2>
-</div>
-{% endif %} {% assign book = books.reading[0] %} {% if book %}
-<div>
-  <h2>Currently Reading</h2>
-  {% include book %}
-</div>
-{% endif book %}
+{% endif %}

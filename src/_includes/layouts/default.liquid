@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="/css/global.css" />
   </head>
 
-  <body class="c-page-bar">
+  <body class="c-page__bar">
     <div class="c-page">
-      <header class="c-page-header">
-        <a class="o-visible-on-focus c-skip-link" href="#main">
+      <header class="c-page__header">
+        <a class="o-visible-on-focus c-page__skip-link" href="#main">
           Skip to main content
         </a>
-        <a class="c-page-header__brand" href="/">
+        <a class="c-page__brand" href="/">
           <picture>
             <source srcset="/images/logo.png 2x" media="(min-width: 660px)" />
             <img
@@ -23,24 +23,10 @@
             />
           </picture>
         </a>
-        <nav class="c-page-nav">
-          <a {% if page.url == '/' %}aria-current="page"{% endif %} href="/">Home</a>
-          <a {% if page.url == '/blog/' %}aria-current="page"{% endif %} href="/blog/">Blog</a>
-          <a {% if page.url == '/about/' %}aria-current="page"{% endif %} href="/about/">About</a>
-          <a {% if page.url == '/contact/' %}aria-current="page"{% endif %} href="/contact/">Contact</a>
-        </nav>
       </header>
       <main class="o-stack" id="main">{{ content }}</main>
-      <footer class="c-page-footer">
+      <footer class="c-page__footer">
         <div>
-          <ul class="o-cluster">
-            <li><a href="/">Home</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/reading-list">Reading List</a></li>
-            <li><a href="#">RSS</a></li>
-          </ul>
           <div class="o-cluster">
             <p>© 2020 Ryan Boone.</p>
             <ul class="o-cluster">

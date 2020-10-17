@@ -68,6 +68,6 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-_site
-# Markdown files I don't want to check in; e.g. _todo.md
-_*.md
+_*
+
+!src/_*

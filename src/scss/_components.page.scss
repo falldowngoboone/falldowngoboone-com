@@ -25,7 +25,7 @@
   }
 }
 
-.c-page-bar {
+.c-page__bar {
   @media screen and (min-width: 660px) {
     $bar-width: min(1vw, 0.5rem);
 
@@ -44,7 +44,7 @@
   }
 }
 
-.c-page-header {
+.c-page__header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -56,12 +56,12 @@
     0;
 }
 
-.c-page-header__brand {
+.c-page__brand {
   margin-right: auto;
   padding-right: 1rem;
 }
 
-.c-page-footer {
+.c-page__footer {
   $pt: clamp(
     $s-2,
     calc(16px + (40 - 16) * (100vw - 660px) / (1680 - 660)),
@@ -81,7 +81,6 @@
   --link-color: var(--color-secondary);
 
   color: var(--color-secondary);
-  font-weight: 700;
   background-color: var(--color-bg-secondary);
   margin: $mt fn.neg($px) 0;
   padding: $pt $px $pb;
@@ -93,7 +92,7 @@
   }
 }
 
-.c-page-nav {
+.c-page__nav {
   --link-padding: 0.5em;
   --link-color: var(--color-main);
 
@@ -122,24 +121,10 @@
   }
 }
 
-.c-skip-link {
+.c-page__skip-link {
   display: block;
   padding: $s-2;
   background-color: $color-purple;
   color: $color-white;
   border-radius: 0.25rem;
-}
-
-.c-hero {
-  $px: clamp($s-1, 2.4vw, $s-4);
-
-  background-color: var(--color-bg-secondary);
-  padding: clamp($s-3, 3.81vw, $s-5) $px;
-  margin-left: fn.neg($px);
-  margin-right: fn.neg($px);
-
-  @media screen and (min-width: 660px) {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
