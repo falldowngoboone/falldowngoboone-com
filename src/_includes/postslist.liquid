@@ -10,6 +10,9 @@
       {%- endif -%}
     </a>
     <p>
+      {{ post.templateContent | strip_html | toExcerpt }}
+    </p>
+    <p>
       <b>Published:</b>
       <time datetime="{{ post.date | htmlDateString }}">
         {{ post.date | readableDate }}

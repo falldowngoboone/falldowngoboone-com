@@ -99,6 +99,21 @@ function addFilters(eleventyConfig) {
   eleventyConfig.addFilter('encodeUriComponent', (string) =>
     encodeURIComponent(string)
   );
+
+  eleventyConfig.addFilter('toExcerpt', (string) => {
+    const endPunctuation = /([.,\/#!$%\^&\*;:{}=\-_`~()\]\[])+$/g;
+    const words = string.trim().split(' ');
+    let max = false;
+
+    const excerpt = words.reduce((truncated, word) => {
+      const newTruncated = [truncated, word].join(' ').trim();
+      if (newTruncated.length > 140) max = true;
+      if (!max) return newTruncated;
+      return truncated;
+    });
+
+    return `${excerpt.replace(endPunctuation, '')}...`;
+  });
 }
 
 function isDisplayTag(item) {
