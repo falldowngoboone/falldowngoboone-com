@@ -2,5 +2,7 @@
 layout: default
 ---
 
-<h1>{{ displayTitle | default: title }}</h1>
-{{ content }}
+<div class="c-page__inner o-stack">
+  <h1>{{ displayTitle | default: title }}</h1>
+  {{ content }}
+</div>

@@ -68,6 +68,5 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-_*
-
-!src/_*
+# root level private files and directories
+/_*
