@@ -25,6 +25,10 @@
   }
 }
 
+.c-page__inner {
+  max-width: 70ch;
+}
+
 .c-page__bar {
   @media screen and (min-width: 660px) {
     $bar-width: min(1vw, 0.5rem);
