@@ -27,11 +27,12 @@ layout: default
     unless time == empty %}
     <p><b class="u-block">Reading time:</b> {{ time }}</p>
     {% endunless %}
-    <p>
+    <span id="taglist-label" hidden>Tags</span>
+    <ul class="o-cluster" aria-labelledby="taglist-label">
       {% assign displayTags = tags | displayTags %} {% for tag in displayTags %}
-      {% tagLink tag %} {% endfor
+      <li>{% tagLink tag %}</li> {% endfor
       %}
-    </p>
+    </ul>
   </footer>
   <div class="o-stack u-mw-0">
     {{content}}

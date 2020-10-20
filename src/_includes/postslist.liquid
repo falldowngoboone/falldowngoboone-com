@@ -26,11 +26,12 @@
         </time>
         {% endif %}
       </p>
-      <p class="c-tags">
+      <span id="taglist-label" hidden>Tags</span>
+      <ul class="c-tags o-cluster" aria-labelledby="taglist-label">
         {% for tag in post.data.tags %} {% if collections.tagList contains tag
-        %} {% tagLink tag %} {% endif
+        %}<li>{% tagLink tag %}</li> {% endif
         %} {% endfor %}
-      </p>
+      </ul>
     </footer>
   </article>
   {% endfor %}
