@@ -1,34 +1,37 @@
 {% unless postslistCounter %} {% assign postslistCounter = postslist | size %}
 {% endunless %}
 
-<ul>
+{% capture headingEl %}{{ headingLevel | default: "h2" }}{% endcapture %}
+<div class="c-postlist">
   {% for post in postslist reversed %}
-  <li>
-    <a href="{{ post.url | url }}">
+  <article class="c-postlist__item o-stack">
+    <{{ headingEl }}>
       {%- if post.data.title -%}{{ post.data.title }}{%- else -%}
       <code>{{ post.url }}</code>
       {%- endif -%}
-    </a>
+    </{{ headingEl }}>
     <p>
-      {{ post.templateContent | strip_html | toExcerpt }}
+      {{ post.templateContent | strip_html | toExcerpt }} <a href="{{ post.url | url }}">Read more <span
+          class="o-visually-hidden">of {{ post.data.title }}</span></a>
     </p>
-    <p>
-      <b>Published:</b>
-      <time datetime="{{ post.date | htmlDateString }}">
-        {{ post.date | readableDate }}
-      </time>
-      {% if post.data.updated %} | <b>Last updated:</b>
-      <time datetime="{{ post.data.updated | htmlDateString }}">
-        {{ post.data.updated | readableDate }}
-      </time>
-      {% endif %}
-    </p>
-    <p>
-      <b>Tags:</b>
-      {% for tag in post.data.tags %} {%- if collections.tagList contains tag
-      -%} {% tagLink tag %}{% unless forloop.last%}, {% endunless %} {%- endif
-      -%} {% endfor %}
-    </p>
-  </li>
+    <footer class="o-cluster">
+      <p>
+        <b>Published:</b>
+        <time datetime="{{ post.date | htmlDateString }}">
+          {{ post.date | readableDate }}
+        </time>
+        {% if post.data.updated %} | <b>Last updated:</b>
+        <time datetime="{{ post.data.updated | htmlDateString }}">
+          {{ post.data.updated | readableDate }}
+        </time>
+        {% endif %}
+      </p>
+      <p class="c-tags">
+        {% for tag in post.data.tags %} {% if collections.tagList contains tag
+        %} {% tagLink tag %} {% endif
+        %} {% endfor %}
+      </p>
+    </footer>
+  </article>
   {% endfor %}
-</ul>
+</div>
