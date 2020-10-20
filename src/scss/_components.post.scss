@@ -50,3 +50,11 @@
   margin-top: 3rem;
   border-top: 1px solid var(--color-border);
 }
+
+.c-postlist__item {
+  --space: 0.5em;
+
+  & + & {
+    margin-top: $s-4;
+  }
+}

@@ -7,6 +7,7 @@
 @use 'components.footer' as c-footer;
 @use 'components.page' as c-page;
 @use 'components.post' as c-post;
+@use 'components.tags' as c-tag;
 @use 'vendor.prism-fdgb' as prism with (
   $font-code: settings.$font-mono
 );

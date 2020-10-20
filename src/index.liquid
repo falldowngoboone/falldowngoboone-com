@@ -13,8 +13,8 @@ displayTitle: Full-stack front end development
 </p>
 {% if collections.post %}
 <div class="o-stack">
-  <h2>My Latest Posts</h2>
+  <h2>All Posts</h2>
   {% assign postslist = collections.post %} {% assign
-  postslistCounter = collections.post | size %} {% include postslist %}
+  postslistCounter = collections.post | size %} {% assign headingLevel = "h3" %} {% include postslist %}
 </div>
 {% endif %}
