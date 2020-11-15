@@ -24,18 +24,24 @@ I have always been a fan of the [Swiss Style](https://en.wikipedia.org/wiki/Inte
 
 Breaking with the Swiss Style, and as an homage to the [cartoons that inspired this blog's name](https://en.wikipedia.org/wiki/A_Gruesome_Twosome), I wanted to include hand-drawn illustrations and decoration, just so the site itself didn't end up feeling too cold or rigid.
 
-![Initial sketches of hand-drawn element ideas](assets/sketches.png)
+<figure>
+  <img width="810" height="535" srcset="assets/sketches@1x.png 1x, assets/sketches@2x.png 2x" src="assets/sketches@1x.png" alt="">
+  <figcaption>Initial sketches of hand-drawn element ideas</figcaption>
+</figure>
 
 My process has been sketching out ideas on paper first, then moving into Figma or Affinity Designer for high fidelity exploration. I've tried to move to designing in the browser as quickly as possible because that's the medium the design will ultimately end up in. If I run into a design roadblock in the browser, I return to Figma or Affinity Designer and explore some more.
 
-![Design exploration in Figma](assets/figma-experiments.png)
+<figure>
+  <img width="810" height="506" srcset="assets/figma-experiments@1x.png 1x, assets/figma-experiments@2x.png 2x" src="assets/figma-experiments@1x.png" alt="">
+  <figcaption>Design exploration in Figma</figcaption>
+</figure>
 
 ### Fonts
 
 I love geometric typefaces, but they tend to be cold. Since I have hand-drawn elements, I wanted something with a bit more warmth. [Rotunda](https://www.myfonts.com/fonts/tipotype/rotunda/) filled the role perfectly, with a mix of geometric and humanistic forms. Oh, and I'm a sucker for double-story 'g's and 'a's.
 
 <figure>
-  <img src="assets/rotunda.png"/>
+  <img width="810" height="287" srcset="assets/rotunda@1x.png 1x, assets/rotunda@2x.png 2x" src="assets/rotunda@1x.png" alt="">
   <figcaption>Rotunda has humanistic forms as well as geometric alternates</figcaption>
 </figure>
 
@@ -111,7 +117,10 @@ I think eventually I would like to write a custom build script, one that relies 
 
 One reason people tend to pick static site generators is performance, so how does my site perform? It depends on what day you're auditing the site. I'm still tweaking some of my Lighthouse scores, but performance is coming out to a score of 100. Honestly, my Gatsby site had the same score (again, this is not a big site at the moment, and it's mostly text).
 
-![Site metrics in Lighthouse. Performance 100, Accessibility 90, Best Practices 100, SEO 92.](assets/metrics.png)
+<figure>
+  <img width="810" height="430" srcset="assets/metrics@1x.png 1x, assets/metrics@2x.png 2x" src="assets/metrics@1x.png" alt="Performance 100, Accessibility 90, Best Practices 100, SEO 92">
+  <figcaption>Site metrics in Lighthouse at original publish date (November 15, 2020)</figcaption>
+</figure>
 
 Some things I need to work on are SEO and some annoying duplicate ID issues that are dinging me on my Accessibility score. Ultimately, the goal is to get to 100 in all categories, and hopefully I'll get there by the time people are reading this post.
 
