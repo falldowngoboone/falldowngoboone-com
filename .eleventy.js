@@ -28,7 +28,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias('default', 'default.liquid');
 
   eleventyConfig.addPassthroughCopy('src/fonts');
-  eleventyConfig.addPassthroughCopy('src/images');
+  eleventyConfig.addPassthroughCopy('**/*.(png|jpg|jpeg|gif)');
   eleventyConfig.addPassthroughCopy('src/js');
 
   eleventyConfig.addCollection('tagList', function (collection) {
