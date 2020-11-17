@@ -26,8 +26,9 @@
         </time>
         {% endif %}
       </p>
-      <span id="taglist-label" hidden>Tags</span>
-      <ul class="c-tags o-cluster" aria-labelledby="taglist-label">
+      {% capture tagId %}taglist-label-{% uid %}{% endcapture %}
+      <span id="{{ tagId }}" hidden>Tags</span>
+      <ul class="c-tags o-cluster" aria-labelledby="{{ tagId }}">
         {% for tag in post.data.tags %} {% if collections.tagList contains tag
         %}<li>{% tagLink tag %}</li> {% endif
         %} {% endfor %}

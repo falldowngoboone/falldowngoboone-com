@@ -3,6 +3,8 @@ const { DateTime } = require('luxon');
 const readingTime = require('reading-time');
 const EMPTY = require('./src/_data/empty');
 
+let id = 0;
+
 module.exports = function (eleventyConfig) {
   // merge all data arrays
   eleventyConfig.setDataDeepMerge(true);
@@ -65,6 +67,10 @@ module.exports = function (eleventyConfig) {
     return `<a class="c-tag" href="${urlify(
       tagUrl
     )}"><span class="o-visually-hidden">Posts tagged </span>${tag}</a>`;
+  });
+
+  eleventyConfig.addShortcode('uid', function () {
+    return String(id++);
   });
 
   return {
