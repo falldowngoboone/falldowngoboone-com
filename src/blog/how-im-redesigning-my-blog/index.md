@@ -1,6 +1,7 @@
 ---
 title: How I'm redesigning my blog
 date: 2020-11-15
+updated: 2020-11-16
 tags:
   - process
   - design
@@ -123,6 +124,13 @@ One reason people tend to pick static site generators is performance, so how doe
 </figure>
 
 Some things I need to work on are SEO and some annoying duplicate ID issues that are dinging me on my Accessibility score. Ultimately, the goal is to get to 100 in all categories, and hopefully I'll get there by the time people are reading this post.
+
+**Update:** The last few issues have been corrected and now I'm getting all 100s!
+
+<figure>
+  <img width="810" height="322" srcset="assets/metrics-updated@1x.png 1x, assets/metrics-updated@2x.png 2x" src="assets/metrics-updated@1x.png" alt="Performance 100, Accessibility 100, Best Practices 100, SEO 100">
+  <figcaption>Updated site metrics in Lighthouse on November 16, 2020</figcaption>
+</figure>
 
 ## The Future
 
