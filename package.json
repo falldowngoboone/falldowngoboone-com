@@ -4,16 +4,16 @@
   "description": "My personal website",
   "main": "index.js",
   "scripts": {
-    "start": "npm run clean && npm run watch:ssg & npm run watch:css",
-    "build": "npm run clean && npm run build:ssg & npm run build:css",
-    "build:prod": "npm-run-all --parallel build:ssg build:css",
+    "start": "npm run watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf _site",
+    "build": "npm-run-all clean --parallel build:*",
     "build:css": "sass src/scss:_site/css",
     "build:ssg": "eleventy",
+    "watch": "npm-run-all clean --parallel watch:*",
     "watch:css": "npm run build:css -- --watch",
     "watch:ssg": "npm run build:ssg -- --serve --port=3000",
-    "debug:ssg": "DEBUG=Eleventy* npm run build:ssg"
+    "debug": "DEBUG=Eleventy* npm run build:ssg"
   },
   "repository": {
     "type": "git",
