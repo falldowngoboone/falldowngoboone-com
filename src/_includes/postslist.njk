@@ -1,9 +1,9 @@
-{% unless postslistCounter %} {% assign postslistCounter = postslist | size %}
-{% endunless %}
+{% if not postslistCounter %} {% set postslistCounter = postslist | length %}
+{% endif %}
 
-{% capture headingEl %}{{ headingLevel | default: "h2" }}{% endcapture %}
+{% set headingEl %}{{ headingLevel | default("h2") }}{% endset %}
 <div class="c-postlist">
-  {% for post in postslist reversed %}
+  {% for post in postslist | reverse %}
   <article class="c-postlist__item o-stack">
     <{{ headingEl }}>
       {%- if post.data.title -%}{{ post.data.title }}{%- else -%}
@@ -11,7 +11,7 @@
       {%- endif -%}
     </{{ headingEl }}>
     <p>
-      {{ post.templateContent | strip_html | toExcerpt }} <a href="{{ post.url | url }}">Read more <span
+      {{ post.templateContent | striptags | toExcerpt }} <a href="{{ post.url | url }}">Read more <span
           class="o-visually-hidden">of {{ post.data.title }}</span></a>
     </p>
     <footer class="o-cluster">
@@ -26,12 +26,14 @@
         </time>
         {% endif %}
       </p>
-      {% capture tagId %}taglist-label-{% uid %}{% endcapture %}
+      {% set tagId %}taglist-label-{% uid %}{% endset %}
       <span id="{{ tagId }}" hidden>Tags</span>
       <ul class="c-tags o-cluster" aria-labelledby="{{ tagId }}">
-        {% for tag in post.data.tags %} {% if collections.tagList contains tag
-        %}<li>{% tagLink tag %}</li> {% endif
-        %} {% endfor %}
+        {% for tag in post.data.tags %} 
+          {% if collections.tagList.indexOf(tag) != -1 %}
+          <li>{% tagLink tag %}</li>
+          {% endif %}
+        {% endfor %}
       </ul>
     </footer>
   </article>

@@ -13,8 +13,8 @@
     <p itemprop="name">Gave up</p>
     {% else %}
     <p>
-      <span itemprop="reviewRating">{{ book.rating }}</span> star{% unless
-      book.rating == 1 %}s{% endunless %}
+      <span itemprop="reviewRating">{{ book.rating }}</span> star{% if
+      book.rating != 1 %}s{% endif %}
     </p>
     {% endif %} {% if book.notes %}
     <div itemprop="reviewBody">{{ book.notes }}</div>
