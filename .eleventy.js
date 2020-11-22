@@ -26,9 +26,6 @@ module.exports = function (eleventyConfig) {
     },
   });
 
-  eleventyConfig.addLayoutAlias('post', 'post.liquid');
-  eleventyConfig.addLayoutAlias('default', 'default.liquid');
-
   eleventyConfig.addPassthroughCopy('src/fonts');
   eleventyConfig.addPassthroughCopy('src/**/*.(png|jpg|jpeg|gif)');
   eleventyConfig.addPassthroughCopy('src/js');

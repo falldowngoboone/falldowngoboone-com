@@ -16,4 +16,4 @@ eleventyComputed:
   title: Tagged “{{ tag }}”
 ---
 
-{% assign postslist = collections[tag] %} {% include postslist %}
+{% set postslist = collections[tag] %} {% include "postslist.njk" %}

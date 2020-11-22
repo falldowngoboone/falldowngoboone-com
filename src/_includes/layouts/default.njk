@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ title | default: site.title }} | {{ site.branding }}</title>
+  <title>{{ title | default(site.title) }} | {{ site.branding }}</title>
   <link rel="stylesheet" href="/css/global.css" />
-  <meta name="description" content="{{ description | default: site.description }}" />
+  <meta name="description" content="{{ description | default(site.description) }}" />
 </head>
 
 <body class="c-page__bar">
@@ -22,7 +22,7 @@
         </picture>
       </a>
     </header>
-    <main class="o-stack" id="main">{{ content }}</main>
+    <main class="o-stack" id="main">{{ content | safe }}</main>
     <footer class="c-footer">
       <div class="c-footer__inner">
         <p class="c-footer__copyright">© 2020 Ryan Boone.</p>

@@ -13,31 +13,37 @@ layout: default
     <p>
       <b class="u-block">Published:</b>
       <time datetime="{{ post.date | htmlDateString }}">
-        {{ date | readableDate: 'LLLL dd, yyyy' }}
+        {{ date | readableDate('LLLL dd, yyyy') }}
       </time>
     </p>
     {% if updated %}
     <p>
       <b class="u-block">Last updated:</b>
       <time datetime="{{ updated | htmlDateString }}">
-        {{ updated | readableDate: 'LLLL dd, yyyy' }}
+        {{ updated | readableDate('LLLL dd, yyyy') }}
       </time>
     </p>
-    {% endif %} {% capture time %}{% readingTime content %}{% endcapture %} {%
-    unless time == empty %}
+    {% endif %} 
+    {% set time %}
+      {% readingTime content %}
+    {% endset %} 
+    {% if not time == empty %}
     <p><b class="u-block">Reading time:</b> {{ time }}</p>
-    {% endunless %}
+    {% endif %}
     <span id="taglist-label" hidden>Tags</span>
     <ul class="o-cluster" aria-labelledby="taglist-label">
-      {% assign displayTags = tags | displayTags %} {% for tag in displayTags %}
-      <li>{% tagLink tag %}</li> {% endfor
-      %}
+      {% set displayTags = tags | displayTags %}
+      {% for tag in displayTags %}
+      <li>{% tagLink tag %}</li>
+      {% endfor %}
     </ul>
   </footer>
   <div class="o-stack u-mw-0">
-    {{content}}
+    {{ content | safe }}
     <aside class="c-post__aside">
-      {% capture postUrl %}{{ site.url}}{{ page.url | url }}{% endcapture %}
+      {% set postUrl %}
+        {{ site.url}}{{ page.url | url }}
+      {% endset %}
       <p>
         <a target="_blank" rel="noopener noreferrer"
           href="https://mobile.twitter.com/search?q={{ postUrl | encodeUriComponent }}">Discuss on Twitter</a>
