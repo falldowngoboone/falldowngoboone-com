@@ -1,7 +1,7 @@
 ---
 title: How I'm redesigning my blog
 date: 2020-11-15
-updated: 2020-11-16
+updated: 2020-11-22
 tags:
   - process
   - design
@@ -63,11 +63,15 @@ There's some `box-decoration-break` magic that makes sure the background style t
 
 ## The Stack
 
-### Eleventy and Liquid
+### Eleventy and ~~Liquid~~ Nunjucks
 
 The new design is completely static and built with [Eleventy](https://www.11ty.dev). I've chosen Eleventy to replace my previous framework of Gatsby mainly because of Eleventy's flexibility and ease of use. Eleventy is also a great deal faster than Gatsby, though my site is so small that I've barely noticed a difference when building.
 
-My template language of choice is Liquid, which, to be honest, I'm rethinking. The syntax can be quite awkward at times (possibly because of its Ruby origins). For example, empty strings in Liquid are truthy values, as opposed to JavaScript, where they are falsy, so in cases where you can either have a falsy value or an empty string, you must check for both. This is something that could be solved with something like a custom filter, but it's quite annoying, and certainly not the only quirk this template language has.
+~~My template language of choice is Liquid, which, to be honest, I'm rethinking. The syntax can be quite awkward at times (possibly because of its Ruby origins). For example, empty strings in Liquid are truthy values, as opposed to JavaScript, where they are falsy, so in cases where you can either have a falsy value or an empty string, you must check for both. This is something that could be solved with something like a custom filter, but it's quite annoying, and certainly not the only quirk this template language has.~~
+
+**Update:** Yeah, so, I'm not using Liquid anymore. The biggest reason is a practical one: the syntax highlighting and language support has been a constant pain to manage in VS Code. I've been using the [Liquid VS Code extension](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid), which I've had to completely disable due to an incident where it fried some source code at work (long story short, there's a bug that causes it to encode certain tokens that unknowingly rewrote a large portion of some JSP templates). Even before that, it wasn't that great of an extension. The author is supposedly rewriting it into a freemium extension called [Liquify](https://github.com/panoply/vscode-liquid/issues/56), but I'm not terribly interested.
+
+To be honest, using Liquid at this point feels like swimming upstream. I've switched to Nunjucks, and already I feel less tension with my editor. I was able to convert everything over in an hour or so. I won't tell you how long it took me to convert over to Liquid.
 
 ### Modern CSS
 
