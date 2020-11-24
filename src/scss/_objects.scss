@@ -1,3 +1,4 @@
+@use 'settings' as *;
 @use 'tools' as fn;
 
 @keyframes o-background-slide {
@@ -62,4 +63,28 @@
   overflow: hidden;
   white-space: nowrap;
   width: 1px;
+}
+
+.o-page {
+  display: grid;
+  grid-template-areas:
+    '. header .'
+    '. main .'
+    'footer footer footer';
+  grid-template-columns: 1fr minmax(0, 1400px) 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  padding: 0 clamp($s-1, 2.4vw, $s-4);
+
+  & > header {
+    grid-area: header;
+  }
+
+  & > main {
+    grid-area: main;
+  }
+
+  & > footer {
+    grid-area: footer;
+  }
 }

@@ -28,7 +28,7 @@
       </p>
       {% set tagId %}taglist-label-{% uid %}{% endset %}
       <span id="{{ tagId }}" hidden>Tags</span>
-      <ul class="c-tags o-cluster" aria-labelledby="{{ tagId }}">
+      <ul class="o-cluster" aria-labelledby="{{ tagId }}">
         {% for tag in post.data.tags %} 
           {% if collections.tagList.indexOf(tag) != -1 %}
           <li>{% tagLink tag %}</li>

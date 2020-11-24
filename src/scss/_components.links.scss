@@ -1,6 +1,14 @@
 @use 'settings' as *;
 
-.c-tag {
+.c-skip-link {
+  display: block;
+  padding: $s-2;
+  background-color: $color-purple;
+  color: $color-white;
+  border-radius: 0.25rem;
+}
+
+.c-tag-link {
   color: $color-black;
   text-decoration: none;
   display: inline-block;
