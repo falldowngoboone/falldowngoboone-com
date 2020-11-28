@@ -70,3 +70,6 @@ yarn-error.log
 
 # root level private files and directories
 /_*
+
+# workspace config
+.vscode
