@@ -10,7 +10,7 @@ A lot of what I do at [The Container Store](https://www.containerstore.com/welco
 
 ## The use case
 
-I use [Prism.js](https://prismjs.com) to dynamically style my code blocks, and [the basic way to use Prism.js](https://prismjs.com/#basic-usage) relies on the presence of both a CSS file and a JavaScript file to be loaded on a page. The JavaScript adds classes to the code block based on the type of code block it is, and the CSS themes the block accordingly. The easiest (naive) way to include these assets in Eleventy is to add them directly to a global template:
+I use [Prism.js](https://prismjs.com) to dynamically style my code blocks, and [the basic way to use Prism.js](https://prismjs.com/#basic-usage) relies on the presence of both a CSS file and a JavaScript file to be loaded on a page. The JavaScript adds classes to code blocks based on their type, and the CSS themes the blocks accordingly. The easiest (naive) way to include these assets in Eleventy is to add them directly to a global template:
 
 {% raw %}
 ```html
@@ -171,7 +171,7 @@ The template language I'm using is [Nunjucks](https://mozilla.github.io/nunjucks
 
 This works in Eleventy, but not without limitations. 
 
-First of all, Eleventy won't process [front matter](https://www.11ty.dev/docs/data-frontmatter/) in templates that use `extends`, and no aliases set in Eleventy's configuration will be used in resolving include paths (alternatively you may use [relative paths](https://www.11ty.dev/docs/languages/nunjucks/#supported-features)). Second, it locks the project into Nunjucks. One of the things I love about Eleventy is how easily I can change template languages out, but now I _have_ to use Nunjucks. I mean, I like Nunjucks, but, even more so, I like having options.
+First of all, Eleventy won't process [front matter](https://www.11ty.dev/docs/data-frontmatter/) in templates that use `extends`, and no aliases set in Eleventy's configuration will be used in resolving `include` paths (alternatively you may use [relative paths](https://www.11ty.dev/docs/languages/nunjucks/#supported-features)). Second, it locks the project into Nunjucks. One of the things I love about Eleventy is how easily I can change template languages out, but now I _have_ to use Nunjucks. I mean, I like Nunjucks, but, even more so, I like having options.
 
 ## Using front matter
 
@@ -230,7 +230,7 @@ scriptContent |
 ```
 {% endraw %}
 
-Notice the pipe character (`|`) in the front matter definition. This is defines the style of a [block scalar](https://yaml.org/spec/1.2/spec.html#id2793652) in [YAML](https://yaml.org) (the language the front matter is written in) to keep the line breaks. An alternative to this approach would be to pass a list of paths for each key, but I want the flexibility to inline scripts and styles as well:
+Notice the pipe character (`|`) in the front matter definition. This defines the style of a [block scalar](https://yaml.org/spec/1.2/spec.html#id2793652) in [YAML](https://yaml.org) (the language the front matter is written in) to keep line breaks. An alternative to this approach would be to pass a list of paths for each key, but I want the flexibility to inline scripts and styles as well:
 
 ```html
 <!-- some-post.njk -->
@@ -251,7 +251,7 @@ scriptContent: |
 <!-- page content -->
 ```
 
-There's a problem with the above page, though. Can you see it? It's re-defining the `headContent` and `scriptContent` keys in the front matter, and according to the [Eleventy front matter data documentation](https://www.11ty.dev/docs/data-frontmatter/), "locally assigned front matter values override things further up the layout chain." This means that the local content blocks are clobbering the blocks defined in `_includes/post.njk`, which means the Prism.js assets aren't being loaded on this post. 
+However, there's a problem with the code above. Can you see it? It's re-defining the `headContent` and `scriptContent` keys in the front matter, and according to the [Eleventy front matter data documentation](https://www.11ty.dev/docs/data-frontmatter/), "locally assigned front matter values override things further up the layout chain." The page content blocks are clobbering template content blocks, which means the Prism.js assets aren't being loaded on this page. 
 
 ## Composing data with `eleventyComputed`
 
@@ -282,12 +282,12 @@ eleventyComputed:
 ```
 {% endraw %}
 
-`eleventyComputed` is a special Eleventy front matter key that grants access to the computed data at the time of rendering the indivdual page. This is how we can pass data from leaf templates up the layout template chain, allowing us to effectively extend leaf data with template data. Notice the leaf data is included at the end of the template block. This ensures the leaf styles have higher order specificity in the style cascade and leaf scripts can override template scripts if needed.
+`eleventyComputed` is a special Eleventy front matter key that grants access to the computed data at the time of rendering the individual page. This is how we can pass data from leaf templates up the layout template chain, allowing us to effectively extend leaf data with template data. Notice the leaf data is included at the end of the template block. This ensures the leaf styles have higher order specificity in the style cascade and leaf scripts can override template scripts if needed.
 
-Now we have composable blocks of code that allow us to tie into the base template to extend the page with whatever functionality or styling we want. This is another example of how powerful Eleventy can be, even though the basic concepts are so simple.
+Now we have composable blocks of code that allow us to tie into the base template and extend the page with whatever functionality or styling we want. This is a great example of how powerful Eleventy can be, even though the basic concepts are so simple.
 
 ## Ideas for further exploration
 
-We've explored how to optimize assets in Eleventy templates using composable `eleventyComputed` values. You can easily adapt this idea to add custom art direction, animations or behavior to an indivdual page, but this is something that has even more uses outside of styles and scripts.
+We've explored how to optimize assets in Eleventy templates using composable `eleventyComputed` values. You can easily adapt this idea to add custom art direction, animations or behavior to an individual page, but this is something that has even more uses outside of styles and scripts.
 
-I hope this inpsires you to explore more interesting uses of Eleventy's computed data. And if you have a favorite Eleventy tip, [tell me about it on Twitter](https://twitter.com/therealboone)!
+I hope this inspires you to explore more interesting uses of Eleventy's computed data. And if you have a favorite Eleventy tip, [tell me about it on Twitter](https://twitter.com/therealboone)!
