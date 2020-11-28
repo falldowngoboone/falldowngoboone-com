@@ -1,0 +1,13 @@
+@use 'settings' as *;
+
+.c-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: clamp(
+      $s-3,
+      calc(24px + (104 - 24) * (100vw - 660px) / (1680 - 660)),
+      $s-6
+    )
+    0;
+}

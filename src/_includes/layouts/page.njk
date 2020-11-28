@@ -1,8 +1,12 @@
 ---
 layout: default
+containerClass: c-page o-stack
+eleventyComputed:
+  headContent: |
+    {{ headContent }}
+  scriptContent: |
+    {{ scriptContent }}
 ---
 
-<div class="c-page__inner o-stack">
-  <h1>{{ displayTitle | default(title) }}</h1>
-  {{ content | safe }}
-</div>
+<h1>{{ displayTitle | default(title) }}</h1>
+{{ content | safe }}

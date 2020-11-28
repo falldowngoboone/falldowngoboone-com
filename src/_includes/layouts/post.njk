@@ -1,5 +1,12 @@
 ---
 layout: default
+containerClass: o-stack
+eleventyComputed:
+  headContent: |
+    {{ headContent }}
+  scriptContent: |
+    <script src="/js/vendor/prism.js"></script>
+    {{ scriptContent }}
 ---
 
 <header class="c-post__grid">

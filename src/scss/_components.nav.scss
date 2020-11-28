@@ -1,0 +1,31 @@
+@use 'settings' as *;
+@use 'tools' as fn;
+
+.c-nav {
+  --link-padding: 0.5em;
+  --link-color: var(--color-main);
+
+  display: flex;
+  margin: 0 fn.neg(var(--link-padding));
+  font-family: $font-display;
+
+  & a {
+    font-weight: 700;
+    text-transform: lowercase;
+    text-decoration: none;
+    padding: var(--link-padding);
+    position: relative;
+  }
+
+  & [aria-current='page']::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    border: solid 0.55em transparent;
+    border-right-width: 0.33em;
+    border-left-width: 0.33em;
+    border-top-color: var(--title-color);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

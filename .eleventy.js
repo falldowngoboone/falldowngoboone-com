@@ -61,7 +61,7 @@ module.exports = function (eleventyConfig) {
     const urlify = eleventyConfig.getFilter('url');
     const tagUrl = `/tags/${tag}`;
 
-    return `<a class="c-tag" href="${urlify(
+    return `<a class="c-tag-link" href="${urlify(
       tagUrl
     )}"><span class="o-visually-hidden">Posts tagged </span>${tag}</a>`;
   });
