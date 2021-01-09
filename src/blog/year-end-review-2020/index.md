@@ -9,7 +9,7 @@ tags:
 
 ## 2020 Accomplishments
 
-In 2020..
+In 2020...
 
 - [I began the complete redesign of my site](https://www.falldowngoboone.com/blog/how-im-redesigning-my-blog/). I'm super excited about this. It took way too long and involved way too many different frameworks and false starts, but I'm happy with the end result.
 - After a year-long drought, I'm writing again. I'm still trying to get into the groove of writing, trying to find my voice, but I think if I can put the time in and stay consistent, I'll get there. Or at least I'll get *better*.
