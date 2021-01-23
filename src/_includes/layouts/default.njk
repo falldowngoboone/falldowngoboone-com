@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title | default(site.title) }} | {{ site.branding }}</title>
   <meta name="description" content="{{ description | default(site.description) }}" />
+  {% include "analytics.njk" %}
   <link rel="stylesheet" href="/css/global.css" />
   {{ headContent | safe }}
 </head>
