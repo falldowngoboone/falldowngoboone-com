@@ -15,6 +15,6 @@ With that in mind, this month I have resolved to write 28 blog posts, including 
 
 You may ask, *Ryan, why February?* Well, it's the shortest month of the year and I feel more comfortable doing 28 posts versus 30 or 31 and mind your own business, okay? Geez!
 
-I'm not going to lie: going from three blog posts a year to 28 in a month is going to be tough. I'm setting some ground rules to make sure I accomplish my goal. First drafts should take no longer than fifteen minutes to write. Editing should not exceed one hour. And to keep me honest, I will share these blog posts with all my followers on Twitter (hi mom!) as well as on my [dev.to](http://dev.to) account.
+I'm not going to lie. Going from three blog posts a year to 28 in a month is going to be tough. I'm setting some ground rules to make sure I accomplish my goal. First drafts should take no longer than fifteen minutes to write. Editing should not exceed one hour. And to keep me honest, I will share these blog posts with all my followers on Twitter (hi mom!) as well as on my [dev.to](http://dev.to) account.
 
 The subject matter may be a bit random at times. I'm still trying to figure out what my *thing* is. But the end goal is to become a better communicator and help others in the process. I hope you come along for the ride.
