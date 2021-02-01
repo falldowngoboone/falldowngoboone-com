@@ -2,7 +2,9 @@
 layout: default
 containerClass: o-stack
 eleventyComputed:
+  postUrl: "{{ site.url }}{{ page.url | url }}"
   headContent: |
+    <link rel="canonical" href="{{ postUrl }}" />
     {{ headContent }}
   scriptContent: |
     <script src="/js/vendor/prism.js"></script>
