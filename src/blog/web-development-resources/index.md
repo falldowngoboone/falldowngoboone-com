@@ -7,7 +7,7 @@ tags:
   - education
 ---
 
-As a follow up to [yesterday's post](), I wanted to share a quick list of online resources that I used to get started in my development career.
+As a follow up to [yesterday's post](https://www.falldowngoboone.com/blog/on-changing-careers/), I wanted to share a quick list of online resources that I used to get started in my development career.
 
 - [Codecademy](https://www.codecademy.com)
 - [Treehouse](https://teamtreehouse.com)
@@ -20,4 +20,4 @@ As a follow up to [yesterday's post](), I wanted to share a quick list of online
 - [freeCodeCamp](https://www.freecodecamp.org), the ultimate FREE boot camp
 - [Codepen](https://codepen.io), a great place to experiment with ideas or even build a one-off web page
 
-I'm always looking to expand my resource list, so if you have a favorite you don't see here, please let me know on Twitter.
+I'm always looking to expand my resource list, so if you have a favorite you don't see here, please let me know on [Twitter](https://twitter.com/therealboone).
