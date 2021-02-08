@@ -14,7 +14,7 @@ Listening to someone I've heard interview JavaScript heavyweights on my iPhone f
 
 The first time I was asked to give a software talk, I had been a professional developer for less than a year. I was terrified, but I did it. Was it good? Meh. But the important part was I stepped out of my comfort zone. I still experience a fear of public speaking, but the more I push through that fear, the quieter its gets.
 
-If fear is the only thing keeping you from doing something that could otherwise enrich your life, lean into it. Intentionally do something *because* it scares you. Start YouTube channel. Give a talk at a Meetup. Try [blogging for 28 days straight](https://www.falldowngoboone.com/blog/blogruary-28-days-of-posting/).
+If fear is the only thing keeping you from doing something that could otherwise enrich your life, lean into it. Intentionally do something *because* it scares you. Start a YouTube channel. Give a talk at a Meetup. Try [blogging for 28 days straight](https://www.falldowngoboone.com/blog/blogruary-28-days-of-posting/).
 
 Push past the fear, get comfortable with being uncomfortable. You never know what it might lead to.
 
