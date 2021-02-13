@@ -14,10 +14,10 @@ In the past, the `address` element was strictly used for content author info, so
 <article>
   <!-- article content -->
   <footer>
-  <p>Like my stuff? As the kids say, drop me a line via electronic mail:</p>
-  <address>
-  <a href="mailto:rick.cooldood78@example.com">Ricky Cooldood 😎</a>
-  </address>
+    <p>Like my stuff? As the kids say, drop me a line via electronic mail:</p>
+    <address>
+      <a href="mailto:rick.cooldood78@example.com">Ricky Cooldood 😎</a>
+    </address>
   </footer>
 </article>
 ```
