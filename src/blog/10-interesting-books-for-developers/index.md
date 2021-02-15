@@ -10,7 +10,7 @@ Reading is a great way to learn, but it's also a fantastic way to open yourself 
 
 - *Eloquent JavaScript*, Marijn Haverbeke
 
-    This is the book that taught me JavaScript. I found it incredibly approachable, and it can be read [online for free](https://eloquentjavascript.net), thought I do recommend buying it if you can.
+    This is the book that taught me JavaScript. I found it incredibly approachable, and it can be read [online for free](https://eloquentjavascript.net), though I do recommend buying it if you can.
 
 - *Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones*, James Clear
 
@@ -18,7 +18,7 @@ Reading is a great way to learn, but it's also a fantastic way to open yourself 
 
 - *The Willpower Instinct: How Self-Control Works, Why It Matters, and What You Can Do to Get More of It*, Kelly McGonigal
 
-    Kelly McGonigal is a Stanford University psychologist that teaches classes on willpower. This book is a glimpse into her curriculum. If you are curious about what the latest research says about willpower and how to increase it, this book is a must read. 
+    Kelly McGonigal is a Stanford University psychologist that teaches classes on willpower. This book is a glimpse into her curriculum. If you are curious about what the latest research says about willpower and how to increase it, this book is a must-read. 
 
 - *Pragmatic Thinking and Learning: Refactor Your Wetware*, Andy Hunt
 
@@ -26,7 +26,7 @@ Reading is a great way to learn, but it's also a fantastic way to open yourself 
 
 - *The Pragmatic Programmer: Your Journey To Mastery*, Dave Thomas and Andy Hunt
 
-    This is the other Pragmatic Programmer book. I believe this book should be required reading for all developers. Some of the concepts in this book have helped shaped my mental model of code and have helped me grow in my ability to communicate effectively with code. I recommend the new 20th anniversary edition.
+    This is the other Pragmatic Programmer book. I believe this book should be required reading for all developers. Some of the concepts in this book have helped shaped my mental model of code and have helped me grow in my ability to communicate effectively with code. I recommend the new 20th-anniversary edition.
 
 - *Refactoring: Improving the Design of Existing Code*, Martin Fowler
 
@@ -38,7 +38,7 @@ Reading is a great way to learn, but it's also a fantastic way to open yourself 
 
 - *The Illusion of Life: Disney Animation*, Frank Thomas and Ollie Johnston
 
-    The stories alone make this book a worthy addition to anyone's library. The bonus is learning  important animation fundamentals that will inform your UI and help you communicate with designers.
+    The stories alone make this book a worthy addition to anyone's library. The bonus is learning important animation fundamentals that will inform your UI and help you communicate with designers.
 
 - *The Design of Everyday Things*, Don Norman
 
