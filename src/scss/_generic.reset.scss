@@ -67,7 +67,7 @@ h6 {
 }
 
 ul[class],
-ol[class] {
+ol[class]:not(.footnotes-list) {
   list-style: none;
   padding: 0;
 }

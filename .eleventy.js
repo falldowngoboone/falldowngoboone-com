@@ -2,6 +2,9 @@ const fs = require('fs');
 const { DateTime } = require('luxon');
 const readingTime = require('reading-time');
 const EMPTY = require('./src/_data/empty');
+const markdownIt = require('markdown-it');
+const markdownItAttrs = require('markdown-it-attrs');
+const markdownItFootnote = require('markdown-it-footnote');
 
 let id = 0;
 
@@ -25,6 +28,8 @@ module.exports = function (eleventyConfig) {
       },
     },
   });
+
+  configureMarkdownLib(eleventyConfig);
 
   eleventyConfig.addPassthroughCopy('src/fonts');
   eleventyConfig.addPassthroughCopy('src/**/*.(png|jpg|jpeg|gif)');
@@ -77,6 +82,17 @@ module.exports = function (eleventyConfig) {
     },
   };
 };
+
+function configureMarkdownLib(eleventyConfig) {
+  const options = {
+    html: true,
+  };
+  const customMarkdown = markdownIt(options)
+    .use(markdownItAttrs)
+    .use(markdownItFootnote);
+
+  eleventyConfig.setLibrary('md', customMarkdown);
+}
 
 function addFilters(eleventyConfig) {
   eleventyConfig.addFilter(
