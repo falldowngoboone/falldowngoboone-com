@@ -122,7 +122,7 @@ function TextField({name, label}) {
 
 The answer to avoiding premature abstraction is simple: don't create abstractions until there is a need. Need is a relative term, but a good, solid rule to follow is don't abstract duplicated code until you have found at least three instances of duplication. This is known as [the Rule of Three](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)).
 
-In React, components are abstractions, so you should hold off *sharing* a component until there are similar components in three different places. Note that you can, and should, still create private components. It's a great way to keep duplicated code visible, as well as good practice for fine-tuning the component's API
+In React, components are abstractions, so you should hold off *sharing* a component until there are similar components in three different places. Note that you can, and should, still create private components. It's a great way to keep duplicated code visible, as well as good practice for fine-tuning the component's API.
 
 ## What now?
 
