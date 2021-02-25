@@ -38,7 +38,7 @@ Using a single entity to manage events makes this approach act like a browser-na
 
 ## Example time!
 
-I've build an [example app](https://stackblitz.com/edit/react-zqp3ot?file=src%2FApp.js) with [Create React App](https://create-react-app.dev) to illustrate this. The `App` component includes a modal built with [React Modal](https://github.com/reactjs/react-modal):
+I've built an [example app](https://stackblitz.com/edit/react-zqp3ot?file=src%2FApp.js) with [Create React App](https://create-react-app.dev) to illustrate this. The `App` component includes a modal built with [React Modal](https://github.com/reactjs/react-modal):
 
 ```jsx
 // App.js
