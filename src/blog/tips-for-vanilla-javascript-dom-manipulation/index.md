@@ -100,7 +100,7 @@ The `createRange` method returns a `Range`, which is a representation of a slive
 
 The DOM API is tricky because just observing certain node properties can trigger page layout. Doing this multiple times in a row can be a performance problem. Doing this inside a loop can cause [layout thrashing](https://developers.google.com/web/fundamentals/performance/rendering/avoid-large-complex-layouts-and-layout-thrashing) (trust me, it's as bad as it sounds).
 
-You'll want to be aware of what DOM properties cause the browser to trigger layout, so you need to get to memorizing. Or you could simply bookmark this convent [list of properties that cause layout](https://gist.github.com/paulirish/5d52fb081b3570c81e3a).
+You'll want to be aware of what DOM properties cause the browser to trigger layout, so you need to get to memorizing. Or you could simply bookmark this convenient [list of properties that cause layout](https://gist.github.com/paulirish/5d52fb081b3570c81e3a).
 
 ## This is only scratching the proverbial surface
 
