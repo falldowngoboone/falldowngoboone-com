@@ -54,26 +54,7 @@ module.exports = function (eleventyConfig) {
   });
 
   addFilters(eleventyConfig);
-
-  eleventyConfig.addShortcode('readingTime', function (content) {
-    const minutes = Math.round(readingTime(content).minutes);
-    return isNaN(minutes)
-      ? EMPTY
-      : `${minutes} minute${minutes > 1 ? 's' : ''}`;
-  });
-
-  eleventyConfig.addShortcode('tagLink', function (tag) {
-    const urlify = eleventyConfig.getFilter('url');
-    const tagUrl = `/tags/${tag}`;
-
-    return `<a class="c-tag-link" href="${urlify(
-      tagUrl
-    )}"><span class="o-visually-hidden">Posts tagged </span>${tag}</a>`;
-  });
-
-  eleventyConfig.addShortcode('uid', function () {
-    return String(id++);
-  });
+  addShortcodes(eleventyConfig);
 
   return {
     dir: {
@@ -134,6 +115,28 @@ function addFilters(eleventyConfig) {
     });
 
     return `${excerpt.replace(endPunctuation, '')}...`;
+  });
+}
+
+function addShortcodes(eleventyConfig) {
+  eleventyConfig.addShortcode('readingTime', function (content) {
+    const minutes = Math.round(readingTime(content).minutes);
+    return isNaN(minutes)
+      ? EMPTY
+      : `${minutes} minute${minutes > 1 ? 's' : ''}`;
+  });
+
+  eleventyConfig.addShortcode('tagLink', function (tag) {
+    const urlify = eleventyConfig.getFilter('url');
+    const tagUrl = `/tags/${tag}`;
+
+    return `<a class="c-tag-link" href="${urlify(
+      tagUrl
+    )}"><span class="o-visually-hidden">Posts tagged </span>${tag}</a>`;
+  });
+
+  eleventyConfig.addShortcode('uid', function () {
+    return String(id++);
   });
 }
 
