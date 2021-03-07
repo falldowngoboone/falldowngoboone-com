@@ -86,6 +86,9 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
 }
 
 *,
@@ -106,6 +109,10 @@ video {
 
 iframe {
   border: 0;
+}
+
+sub, sup {
+  line-height: 1;
 }
 
 table {
