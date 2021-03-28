@@ -18,7 +18,7 @@ The answer is to create a single source of truth by sharing values between the J
 
 ICSS is a low-level specification that's mainly for loader authors. It describes how to treat CSS modules as JavaScript dependencies and introduces the `:export` directive to act as a way to export defined values. Coupled with Sass variables, it allows you to export theme values:
 
-```sass
+```scss
 // colors.module.scss
 // assuming this is within Create React App; the `.module` lets CRA know
 // this is a CSS Module
@@ -74,7 +74,7 @@ module.exports = {
 
 CSS Modules also offers [the `@value` directive](https://github.com/css-modules/postcss-modules-values), which explicitly defines module values. `@value` can also be used to import values from other CSS modules. It's a catchall solution for passing values to and from CSS modules to anywhere.
 
-```sass
+```scss
 // breakpoints.module.css
 
 @value larry: (max-width: 599px);

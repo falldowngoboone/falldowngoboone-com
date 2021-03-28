@@ -38,7 +38,7 @@ If you can't find any standards, here's a great article on [how to write commit 
 
 And here's an example commit following these guidelines:
 
-```
+```plain
 Add new awesome feature
 
 Use this space for anything that needs further explanation. You can 
@@ -64,7 +64,7 @@ Pull requests should be kept short. If they can't be kept short, use atomic comm
 
 Let's imagine we need to add a new form to a project that uses existing logic. The commit history might look something like this:
 
-```
+```plain
 Reformat file to match standards
 Refactor variable names for readability
 Refactor form submission to extract logic

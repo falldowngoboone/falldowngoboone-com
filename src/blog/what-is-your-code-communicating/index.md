@@ -17,7 +17,7 @@ Let's look at an example in [Sass](https://sass-lang.com). If you're unfamiliar 
 
 Imagine you come across this style in a code review:
 
-```sass
+```scss
 .subheading-2 {
   font-size: 1.5rem;
   font-weight: bold;
@@ -34,7 +34,7 @@ You can probably figure out what that line is doing, but it's an unnecessary spe
 
 Let's try making that `margin-top` a bit more readable:
 
-```sass
+```scss
 .subheading-2 {
   font-size: 1.5rem;
   font-weight: bold;
@@ -47,7 +47,7 @@ You are less likely to get any questions about that. But I'm still bothered by o
 
 What I want to do is communicate that, at the effective font size of `24px` (`1.5rem`), the `margin-top` should be `20px`. You might be tempted to communicate this in a comment, which is easy to do in Sass:
 
-```sass
+```scss
 .subheading-2 {
   font-size: 1.5rem;
   font-weight: bold;
@@ -65,7 +65,7 @@ If you find yourself writing comments like this, a good rule of thumb is to use 
 
 Let's incorporate our new `em` function into our style:
 
-```sass
+```scss
 .subheading-2 {
   font-size: rem($px: 24);
   font-weight: bold;
