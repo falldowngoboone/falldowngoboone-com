@@ -65,7 +65,7 @@ Also, I don't know what you're up to with all those `aria` attributes, but I kno
 
 Remember when you coded up that swanky dropdown menu that faded in and out? Yeah, that was slick! Remember the CSS you used?
 
-```sass
+```scss
 .dropdown-panel {
 	opacity: 0;
 	transition: opacity 200ms;

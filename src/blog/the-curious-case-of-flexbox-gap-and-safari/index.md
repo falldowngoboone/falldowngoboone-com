@@ -9,7 +9,7 @@ tags:
 
 The `gap` property was first introduced to add inner grid spacing but was extended in the spec to work with flexbox. With one line of code, you can replace something like this:
 
-```sass
+```scss
 .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +23,7 @@ The `gap` property was first introduced to add inner grid spacing but was extend
 
 with this:
 
-```sass
+```scss
 .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -34,7 +34,7 @@ with this:
 
 That's nice, but Safari doesn't support `gap` in flexbox just yet. Normally I'd just reach for `@supports`:
 
-```sass
+```scss
 .flex-container {
   display: flex;
   flex-wrap: wrap;
