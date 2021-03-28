@@ -5,6 +5,7 @@ const EMPTY = require('./src/_data/empty');
 const markdownIt = require('markdown-it');
 const markdownItAttrs = require('markdown-it-attrs');
 const markdownItFootnote = require('markdown-it-footnote');
+const markdownItPrism = require('markdown-it-prism');
 
 let id = 0;
 
@@ -70,7 +71,8 @@ function configureMarkdownLib(eleventyConfig) {
   };
   const customMarkdown = markdownIt(options)
     .use(markdownItAttrs)
-    .use(markdownItFootnote);
+    .use(markdownItFootnote)
+    .use(markdownItPrism);
 
   eleventyConfig.setLibrary('md', customMarkdown);
 }
