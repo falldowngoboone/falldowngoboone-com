@@ -78,7 +78,7 @@ You might want to style your error state to draw more attention to fields with i
 /* login.css */
 
 input:invalid {
-  border-color: hsl(351, 100%, 27%); /* hsl is so hot right now */
+  border-color: hsl(351, 100%, 27%);
 }
 ```
 
