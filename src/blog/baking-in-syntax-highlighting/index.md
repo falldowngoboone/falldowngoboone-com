@@ -1,7 +1,10 @@
 ---
 title: Baking in syntax highlighting
 date: 2021-04-01
-tags: eleventy, javascript, personal
+tags: 
+  - eleventy
+  - javascript
+  - personal
 ---
 
 Another runtime dependency bites the dust. My ongoing work of [designing and building this blog](https://www.falldowngoboone.com/blog/how-im-redesigning-my-blog/) continues with moving syntax highlighting from the client-side to [Eleventy's syntax highlighting plugin](https://www.11ty.dev/docs/plugins/syntaxhighlight/):
