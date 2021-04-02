@@ -50,23 +50,26 @@ eleventyComputed:
     {{ content | safe }}
     <aside class="c-post__aside">
       {% set postUrl %}
-        {{ site.url}}{{ page.url | url }}
+        {{- site.url -}}{{- page.url | url -}}
       {% endset %}
       <p>
         <a target="_blank" rel="noopener noreferrer"
-          href="https://mobile.twitter.com/search?q={{ postUrl | encodeUriComponent }}">Discuss on Twitter</a>
+          href="https://mobile.twitter.com/search?q={{- postUrl | encodeUriComponent -}}">Discuss on Twitter</a>
         <span aria-hidden="true">•</span>
-        <a href="https://github.com/falldowngoboone/falldowngoboone-com/blob/master/{{ page.inputPath | url }}">Edit
-          post on GitHub</a>
+        <a target="_blank" rel="noopener noreferrer"
+          href="https://github.com/falldowngoboone/falldowngoboone-com/blob/main/{{- page.inputPath | url -}}">
+          Edit post on GitHub</a>
       </p>
       <p>
         Share:
         <a target="_blank" rel="noopener noreferrer"
-          href="https://twitter.com/intent/tweet?text={{ title | encodeUriComponent }}&url={{ postUrl | encodeUriComponent }}&via=therealboone">Twitter</a>
+          href="https://twitter.com/intent/tweet?text={{- title | encodeUriComponent -}}&url={{- postUrl | encodeUriComponent -}}&via=therealboone">
+          Twitter</a>
 
         <span aria-hidden="true">•</span>
         <a target="_blank" rel="noopener noreferrer"
-          href="https://www.linkedin.com/shareArticle?url={{ postUrl | encodeUriComponent }}&title={{ title | encodeUriComponent }}">LinkedIn</a>
+          href="https://www.linkedin.com/shareArticle?url={{- postUrl | encodeUriComponent -}}&title={{- title | encodeUriComponent -}}">
+          LinkedIn</a>
       </p>
     </aside>
   </div>
