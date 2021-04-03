@@ -2,6 +2,7 @@ const fs = require('fs');
 const { DateTime } = require('luxon');
 const readingTime = require('reading-time');
 const EMPTY = require('./src/_data/empty');
+const rss = require('@11ty/eleventy-plugin-rss');
 const syntaxHighlighting = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
 const markdownItAttrs = require('markdown-it-attrs');
@@ -36,6 +37,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/**/*.(png|jpg|jpeg|gif)');
   eleventyConfig.addPassthroughCopy('src/js');
 
+  eleventyConfig.addPlugin(rss);
   eleventyConfig.addPlugin(syntaxHighlighting);
 
   eleventyConfig.addCollection('tagList', function (collection) {
