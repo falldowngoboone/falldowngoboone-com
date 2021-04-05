@@ -223,7 +223,7 @@ If you need a lightweight, "proper" way to share variables between JavaScript an
   --color-secondary: #005DAB;
 }
 ```
-
+{% raw %}
 ```jsx
 import * as React from 'react';
 
@@ -234,6 +234,7 @@ function MyComponent() {
   return <p style={{ color: brandColor }}>I'm brand color!</p>
 }
 ```
+{% endraw %}
 
 If you access these properties a lot, you may want to create a utility function to save on typing:
 
