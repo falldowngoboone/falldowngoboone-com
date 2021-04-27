@@ -1,0 +1,13 @@
+<footer class="c-post__footer">
+  <p>
+    <a href="https://github.com/falldowngoboone/falldowngoboone-com/blob/main/{{- page.inputPath | url -}}">Edit this post on GitHub</a>
+  </p>
+  <p>
+    {% set displayTags = tags | displayTags %}
+    {% for tag in displayTags %}
+      {% tagLink tag %}
+      {%- if not loop.last -%},
+      {%- endif -%}
+    {% endfor %}
+  </p>
+</footer>

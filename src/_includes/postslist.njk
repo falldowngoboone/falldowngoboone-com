@@ -1,41 +1,48 @@
-{% if not postslistCounter %} {% set postslistCounter = postslist | length %}
+{% if not postslistCounter %}
+  {% set postslistCounter = postslist | length %}
 {% endif %}
-
 {% set headingEl %}{{ headingLevel | default("h2") }}{% endset %}
-<div class="c-postlist">
+<div>
   {% for post in postslist | reverse %}
-  <article class="c-postlist__item o-stack">
-    <{{ headingEl }}>
-      {%- if post.data.title -%}{{ post.data.title }}{%- else -%}
-      <code>{{ post.url }}</code>
-      {%- endif -%}
-    </{{ headingEl }}>
-    <p>
-      {{ post.templateContent | striptags | toExcerpt }} <a href="{{ post.url | url }}">Read more <span
-          class="o-visually-hidden">of {{ post.data.title }}</span></a>
-    </p>
-    <footer class="o-cluster">
+    <article class="o-stack">
+      <{{headingEl}}>
+        {%- if post.data.title -%}
+          {{ post.data.title }}
+        {%- else -%}
+          <code>{{ post.url }}</code>
+        {%- endif -%}
+      </{{headingEl}}>
       <p>
-        <b>Published:</b>
-        <time datetime="{{ post.date | htmlDateString }}">
-          {{ post.date | readableDate }}
-        </time>
-        {% if post.data.updated %} | <b>Last updated:</b>
-        <time datetime="{{ post.data.updated | htmlDateString }}">
-          {{ post.data.updated | readableDate }}
-        </time>
-        {% endif %}
+        {{ post.templateContent | striptags | toExcerpt }}
+        <a href="{{ post.url | url }}">Read more
+          <span class="o-visually-hidden">of
+            {{ post.data.title }}</span>
+        </a>
       </p>
-      {% set tagId %}taglist-label-{% uid %}{% endset %}
-      <span id="{{ tagId }}" hidden>Tags</span>
-      <ul class="o-cluster" aria-labelledby="{{ tagId }}">
-        {% for tag in post.data.tags %} 
-          {% if collections.tagList.indexOf(tag) != -1 %}
-          <li>{% tagLink tag %}</li>
+      <footer class="o-cluster">
+        <p>
+          <b>Published:</b>
+          <time datetime="{{ post.date | htmlDateString }}">
+            {{ post.date | readableDate }}
+          </time>
+          {% if post.data.updated %}
+            |
+            <b>Last updated:</b>
+            <time datetime="{{ post.data.updated | htmlDateString }}">
+              {{ post.data.updated | readableDate }}
+            </time>
           {% endif %}
-        {% endfor %}
-      </ul>
-    </footer>
-  </article>
+        </p>
+        {% set tagId %}taglist-label-{% uid %}{% endset %}
+        <span id="{{ tagId }}" hidden="hidden">Tags</span>
+        <ul class="o-cluster" aria-labelledby="{{ tagId }}">
+          {% for tag in post.data.tags %}
+            {% if collections.tagList.indexOf(tag) != -1 %}
+              <li>{% tagLink tag %}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </footer>
+    </article>
   {% endfor %}
 </div>

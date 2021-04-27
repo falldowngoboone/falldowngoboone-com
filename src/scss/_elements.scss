@@ -1,32 +1,15 @@
 @use 'settings' as *;
+@use 'tools' as t;
 
 html {
   font-family: $font-body;
+  font-size: 17 / 16 * 100%;
   line-height: 1.5;
   color: var(--color-main);
   background: var(--color-bg, white);
 
-  @media screen and (min-width: 1200px) {
-    font-size: 112.5%;
-  }
-}
-
-body {
-  @media screen and (min-width: 660px) {
-    $bar-width: min(1vw, 0.5rem);
-
-    margin-left: $bar-width;
-
-    &::before {
-      content: '';
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      width: $bar-width;
-      background: $gradient-fun no-repeat;
-    }
+  @include t.md-up {
+    font-size: 18 / 16 * 100%;
   }
 }
 
@@ -40,50 +23,51 @@ a:hover {
 
 a:not([class]) {
   color: var(--link-color);
-
-  &:hover {
-    color: var(--link-color);
-
-    background: linear-gradient(-40deg, rgba(#ce0bff, 0), #ce0bff 120%),
-      linear-gradient(#00ff84, #0be2ff);
-    background-size: 400% 400%;
-    animation: o-background-slide 5s ease infinite;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-  }
 }
 
 h1,
 h2,
 h3 {
   font-family: $font-display;
-  font-weight: 700;
-  line-height: 1.125;
+  font-weight: 900;
 }
 
 h1 {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: 36 / 17 * 1rem;
+  line-height: 2.25rem;
   color: var(--title-color);
+
+  @include t.md-up {
+    font-size: 49 / 18 * 1rem;
+    line-height: 3rem;
+  }
+
+  @include t.lg-up {
+    font-size: 57 / 18 * 1rem;
+    line-height: 3.75rem;
+  }
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 24 / 17 * 1rem;
+  line-height: 1.5rem;
+
+  @include t.md-up {
+    font-size: 32 / 18 * 1rem;
+    line-height: 2.25rem;
+  }
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 21 / 17 * 1rem;
+  line-height: 1.5rem;
+
+  @include t.md-up {
+    font-size: 24 / 18 * 1rem;
+  }
 }
 
-h2 + *:not(h3),
-h3 + * {
-  --space: 0.5em;
-  margin-top: var(--space);
-}
-
-code:not([class]) {
+code:not(pre code) {
   background-color: var(--code-bg);
   color: var(--code-color);
   font-family: $font-mono;

@@ -34,7 +34,9 @@ module.exports = function (eleventyConfig) {
   configureMarkdownLib(eleventyConfig);
 
   eleventyConfig.addPassthroughCopy('src/fonts');
-  eleventyConfig.addPassthroughCopy('src/**/*.(png|jpg|jpeg|gif)');
+  eleventyConfig.addPassthroughCopy(
+    'src/**/*.(png|jpg|jpeg|gif|svg|webp|avif)'
+  );
   eleventyConfig.addPassthroughCopy('src/js');
 
   eleventyConfig.addPlugin(rss);
@@ -126,9 +128,7 @@ function addFilters(eleventyConfig) {
 function addShortcodes(eleventyConfig) {
   eleventyConfig.addShortcode('readingTime', function (content) {
     const minutes = Math.round(readingTime(content).minutes);
-    return isNaN(minutes)
-      ? EMPTY
-      : `${minutes} minute${minutes > 1 ? 's' : ''}`;
+    return isNaN(minutes) ? EMPTY : `${minutes} min read`;
   });
 
   eleventyConfig.addShortcode('tagLink', function (tag) {

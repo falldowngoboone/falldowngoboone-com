@@ -1,13 +1,20 @@
-@use 'settings' as *;
+@use 'tools' as t;
 
 .c-header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: clamp(
-      $s-3,
-      calc(24px + (104 - 24) * (100vw - 660px) / (1680 - 660)),
-      $s-6
-    )
-    0;
+  padding: 1rem 0;
+
+  @include t.md-up {
+    padding: 2rem 0;
+  }
+
+  @include t.lg-up {
+    padding: 3rem 0;
+  }
+}
+
+.c-header__branding {
+  height: 3rem;
 }

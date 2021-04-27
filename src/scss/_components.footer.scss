@@ -1,29 +1,27 @@
 @use 'settings' as *;
-@use 'tools' as fn;
+@use 'tools' as t;
 
 .c-footer {
-  $px: clamp($s-1, 2.4vw, $s-4);
-  $mt: clamp(
-    2 * $s-3,
-    calc(48px + (208 - 48) * (100vw - 660px) / (1200 - 660)),
-    2 * $s-6
-  );
   --link-color: var(--color-secondary);
 
   color: var(--color-secondary);
-  background-color: var(--color-bg-secondary);
-  margin: $mt fn.neg($px) 0;
-  padding: $s-4 $px;
+  padding: 1rem 0;
 
-  &__inner {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+  @include t.md-up {
+    padding: 2rem 0;
   }
 
-  &__copyright {
-    margin-right: 1em;
+  @include t.lg-up {
+    padding: 3rem 0;
   }
+}
+
+.c-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.c-footer__copyright {
+  margin-right: 1em;
 }
