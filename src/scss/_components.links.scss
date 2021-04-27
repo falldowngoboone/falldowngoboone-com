@@ -9,12 +9,13 @@
 }
 
 .c-tag-link {
+  // font-size: calc(14 / 16 * 1em);
   color: $color-black;
-  text-decoration: none;
-  display: inline-block;
-  border: 2px solid;
-  border-radius: 999px;
-  padding: 0 0.5em;
+  // text-decoration: none;
+  // display: inline-block;
+  // border: 2px solid;
+  // border-radius: 999px;
+  // padding: 0 0.5em;
 
   &:hover,
   &:focus {

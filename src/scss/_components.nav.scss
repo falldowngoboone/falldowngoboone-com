@@ -1,12 +1,12 @@
 @use 'settings' as *;
-@use 'tools' as fn;
+@use 'tools' as t;
 
 .c-nav {
   --link-padding: 0.5em;
   --link-color: var(--color-main);
 
   display: flex;
-  margin: 0 fn.neg(var(--link-padding));
+  margin: 0 t.neg(var(--link-padding));
   font-family: $font-display;
 
   & a {

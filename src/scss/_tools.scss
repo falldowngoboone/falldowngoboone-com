@@ -1,3 +1,62 @@
+@use 'sass:list';
+@use './settings' as *;
+
 @function neg($val) {
   @return calc(#{$val} * -1);
+}
+
+@mixin md-up {
+  @media screen and (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin lg-up {
+  @media screen and (min-width: 1035px) {
+    @content;
+  }
+}
+
+@mixin text-1() {
+  font-size: 28px;
+  line-height: 36px;
+}
+
+@mixin text-2() {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+@mixin text-3() {
+  font-size: 21px;
+  line-height: 28px;
+}
+
+@mixin text-4() {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+@mixin text-5() {
+  font-size: 14px;
+  line-height: 28px;
+  text-transform: uppercase;
+  letter-spacing: 0.7em;
+}
+
+@mixin text-6() {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@function em($px, $context: $base-font-size) {
+  @return $px / $context * 1em;
+}
+
+@function rem($px) {
+  @return $px / $base-font-size * 1rem;
+}
+
+@function lh($lines: 1) {
+  @return $base-line-height * $lines;
 }

@@ -65,6 +65,14 @@
 @import url('//hello.myfonts.net/count/3b70e3');
 
 @font-face {
+  font-family: 'Recoleta';
+  src: url('/fonts/RecoletaBlack.woff2') format('woff2'),
+    url('/fonts/RecoletaBlack.woff') format('woff');
+  font-display: swap;
+  font-weight: 900;
+}
+
+@font-face {
   font-family: 'Rotunda';
   src: url('/fonts/Rotunda.woff2') format('woff2'),
     url('/fonts/Rotunda.woff') format('woff');

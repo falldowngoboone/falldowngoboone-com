@@ -1,0 +1,14 @@
+<header class="c-post__header">
+  <h1>{{ displayTitle | default(title) }}</h1>
+  {% if lede %}
+    <p class="c-post__lede">{{ lede }}</p>
+  {% endif %}
+  <ul class="c-post__meta">
+    <li>{{ time }}</li>
+    <li>
+      <time datetime="{{ post.date | default(page.date) | htmlDateString }}">
+        {{ post.date | default(page.date) | readableDate('dd LLL yyyy') }}
+      </time>
+    </li>
+  </ul>
+</header>

@@ -1,54 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ title | default(site.title) }} | {{ site.branding }}</title>
-  <meta name="description" content="{{ description | default(site.description) }}" />
-  {% include "analytics.njk" %}
-  <link rel="stylesheet" href="/css/global.css" />
-  {{ headContent | safe }}
-</head>
-
-<body>
-  <div class="o-page">
-    <header class="c-header">
-      <a class="o-visible-on-focus c-skip-link" href="#main">
-        Skip to main content
-      </a>
-      <a href="/">
-        <picture>
-          <source srcset="/images/logo.png 2x" media="(min-width: 660px)" />
-          <img srcset="/images/logo-sm.png 2x" src="/images/logo-sm.png" alt="falldowngoboone" />
-        </picture>
-      </a>
-    </header>
-    <main{% if containerClass %} class="{{containerClass}}"{% endif %} id="main">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{{ title | default(site.title) }}{{" "}}|{{" "}}{{ site.branding }}</title>
+    <meta name="description" content="{{ description | default(site.description) }}"/>
+    {% include "analytics.njk" %}
+    <link rel="stylesheet" href="/css/global.css"/>
+    {{ headContent | safe }}
+  </head>
+  <body class="l-page">
+    {% include "c-header.njk" %}
+    <main class="o-stack{% if containerClass %} {{containerClass}}{% endif %}" id="main">
       {{ content | safe }}
     </main>
-    <footer class="c-footer">
-      <div class="c-footer__inner">
-        <p class="c-footer__copyright">© {{ currentYear }} Ryan Boone.</p>
-        <ul class="o-cluster">
-          <li>
-            <a href="https://twitter.com/therealboone">Twitter</a>
-          </li>
-          <li>
-            <a href="https://github.com/falldowngoboone">GitHub</a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/ryan-boone-320bbb30/">
-              LinkedIn
-            </a>
-          </li>
-          <li><a href="https://codepen.io/falldowngoboone">CodePen</a></li>
-        </ul>
-      </div>
-    </footer>
-  </div>
-
-  {{ scriptContent | safe }}
-</body>
-
+    {% include "c-footer.njk" %}
+    {{ scriptContent | safe }}
+  </body>
 </html>

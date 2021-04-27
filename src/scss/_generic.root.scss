@@ -1,16 +1,36 @@
+@use 'sass:math';
 @use 'settings' as *;
+@use 'tools' as t;
 
 :root {
+  --scale: #{$scale};
+  --t-base: 1rem;
+  --lh-base: 1.5rem;
+
   --color-main: #{$color-black};
   --color-secondary: #{$color-gray-700};
   --color-bg: white;
   --color-bg-secondary: #{$color-gray-200};
   --color-border: #{$color-gray-500};
 
-  --link-color: #{$color-purple};
+  --link-color: #{$color-fuchsia};
   --title-color: #{$color-purple};
 
   --code-bg: #fffafb;
   --code-color: #e2003a;
   --code-border: #ffe7ed;
+
+  --t-3: var(--t-base);
+
+  --t-2: calc(var(--t-3) / var(--scale));
+  --t-1: calc(var(--t-2) / var(--scale));
+
+  --t-4: calc(var(--t-3 * var(--scale)));
+  --t-5: calc(var(--t-4 * var(--scale)));
+  --t-6: calc(var(--t-5 * var(--scale)));
+  --t-7: calc(var(--t-6 * var(--scale)));
+
+  @include t.md-up {
+    --scale: #{$scale-md-up};
+  }
 }
