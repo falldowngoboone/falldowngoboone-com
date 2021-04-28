@@ -1,11 +1,13 @@
 ---
 title: The curious case of flexbox gap and Safari
-date: 2021-02-17
+date: 2021-04-28
 tags: 
   - blogruary
   - career
   - css
 ---
+
+**Update at the end**
 
 The `gap` property was first introduced to add inner grid spacing but was extended in the spec to work with flexbox. With one line of code, you can replace something like this:
 
@@ -61,3 +63,9 @@ I will probably wait until Safari supports flexbox gap in the latest two version
 If you want to read more about the flexbox gap issue, [check out this post from Ahmad Shadeed](https://ishadeed.com/article/flexbox-gap/). And if you found this post helpful, please like it on Dev Community and [let me know on Twitter](https://twitter.com/therealboone).
 
 Until tomorrow!
+
+## Update
+
+As of Safari 14.1, [flex gap is now supported](https://caniuse.com/?search=gap)! This brings me one step closer to replacing my object styles that do the same thing. I typically wait until something is supported in the last two versions of the evergreen browsers (or can be worked around).
+
+I would still love to have a way to use `@supports`, but I'll take what I can get. Anyway, happy coding!
