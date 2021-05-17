@@ -143,6 +143,17 @@ function addShortcodes(eleventyConfig) {
   eleventyConfig.addShortcode('uid', function () {
     return String(id++);
   });
+
+  eleventyConfig.addShortcode('codepen', function (id, height = 450) {
+    if (!id) return;
+
+    return `<p class="codepen" data-height="${height}" data-theme-id="dark" data-default-tab="html,result" data-user="falldowngoboone" data-slug-hash="${id}" style="height: ${height}px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Details">
+  <span>See the Pen <a href="https://codepen.io/falldowngoboone/pen/${id}">
+  Details</a> by Ryan Boone (<a href="https://codepen.io/falldowngoboone">@falldowngoboone</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>`;
+  });
 }
 
 function isDisplayTag(item) {
