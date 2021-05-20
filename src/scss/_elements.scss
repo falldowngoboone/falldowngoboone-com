@@ -30,12 +30,13 @@ h2,
 h3 {
   font-family: $font-display;
   font-weight: 900;
+  color: var(--color-subheading);
 }
 
 h1 {
   font-size: 36 / 17 * 1rem;
   line-height: 2.25rem;
-  color: var(--title-color);
+  color: var(--color-heading);
 
   @include t.md-up {
     font-size: 49 / 18 * 1rem;
