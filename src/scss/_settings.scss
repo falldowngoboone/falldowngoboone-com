@@ -13,13 +13,15 @@ $s-4: 2.5rem;
 $s-5: 4rem;
 $s-6: 6.5rem;
 
+$color-blue-900: #112537;
 $color-purple: #6f00ff;
 $color-fuchsia: #df0036;
 $color-white: #fff;
-$color-black: #282520;
 $color-gray-200: #f4f4f4;
 $color-gray-500: #d4d3d2;
 $color-gray-700: #73716e;
+$color-gray-900: #282520;
+$color-black: $color-gray-900;
 
 $font-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
   Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
