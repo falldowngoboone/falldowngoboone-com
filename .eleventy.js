@@ -5,6 +5,7 @@ const EMPTY = require('./src/_data/empty');
 const rss = require('@11ty/eleventy-plugin-rss');
 const syntaxHighlighting = require('@11ty/eleventy-plugin-syntaxhighlight');
 const markdownIt = require('markdown-it');
+const markdownItAnchor = require('markdown-it-anchor');
 const markdownItAttrs = require('markdown-it-attrs');
 const markdownItFootnote = require('markdown-it-footnote');
 
@@ -77,7 +78,18 @@ function configureMarkdownLib(eleventyConfig) {
   };
   const customMarkdown = markdownIt(options)
     .use(markdownItAttrs)
-    .use(markdownItFootnote);
+    .use(markdownItFootnote)
+    .use(markdownItAnchor, {
+      permalink: true,
+      permalinkAttrs: (slug) => ({
+        'aria-label': 'permalink',
+        'aria-describedby': slug,
+      }),
+      permalinkClass: 'c-anchor-link',
+      permalinkSpace: false,
+      permalinkSymbol:
+        '<svg aria-hidden="true" focusable="false"><use href="#icon-link" xlink:href="#icon-link"></use></svg>',
+    });
 
   eleventyConfig.setLibrary('md', customMarkdown);
 }

@@ -71,12 +71,23 @@
     margin-top: 1.5rem;
   }
 
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    position: relative; // used for positioning anchor links
+    padding-right: 1.4rem;
+  }
+
   h2 {
     margin-top: 2.25rem;
+    scroll-margin-top: 2.25rem;
   }
 
   h3 {
     margin-top: 1.5rem;
+    scroll-margin-top: 1.5rem;
   }
 
   h3 + * {
