@@ -1,24 +1,41 @@
 @use 'settings' as *;
+@use 'tools' as t;
 
 .c-skip-link {
   display: block;
   padding: $s-2;
+  margin: $s-2;
   background-color: $color-purple;
   color: $color-white;
   border-radius: 0.25rem;
 }
 
 .c-tag-link {
-  // font-size: calc(14 / 16 * 1em);
   color: $color-black;
-  // text-decoration: none;
-  // display: inline-block;
-  // border: 2px solid;
-  // border-radius: 999px;
-  // padding: 0 0.5em;
 
   &:hover,
   &:focus {
     color: $color-purple;
+  }
+}
+
+.c-anchor-link {
+  position: absolute;
+  color: currentColor;
+  right: 0;
+  opacity: 0.6;
+
+  @include t.md-up {
+    left: -1.4rem;
+    right: auto;
+  }
+
+  svg {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  &:hover {
+    opacity: 1;
   }
 }
