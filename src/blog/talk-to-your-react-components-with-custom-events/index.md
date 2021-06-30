@@ -141,14 +141,19 @@ Finally, we'll listen for that event inside the `App` component and set the `isO
 ```jsx
 import * as React from "react";
 import Modal from "react-modal";
-import { on } from "./events";
+import { off, on } from "./events";
 import "./style.css";
 
 export default function App() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const openModal = React.useState(() => () => setIsOpen(true));
 
   React.useEffect(() => {
-    on("openButton:click", () => setIsOpen(true));
+    on("openButton:click", openModal);
+    
+    return () => {
+      off("openButton:click", openModal);
+    }
   });
 
   function closeModal() {
