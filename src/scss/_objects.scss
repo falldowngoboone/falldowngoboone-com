@@ -48,15 +48,22 @@
 }
 
 .l-page {
+  --page-row-gap: 1em;
+  --page-col-gap: 1em;
+
   display: grid;
   grid-template-columns: 1fr minmax(0, 1034px) 1fr;
-  gap: 1em;
+  row-gap: var(--page-row-gap);
+  column-gap: var(--page-col-gap);
 
   & > * {
     grid-column: 2 / 3;
   }
 
   @include t.md-up {
+    --page-row-gap: 2em;
+    --page-col-gap: 1.5em;
+
     row-gap: 2em;
     column-gap: 1.5em;
   }

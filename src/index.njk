@@ -1,16 +1,19 @@
 ---
-layout: page
+layout: default
 title: Home
 displayTitle: Full-stack front end development
 ---
 
-<p>
-  Hi, I’m Ryan Boone. I’m a web developer and designer from Texas with a
-  passion for open, accessible front end development. I love exploring new
-  ideas and sharing the lessons I’ve learned along the way with others. If you
-  want to work with me, book me for a speaking engagement, or just want to
-  talk shop, <a href="https://twitter.com/therealboone">drop me a line</a>!
-</p>
+<header class="c-hero o-stack">
+  {% include "c-page-title.njk" %}
+  <p>
+    Hi, I’m Ryan Boone. I’m a web developer and designer from Texas with a
+    passion for open, accessible front end development. I love exploring new
+    ideas and sharing the lessons I’ve learned along the way with others. If you
+    want to work with me, book me for a speaking engagement, or just want to
+    talk shop, <a href="https://twitter.com/therealboone">drop me a line</a>!
+  </p>
+</header>
 {% if collections.post %}
 <div class="o-stack l-content">
   <h2>All Posts</h2>
