@@ -1,5 +1,5 @@
 <header class="c-post__header">
-  <h1>{{ displayTitle | default(title) }}</h1>
+  {% include "c-page-title.njk" %}
   {% if lede %}
     <p class="c-post__lede">{{ lede }}</p>
   {% endif %}

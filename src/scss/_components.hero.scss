@@ -1,0 +1,17 @@
+.c-hero {
+  padding: 0 var(--page-col-gap) 27em;
+  margin-left: calc(-1 * var(--page-col-gap));
+  margin-right: calc(-1 * var(--page-col-gap));
+  background: url('/images/hero-light.jpg') no-repeat;
+  background-position: left -1em bottom -17.5em;
+  background-size: calc(1088 / 18 * 1rem);
+  min-height: 40.5em;
+
+  h1 {
+    max-width: calc(660 / 18 * 1rem);
+  }
+
+  p {
+    max-width: calc(455 / 18 * 1rem);
+  }
+}

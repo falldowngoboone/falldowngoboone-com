@@ -8,5 +8,5 @@ eleventyComputed:
     {{ scriptContent }}
 ---
 
-<h1>{{ displayTitle | default(title) }}</h1>
+{% include "c-page-title.njk" %}
 {{ content | safe }}
