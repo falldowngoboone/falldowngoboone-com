@@ -11,6 +11,8 @@ tags:
 
 The `gap` property was first introduced to add inner grid spacing but was extended in the spec to work with flexbox. With one line of code, you can replace something like this:
 
+---
+
 ```scss
 .flex-container {
   display: flex;

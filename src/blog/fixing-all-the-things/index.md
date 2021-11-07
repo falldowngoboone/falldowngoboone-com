@@ -8,6 +8,8 @@ tags:
 
 If you didn't already know, [your CSS can influence screen readers](https://benmyers.dev/blog/css-can-influence-screenreaders/). One of the most surprising things to me was learning that VoiceOver removes list semantics from `ul`s and `ol`s when `list-style-type: none` is applied to them.
 
+---
+
 Turns out, this is actually intended behavior:
 
 > This [not announcing a list for a groups of links when list-style is set to none] was a purposeful change due to rampant "list"-itis by web developers…Basically, if you remove all default visible indication of the list, there is no indication to a sighted user or screen reader user that the content is a list…

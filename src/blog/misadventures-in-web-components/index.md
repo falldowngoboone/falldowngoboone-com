@@ -10,6 +10,8 @@ tags:
 
 I have been thinking about [web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) a lot lately, and I wanted to see how we could start using them at [The Container Store](https://www.containerstore.com/welcome.htm). The idea was to pick a simple component and recreate it as a web component, and the first candidate that came to mind is our frequently-used quantity stepper. The stepper appears in several places throughout the website, and it's dependent on an embarrassing amount of jQuery.
 
+---
+
 Here's my humble first attempt:
 
 {% codepen 'xxgMEax' %}

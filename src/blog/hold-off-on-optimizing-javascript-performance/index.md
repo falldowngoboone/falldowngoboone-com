@@ -9,6 +9,8 @@ tags:
 
 As a developer, I love optimizing performance. Learning efficient algorithms makes me *feel* like a software engineer. But performance is not the only developer concern, nor should it be the first or second. [David K. Piano recently pointed this out on Twitter](https://twitter.com/DavidKPiano/status/1367855571077128196?s=20), offering up a suggested framework:
 
+---
+
 > Make it work<br/>
 > Make it always work<br/>
 > Make it work for everyone<br/>

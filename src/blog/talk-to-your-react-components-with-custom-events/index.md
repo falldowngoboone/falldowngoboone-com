@@ -9,6 +9,8 @@ tags:
 
 I build pages with both React and non-React components, and sometimes all these components need to talk to each other. Examples include opening a React modal when a customer clicks a button or updating a text block when a customer adds a product from a React stepper. There are many ways to do this, but in my opinion, the best way is to use [custom events](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent).
 
+---
+
 ## What are custom events?
 
 Custom events are just like regular browser events (e.g. "click", "keyup", etc.) except they're manually created. You can create a simple synthetic event with a custom type using the [`Event` constructor](https://developer.mozilla.org/en-US/docs/Web/API/Event/Event)[^ie]:

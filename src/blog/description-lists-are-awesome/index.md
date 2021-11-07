@@ -8,6 +8,8 @@ tags:
 
 The [description list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) (`<dl>`) is a magical element that can be used to mark up anything from dictionary entries to recipes. So, what's so special about it?
 
+---
+
 ## It's all relational
 
 The description list, like its cousins the ordered and unordered list, is a list of associated items, meaning all items should be considered related to each other. The big difference is description list items are made up of two parts, a term (`<dt>`) and description (`<dd>`).

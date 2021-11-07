@@ -9,6 +9,8 @@ tags:
 
 As a junior developer, my number one problem was creating premature abstractions. Nowhere was this more evident than my React components.
 
+---
+
 ## It started with an input
 
 I worked on a large project involving several form elements, so as part of bootstrapping on top of Create React App, I created some form components that wrapped around [Formik](https://formik.org/). Here's what the `Input` element looked like in use:

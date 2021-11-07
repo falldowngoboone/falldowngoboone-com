@@ -8,6 +8,8 @@ tags:
 
 I had just made the decision to leave my 15-year career as a designer to become a developer, and I had no idea where to start. The only programming I had ever done was building websites for friends and family. I was completely green.
 
+---
+
 That was six years ago. Now I'm enjoying my fourth year as an Applications Engineer at The Container Store doing fullstack development.
 
 I tell you this because maybe you are thinking about jumping careers and you feel stuck, frustrated, and lost. Maybe you feel like it's never going to happen. Believe me, that's normal.

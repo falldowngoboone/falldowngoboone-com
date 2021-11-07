@@ -9,6 +9,8 @@ tags:
 
 Frontend development is a field that changes daily, and to stay up-to-date, I need a steady source of new information. One way I do this is through newsletters.
 
+---
+
 Here's a list of some of the newsletters I subscribe to for all the latest frontend news:
 
 - [React Status](https://react.statuscode.com) - For, you know, React stuff.

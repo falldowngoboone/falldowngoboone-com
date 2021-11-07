@@ -8,6 +8,8 @@ tags:
 
 *[Atomic Habits](https://jamesclear.com/atomic-habits)* by James Clear is a fantastic read. At its heart, the message of the book is that setting goals is ineffective in the long run. Real, lasting change only comes through building systems—creating the right conditions for doing the right habits.
 
+---
+
 One insight Clear offers is we often mirror the habits of those around us, for better or worse. Understanding that, one of the easiest ways to develop desirable life habits is to join a group that shares your interests and is doing what you want to do.
 
 I intentionally look for groups of people that are learners. I hang out with other developers, attend Meetups (shout out to the [ReactJS Dallas](https://www.meetup.com/ReactJSDallas/)!) and conferences, belong to various Slack and Discord groups, and listen to several programming podcasts. This has helped me develop healthy learning habits and provides an outlet to share what I've learned.

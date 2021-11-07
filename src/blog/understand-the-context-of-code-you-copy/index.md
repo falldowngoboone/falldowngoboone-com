@@ -8,6 +8,8 @@ tags:
 
 If a problem is too difficult to solve on our own, sometimes the only course of action is to search, copy, and paste. It's something all developers have done regardless of their experience level.
 
+---
+
 While there is no shame in copying and pasting code, it can lead to a mess. That's why I have one copy-paste rule that I follow: **understand the context.**
 
 ## A reason for everything

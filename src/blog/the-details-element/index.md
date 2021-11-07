@@ -8,6 +8,8 @@ Tags:
 
 The `details` element is one of my favorite HTML elements. Yes, I have favorite HTML elements. Yes, I know that's weird.
 
+---
+
 ## The Disclosure pattern
 
 So, what does this wonderful element do? Out of the box, it's a way to natively achieve the [disclosure pattern](https://www.w3.org/TR/wai-aria-practices-1.2/#disclosure).

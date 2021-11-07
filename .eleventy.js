@@ -12,9 +12,16 @@ const markdownItFootnote = require('markdown-it-footnote');
 let id = 0;
 
 module.exports = function (eleventyConfig) {
-  // merge all data arrays
+  // merge all data arrays; specifically allows the blog.json tags to merge with
+  // all blog page tags
   eleventyConfig.setDataDeepMerge(true);
 
+  // add excerpts; default separator is `---`
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+  });
+
+  // see https://browsersync.io/docs/options
   eleventyConfig.setBrowserSyncConfig({
     files: '_site/**/*.css', // sync on new CSS files
     ghostMode: false,
@@ -32,7 +39,7 @@ module.exports = function (eleventyConfig) {
     },
   });
 
-  configureMarkdownLib(eleventyConfig);
+  eleventyConfig.setLibrary('md', markdownParser());
 
   eleventyConfig.addPassthroughCopy('src/fonts');
   eleventyConfig.addPassthroughCopy(
@@ -72,11 +79,13 @@ module.exports = function (eleventyConfig) {
   };
 };
 
-function configureMarkdownLib(eleventyConfig) {
+function markdownParser() {
   const options = {
     html: true,
+    linkify: true,
+    typographer: true,
   };
-  const customMarkdown = markdownIt(options)
+  return markdownIt(options)
     .use(markdownItAttrs)
     .use(markdownItFootnote)
     .use(markdownItAnchor, {
@@ -90,8 +99,6 @@ function configureMarkdownLib(eleventyConfig) {
       permalinkSymbol:
         '<svg aria-hidden="true" focusable="false"><use href="#icon-link" xlink:href="#icon-link"></use></svg>',
     });
-
-  eleventyConfig.setLibrary('md', customMarkdown);
 }
 
 function addFilters(eleventyConfig) {
@@ -121,19 +128,8 @@ function addFilters(eleventyConfig) {
     encodeURIComponent(string)
   );
 
-  eleventyConfig.addFilter('toExcerpt', (string) => {
-    const endPunctuation = /([.,\/#!$%\^&\*;:{}=\-_`~()\]\[])+$/g;
-    const words = string.trim().split(' ');
-    let max = false;
-
-    const excerpt = words.reduce((truncated, word) => {
-      const newTruncated = [truncated, word].join(' ').trim();
-      if (newTruncated.length > 140) max = true;
-      if (!max) return newTruncated;
-      return truncated;
-    });
-
-    return `${excerpt.replace(endPunctuation, '')}...`;
+  eleventyConfig.addFilter('markdownToHtml', (md) => {
+    return markdownParser().renderInline(md);
   });
 }
 

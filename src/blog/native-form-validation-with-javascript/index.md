@@ -8,6 +8,8 @@ tags:
 
 You don't need to install a validation library to create rich client-side form validation experiences. HTML5's native client-side form validation is widely-supported and easy to implement, and while its default functionality is limited, the native [Constraint Validation API](https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation) allows for custom behavior with JavaScript.
 
+---
+
 ## Enter the humble login form
 
 Let's build a login form. We'll use an input for email, password, and a submit button:

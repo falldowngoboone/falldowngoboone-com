@@ -14,6 +14,8 @@ tags:
 
 When I first started using React, I learned about [Presentational and Container Components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) from Dan Abramov. This pattern prescribed splitting UI into smart (container) components that encapsulated state and logic, and dumb (presentational) components that simply presented data in a styled manner. In general, the containers were class components that managed state and lifecycle methods, whereas presentational components were stateless function components.
 
+---
+
 ```jsx
 // List.js
 

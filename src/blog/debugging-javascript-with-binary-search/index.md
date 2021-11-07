@@ -9,6 +9,8 @@ tags:
 
 I recently had to debug a problem that existed somewhere in the middle of around 460 lines of JavaScript spaghetti. Debugging was useless because the bug was taking down dev tools! The approach I took was something that I often employ when facing a seemingly impossible task like this.
 
+---
+
 First, let me pull up a chair, sit down in it backwards and type out some words about [binary search](https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search). It's a search pattern that utilizes a divide and conquer algorithm to locate data. 
 
 Let's say you need to look up something located in a huge heap of sorted data. Oh, maybe you're looking up a friend's phone number in a phone book (I mean, not like I ever had to do that in my lifetime...).

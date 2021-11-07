@@ -8,6 +8,8 @@ tags:
 
 Did you know there's an `address` element? Well, brace yourself, because there is! But its use has been a source of confusion until recently.
 
+---
+
 In the past, the `address` element was strictly used for content author info, something it's still useful for:
 
 ```html

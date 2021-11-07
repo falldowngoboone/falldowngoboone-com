@@ -9,6 +9,8 @@ tags:
 
 When I started my first job as a professional developer, one of my biggest challenges was learning how to create helpful pull requests. I had been using git for a few years at that point, but my experience was limited to merging and pushing directly to the default remote branch. As a result, my first code reviews were fraught with answering questions, rewriting code, and (gulp) interactive rebasing.
 
+---
+
 What follows is what I've learned from the past few years of crafting pull requests. My hope is they'll help you whether you're starting your first job in development or trying to contribute to your favorite open source project.
 
 ## Use atomic commits

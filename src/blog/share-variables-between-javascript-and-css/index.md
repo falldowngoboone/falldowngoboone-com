@@ -10,6 +10,8 @@ tags:
 
 Whether you need site breakpoints for `matchMedia` or access to theme colors, sharing values between your JavaScript and CSS is sometimes unavoidable. The easiest solution is to [copy and paste](https://www.falldowngoboone.com/blog/understand-the-context-of-code-you-copy/) values, but how can you ensure values stay synchronized when that brand blue color changes to indigo?
 
+---
+
 The answer is to create a single source of truth by sharing values between the JavaScript and style layers. There are several ways to accomplish this, and the best approach for a project depends on its frontend stack. Here are all of the ways I know how to pass data back and forth between all the layers.
 
 ## ICSS

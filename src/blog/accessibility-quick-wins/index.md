@@ -8,6 +8,8 @@ tags:
 
 I sometimes give talks on Web accessibility, and one of the top questions I get is: *What can I do right now to make my website more accessible?* When I began *practicing* accessibility, I would've probably talked about WAI-ARIA authoring practices, and adding `aria` roles, and managing focus with JavaScript. That's certainly true for more complex UI, but most of us aren't building Twitter. 
 
+---
+
 In reality, the most common accessibility problems can be fixed with simple solutions. What follows is a list of some of the quick wins I've compiled from online survey results, third-party auditors, and the A11y Slack group.
 
 ## Use colors with the proper contrast

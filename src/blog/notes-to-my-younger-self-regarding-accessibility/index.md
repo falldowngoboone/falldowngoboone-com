@@ -8,6 +8,8 @@ tags:
 
 Hello, my younger self. How are things? I understand you're learning about the amazing world of web accessibility, something I wholeheartedly endorse.
 
+---
+
 Actually, that's why I'm writing to you. What I'm about to tell you might hurt, but I think you can handle it. There are some things you're doing right now, things that you might think are helpful. Well, uh, they really aren't. In fact, they're pretty terrible.
 
 ## You don't need all those `nav` elements

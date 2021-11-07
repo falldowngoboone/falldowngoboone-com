@@ -11,6 +11,8 @@ tags:
 
 One of my favorite pastimes is reading. When I started out as a developer, I would read anything I could get my hands on. And, since I was cheap, I tried to find as many free books as I could. What follows is a list that I've accumulated over the past few years of fantastic, completely free material that has helped me grow as a developer.
 
+---
+
 A quick note before I get started: If you like what you're reading, consider either buying the original source material or making a donation to the author. When you do that, you are paving the way for even more publicly available, high-quality material. Okay, here's the list!
 
 ## Web Design
