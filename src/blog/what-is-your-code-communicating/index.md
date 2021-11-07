@@ -9,6 +9,8 @@ tags:
 
 Developers don't write code for computers. I mean, we do, but not primarily. If we did, it would make no difference whether we wrote in Java, bytecode, or complete binary. Yet when given a choice, we write in abstractions because **developers write code for other developers.**
 
+---
+
 ## The *Why?* behind the *What?*
 
 Knowing this, you should always strive to lean into the abstraction and communicate why your code exists *in the code itself.* That is how you make self-documenting code[^code].

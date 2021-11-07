@@ -8,6 +8,8 @@ tags:
 
 If you need to go *au naturale* with your JavaScript DOM manipulation, here are some tips for improving performance.
 
+---
+
 ## Use `DocumentFragment`s to add multiple elements
 
 Here's one way you might add multiple DOM nodes to a mounted node:

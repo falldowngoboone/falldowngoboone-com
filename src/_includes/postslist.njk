@@ -5,18 +5,19 @@
 <div>
   {% for post in postslist | reverse %}
     <article class="o-stack">
-      <{{headingEl}}>
+      <{{ headingEl }}>
         {%- if post.data.title -%}
           {{ post.data.title }}
         {%- else -%}
           <code>{{ post.url }}</code>
         {%- endif -%}
-      </{{headingEl}}>
+      </{{ headingEl }}>
       <p>
-        {{ post.templateContent | striptags | toExcerpt }}
+        {% if post.data.page.excerpt %}
+          {{ post.data.page.excerpt | markdownToHtml | safe }}
+        {% endif %}
         <a href="{{ post.url | url }}">Read more
-          <span class="o-visually-hidden">of
-            {{ post.data.title }}</span>
+          <span class="o-visually-hidden">of {{ post.data.title }}</span>
         </a>
       </p>
       <footer class="o-cluster">

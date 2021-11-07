@@ -11,6 +11,8 @@ tags:
 
 Personal projects are a great way to grow your skillset, learn new technologies and explore new ideas. I began my personal blog with that in mind, but also wanted to share what I learn. With that in mind, I wanted to try and document the process behind this new redesign.
 
+---
+
 I began this current redesign almost immediately after finishing my last redesign. My original plan was to launch a default Gatsby starter blog and then incrementally redesign it. That did not go as planned.
 
 Difficulties with Gatsby conventions (like using the GraphQL data mesh layer and MDX weirdness) and a growing concern over build performance led me to eventually abandon the framework. I spent the next year or so trying out different tools and tweaking design decisions, until I landed on what you see here.

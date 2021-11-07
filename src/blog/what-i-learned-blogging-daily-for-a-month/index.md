@@ -9,6 +9,8 @@ tags:
 
 I recently challenged myself to [write a blog post every day for a month](https://www.falldowngoboone.com/blog/blogruary-28-days-of-posting/). Up to that point, I had only written eight blog posts for two years. A month later, not only do I have 28 new blog posts, I've learned some valuable lessons about my blogging process and my website. I wanted to share things about the experience that worked for me and issues I discovered that need attention.
 
+---
+
 ## Worked: Setting deadlines
 
 It's surprising how an unmoving date can motivate you to complete a post. One of my recurring issues with blogging has been the tendency to overwork a piece until I completely lose interest. Experience has taught me that time is the biggest enemy of posting, and firm deadlines force you to throw away what's not working and focus on what is.

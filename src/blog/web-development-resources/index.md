@@ -9,6 +9,8 @@ tags:
 
 As a follow up to [yesterday's post](https://www.falldowngoboone.com/blog/on-changing-careers/), I wanted to share a quick list of online resources that I used to get started in my development career.
 
+---
+
 - [Codecademy](https://www.codecademy.com)
 - [Treehouse](https://teamtreehouse.com)
 - [EdX](https://www.edx.org), especially anything having to do with Harvard's [CS50 Introduction to Computer Science](https://www.edx.org/course/cs50s-introduction-to-computer-science)

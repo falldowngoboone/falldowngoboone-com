@@ -8,6 +8,8 @@ tags:
 
 Reading is a great way to learn, but it's also a fantastic way to open yourself up to new ideas and experiences. As a developer, I believe reading is important to my continued growth and advancement. If you believe that too, you might enjoy these ten books that I find particularly interesting.
 
+---
+
 - *Eloquent JavaScript*, Marijn Haverbeke
 
     This is the book that taught me JavaScript. I found it incredibly approachable, and it can be read [online for free](https://eloquentjavascript.net), though I do recommend buying it if you can.

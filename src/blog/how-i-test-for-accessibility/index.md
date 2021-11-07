@@ -8,6 +8,8 @@ tags:
 
 I wanted to share what my typical accessibility testing sessions look like. This is a quick over, but I hope you find it helpful (and if you haven't done so yet, check out some [accessibility quick wins](https://www.falldowngoboone.com/blog/accessibility-quick-wins/) I wrote about).
 
+---
+
 ## What I typically do
 
 - When I'm developing new UI, I inspect with browser dev tools, typically to confirm labels and semantic roles. I test on Chrome, Safari Technology Preview, and Firefox DeveloperEdition, but I probably lean the most on [Chrome DevTools accessibility tools](https://developers.google.com/web/tools/chrome-devtools/accessibility/reference).

@@ -8,6 +8,8 @@ tags:
 
 A lot of what I do at [The Container Store](https://www.containerstore.com/welcome.htm) involves page templates, and one of the biggest challenges with template work (and components, for that matter) is creating a system that's flexible yet maintainable. One of the ways flexibility can be achieved is by giving child elements a way to hook into the parent element. In JSP templates (what we use at The Container Store), template hooks can be added via [the `invoke` action](https://www.oreilly.com/library/view/javaserver-pages-3rd/0596005636/re18.html), but I wanted to figure out how to do this on my personal Eleventy site.
 
+---
+
 ## The use case
 
 I use [Prism.js](https://prismjs.com) to dynamically style my code blocks, and [the basic way to use Prism.js](https://prismjs.com/#basic-usage) relies on the presence of both a CSS file and a JavaScript file to be loaded on a page. The JavaScript adds classes to code blocks based on their type, and the CSS themes the blocks accordingly. The easiest (naive) way to include these assets in Eleventy is to add them directly to a global template:

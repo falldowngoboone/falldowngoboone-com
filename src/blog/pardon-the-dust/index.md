@@ -7,6 +7,8 @@ lede: The redesign continues with new typography and logo
 
 In case you didn't notice, I just pushed up the biggest adjustment to the site design since the [last redesign](https://www.falldowngoboone.com/blog/how-im-redesigning-my-blog/) in late 2020. I wanted to go through it briefly and talk about what's next.
 
+---
+
 From the moment I published the last redesign, I've been working on improvements to the post template. The old posts felt blocky and sterile, and I wasn't happy with the overall reading experience on smaller devices.
 
 For design exploration I turned once again to Figma, relying heavily on the Figma Mirror app on my iPhone and iPad Air. My design goals were to improve post readability and inject some personality into the site.

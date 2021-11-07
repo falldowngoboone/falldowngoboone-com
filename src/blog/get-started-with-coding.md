@@ -11,6 +11,8 @@ tags:
 
 Becoming a career developer can be challenging at times. With a ton of material out of the internet, it can be difficult to know where to start. And even if you know where to start, it can be difficult to stay motivated.
 
+---
+
 What follows is a brain dump of tips to help you on your journey to coding greatness. I don't go too deep into anything here, but I may use some of these tips as a jumping off point for future posts.
 
 ## Become friends with your terminal

@@ -9,6 +9,8 @@ tags:
 
 Getting feedback fast is one of the most important things in development. What do I mean about feedback?
 
+---
+
 Let's imagine playing a video game. You have a console, a controller, and a screen. If you press left on the controller's d-pad, your character walks to the left on the screen. If you press right on the d-pad, your character walks right. Makes sense, right?
 
 Of course, if you've ever used a sketch online video game service, you may be familiar with lag. Maybe you press right on your d-pad and your character waits a split second before walking to the right. Not terrible lag, but enough to notice. Maybe the lag's even worse. Maybe you press right and nothing happens, then you press left and your character walks to the right. This is arguably not only going to affect your game, but also how you perceive the game.

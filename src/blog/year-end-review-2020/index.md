@@ -7,6 +7,8 @@ tags:
 
 2020 is out and I wanted to do a short review of what I did this year, as well as look forward to 2021. This year was difficult to be sure, but in spite of the craziness, or maybe because of it, I was surprisingly able to meet some goals I had previously set.
 
+---
+
 ## 2020 Accomplishments
 
 In 2020...

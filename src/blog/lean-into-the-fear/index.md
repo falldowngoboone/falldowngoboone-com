@@ -8,6 +8,8 @@ tags:
 
 [Chantastic](https://twitter.com/chantastic?lang=en) recently spoke at [ReactJS Dallas](https://www.meetup.com/ReactJSDallas/) about dealing with Imposter Syndrome. One of my favorite moments was when he talked about being asked to take over [React Podcast](https://reactpodcast.com) hosting duties. He said he was afraid he was going to say the wrong thing to the amazing developers he would be interviewing.
 
+---
+
 Eventually he realized that fear was the only reason not to take the offer. So instead of passing up a fantastic opportunity, he decided to lean into the fear.
 
 Listening to someone I've heard interview JavaScript heavyweights on my iPhone for the past few years talk about facing his own fears renewed my long-held belief that I need to lean into the things that make me afraid.

@@ -8,6 +8,8 @@ tags:
 
 There are some amazing web development blogs out there ([Smashing Magazine](https://www.smashingmagazine.com), [CSS-Tricks](https://css-tricks.com) and [Codrops](http://tympanus.net/codrops/) come to mind), but today I want to pay homage to the humble personal blog. Here are some of my favorite web developer blogs in no particular order:
 
+---
+
 - [Modern CSS](https://moderncss.dev) - Do you still struggle with vertical centering in CSS? This series from Stephanie Eckles is for you.
 - [Dan Mall](http://danmall.me) - Dan, the founder of the design collaborative [SuperFriendly](https://superfriendlydesign.systems), is a generous source for all things design systems and client relations.
 - [Stuff & Nonsense](https://stuffandnonsense.co.uk/blog) - Andy Clark has been building websites for a while, and he has a thing or two to teach about writing bulletproof CSS. His *Inspired Design Decisions* series is a must-read.

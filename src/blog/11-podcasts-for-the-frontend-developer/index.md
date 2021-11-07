@@ -8,6 +8,8 @@ tags:
 
 I'm a huge fan of continuing education, and one of the ways I binge on information is through podcasts. Here's a list of 11 podcasts that I find not only educational but entertaining as well.
 
+---
+
 - [JS Party](https://changelog.com/jsparty) - From the folks at Changelog, this weekly, hour-ish podcast focusing on JavaScript features a rotating panel and format.
 - [Front End Happy Hour](https://frontendhappyhour.com) - A bunch of developers drinking and talking about development. What could go wrong?
 - [Developer Tea](https://spec.fm/podcasts/developer-tea) - This podcast is more about the human element of development. I recommend this to developers of all levels, but especially beginners.

@@ -9,6 +9,8 @@ tags:
 
 I've been posting a [new article every day this month](https://www.falldowngoboone.com/blog/blogruary-28-days-of-posting/), and it's been interesting. I'll write about that soon, but today I want to share how I put these posts together. Hopefully, you'll learn something new from my process, or see how terrible my process is and give me some advice.
 
+---
+
 ## Idea backlog
 
 If you're going to create content, you need a steady stream of ideas. I keep a backlog so I can store notes, write drafts, and constantly reassess what to post next. This post you're reading? It started out in my backlog.

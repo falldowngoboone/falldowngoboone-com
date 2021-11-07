@@ -9,6 +9,8 @@ tags:
 
 On my journey from designer to [becoming a developer](https://www.falldowngoboone.com/blog/on-changing-careers/), I often wondered if I needed a Computer Science degree. This is also one of the most common questions I get from others looking to jump into development from another career.
 
+---
+
 I began college as a Drama major and eventually switched to a Communications degree with an emphasis in Film and Broadcast. Then I went into graphic design. Not exactly the straightest path to software engineering.
 
 For a long time, I allowed my lack of formal development education to be a source of insecurity. No matter what I accomplished or what I learned, I always felt like I was missing something. It fueled my appetite for growth, but it robbed me of my confidence.
