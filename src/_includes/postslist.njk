@@ -13,7 +13,9 @@
         {%- endif -%}
       </{{ headingEl }}>
       <p>
-        {% if post.data.page.excerpt %}
+        {% if post.data.excerpt %}
+          {{ post.data.excerpt | markdownToHtml | safe }}
+        {% elif post.data.page.excerpt %}
           {{ post.data.page.excerpt | markdownToHtml | safe }}
         {% endif %}
         <a href="{{ post.url | url }}">Read more
