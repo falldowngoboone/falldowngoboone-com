@@ -88,8 +88,8 @@
   }
 
   h2 {
-    margin-top: 2.25rem;
-    scroll-margin-top: 2.25rem;
+    margin-top: 3rem;
+    scroll-margin-top: 3rem;
   }
 
   h3 {
@@ -97,6 +97,7 @@
     scroll-margin-top: 1.5rem;
   }
 
+  h2 + *,
   h3 + * {
     margin-top: 0.75rem;
   }
