@@ -76,11 +76,13 @@
   padding: 1.5rem 1rem;
   width: calc(100% + 2rem);
   margin-left: -1rem;
+  margin-top: 3rem;
 
   @include t.md-up {
     border-radius: 5px;
     width: 100%;
     margin-left: auto;
+    margin-top: 4rem;
     padding: 1.5rem 1.5rem 1.5rem 3rem;
   }
 }
