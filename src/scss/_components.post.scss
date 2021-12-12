@@ -1,9 +1,6 @@
 @use 'settings' as *;
 @use 'tools' as t;
 
-.c-post {
-}
-
 .c-post__header {
   padding-bottom: 5rem;
   padding-left: 1rem;
@@ -69,8 +66,40 @@
 }
 
 .c-post__aside {
+  --color-bg: var(--color-bg-secondary);
+  --color-border: currentcolor;
+
+  background-color: var(--color-bg);
+  border-radius: 0.375rem;
+  padding: 1.5rem;
+  box-shadow: 14px 14px;
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
+  border: solid 2px var(--color-border);
+}
+
+.c-post__aside--info {
+  --color-bg: #f0f8ff;
+  --color-border: #0a6ac4;
+}
+
+.c-post__aside--warn {
+  --color-bg: #fffaf0;
+  --color-border: #f19d0a;
+}
+
+.c-post__aside--avoid {
+  --color-bg: #fff6f8;
+  --color-border: #e01b50;
+}
+
+.c-post__aside--good {
+  --color-bg: #f4fdf5;
+  --color-border: #00b118;
+}
+
+.c-post__cta {
   background-color: var(--color-bg-secondary);
-  border-radius: 0.25rem;
 
   position: relative;
   padding: 1.5rem 1rem;
@@ -79,7 +108,7 @@
   margin-top: 3rem;
 
   @include t.md-up {
-    border-radius: 5px;
+    border-radius: 0.375rem;
     width: 100%;
     margin-left: auto;
     margin-top: 4rem;

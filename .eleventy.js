@@ -9,7 +9,7 @@ const markdownItAnchor = require('markdown-it-anchor');
 const markdownItAttrs = require('markdown-it-attrs');
 const markdownItFootnote = require('markdown-it-footnote');
 
-let id = 0;
+let uid = 0;
 
 module.exports = function (eleventyConfig) {
   // merge all data arrays; specifically allows the blog.json tags to merge with
@@ -149,7 +149,7 @@ function addShortcodes(eleventyConfig) {
   });
 
   eleventyConfig.addShortcode('uid', function () {
-    return String(id++);
+    return String(uid++);
   });
 
   eleventyConfig.addShortcode('codepen', function (id, height = 450) {
@@ -161,6 +161,10 @@ function addShortcodes(eleventyConfig) {
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>`;
+  });
+
+  eleventyConfig.addPairedShortcode('aside', function (content, tone = 'info') {
+    return `<aside class="c-post__aside c-post__aside--${tone}">${markdownParser().render(content)}</aside>`;
   });
 }
 
