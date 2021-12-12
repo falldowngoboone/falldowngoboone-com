@@ -143,20 +143,19 @@ Finally, we'll listen for that event inside the `App` component and set the `isO
 ```jsx
 import * as React from "react";
 import Modal from "react-modal";
-import { off, on } from "./events";
+import { on, off } from "./events";
 import "./style.css";
 
 export default function App() {
   const [isOpen, setIsOpen] = React.useState(false);
-  const openModal = React.useState(() => () => setIsOpen(true));
+  const openModal = React.useCallback(() => setIsOpen(true), []);
 
   React.useEffect(() => {
     on("openButton:click", openModal);
-    
+
     return () => {
       off("openButton:click", openModal);
-    }
-  });
+    }, [openModal]);
 
   function closeModal() {
     setIsOpen(false);
@@ -175,7 +174,11 @@ export default function App() {
 }
 ```
 
-And now it works (hopefully)! You can [test it for yourself over on StackBlitz](https://stackblitz.com/edit/react-zqp3ot?file=src%2FApp.js).
+And now it works (hopefully)! You can [test it for yourself over on StackBlitz](https://stackblitz.com/edit/react-nwetpt?file=src/App.js).
+
+**Update 2021-12-12**
+
+Many thanks to [Johnny Pribyl](https://github.com/jpribyl) for rightly pointing out that the `useEffect` needed a clean up function returned, otherwise a new listener would be added every single time the modal was rendered. `useEffect` also needs a dependency array to ensure it isn't needlessly re-run. `openModal` _shouldn't_ change, but there's always the possibility that a new dependency may be added to that `useCallback`.
 
 ## Custom events are awesome indeed
 
