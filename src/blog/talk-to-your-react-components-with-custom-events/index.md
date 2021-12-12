@@ -155,7 +155,8 @@ export default function App() {
 
     return () => {
       off("openButton:click", openModal);
-    }, [openModal]);
+    }
+  }, [openModal]);
 
   function closeModal() {
     setIsOpen(false);
