@@ -102,12 +102,13 @@ CSS Modules also offers [the `@value` directive](https://github.com/css-modules/
 }
 ```
 
+{% raw %}
 ```jsx
 // MyComponent.module.js
 
 import * as React from 'react';
 import Media from 'react-media';
-import { larry, moe, curly } as bp from 'theme/breakpoints.module.css';
+import { larry, moe, curly } from 'theme/breakpoints.module.css';
 
 export function MyComponent() {
   return (
@@ -127,6 +128,7 @@ export function MyComponent() {
   );
 }
 ```
+{% endraw %}
 
 - CSS is the source of truth
 - Easy to implement in Create React App
