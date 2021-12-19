@@ -2,7 +2,7 @@
   {% set postslistCounter = postslist | length %}
 {% endif %}
 {% set headingEl %}{{ headingLevel | default("h2") }}{% endset %}
-<div>
+<div class="o-stack">
   {% for post in postslist | reverse %}
     <article class="o-stack">
       <{{ headingEl }}>
