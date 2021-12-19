@@ -2,8 +2,8 @@
   {% set postslistCounter = postslist | length %}
 {% endif %}
 {% set headingEl %}{{ headingLevel | default("h2") }}{% endset %}
-<div>
-  {% for post in postslist | reverse %}
+<div class="o-stack">
+  {% for post in postslist %}
     <article class="o-stack">
       <{{ headingEl }}>
         {%- if post.data.title -%}
