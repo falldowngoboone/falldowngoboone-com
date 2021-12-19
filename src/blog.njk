@@ -2,6 +2,11 @@
 layout: page
 title: Blog
 displayTitle: My Blog Archive
+pagination:
+  data: collections.post
+  size: 10
+  alias: posts
+  reverse: true
 ---
 
 <p>
@@ -9,6 +14,7 @@ displayTitle: My Blog Archive
   forloop.last%}and {% endif %}{% tagLink tag %}{%- if forloop.last -%}.{%- else
   -%}, {%- endif -%}{% endfor %}
 </p>
-{% set postslist = collections.post %}
-{% set postslistCounter = collections.post | length %}
+{% set postslist = posts %}
+{% set postslistCounter = posts | length %}
 {% include "postslist.njk" %}
+<div>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Newer posts</a>{% endif %}{% if pagination.href.previous and pagination.href.next %} • {% endif %}{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Older posts</a>{% endif %}</div>

@@ -3,7 +3,7 @@
 {% endif %}
 {% set headingEl %}{{ headingLevel | default("h2") }}{% endset %}
 <div class="o-stack">
-  {% for post in postslist | reverse %}
+  {% for post in postslist %}
     <article class="o-stack">
       <{{ headingEl }}>
         {%- if post.data.title -%}
