@@ -20,9 +20,17 @@
 <header class="c-header">
   <a href="/">
     <span class="o-visually-hidden">Home</span>
-    <picture>
-      <source media="(min-width: 640px)" srcset="/images/logo.svg"/>
-      <img class="c-header__branding" src="/images/logo-sm.svg" alt=""/>
+    <picture><source media="(min-width: 640px)" srcset="/images/logo.svg"/><img class="c-header__branding" src="/images/logo-sm.svg" alt=""/>
     </picture>
   </a>
+  <nav>
+    <ul class="c-nav">
+      <li>
+        <a {% if page.url == '/blog/' %} aria-current="page" {% endif %} href="/blog/">Archive</a>
+      </li>
+      <li>
+        <a href="/feed/feed.xml">RSS</a>
+      </li>
+    </ul>
+  </nav>
 </header>
