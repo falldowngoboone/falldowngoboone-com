@@ -6,6 +6,10 @@
   align-items: center;
   padding: 1rem 0;
 
+  & > *:first-child {
+    margin-right: auto;
+  }
+
   @include t.md-up {
     padding: 2rem 0;
   }

@@ -2,30 +2,26 @@
 @use 'tools' as t;
 
 .c-nav {
-  --link-padding: 0.5em;
   --link-color: var(--color-main);
 
   display: flex;
-  margin: 0 t.neg(var(--link-padding));
-  font-family: $font-display;
+  gap: var(--link-padding);
+  align-items: center;
+  flex-wrap: wrap;
 
   & a {
     font-weight: 700;
     text-transform: lowercase;
     text-decoration: none;
-    padding: var(--link-padding);
     position: relative;
+
+    &:hover {
+      --link-color: #df0036;
+    }
   }
 
-  & [aria-current='page']::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    border: solid 0.55em transparent;
-    border-right-width: 0.33em;
-    border-left-width: 0.33em;
-    border-top-color: var(--color-heading);
-    left: 50%;
-    transform: translateX(-50%);
+  & [aria-current='page'] {
+    --link-color: #df0036;
+    text-decoration: underline;
   }
 }

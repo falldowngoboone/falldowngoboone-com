@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Blog
-displayTitle: My Blog Archive
+displayTitle: Archive
 pagination:
   data: collections.post
   size: 10
@@ -17,4 +17,4 @@ pagination:
 {% set postslist = posts %}
 {% set postslistCounter = posts | length %}
 {% include "postslist.njk" %}
-<div>{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Newer posts</a>{% endif %}{% if pagination.href.previous and pagination.href.next %} • {% endif %}{% if pagination.href.next %}<a href="{{ pagination.href.next }}">Older posts</a>{% endif %}</div>
+<div>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">← Older posts</a>{% endif %}{% if pagination.href.previous and pagination.href.next %} • {% endif %}{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Newer posts →</a>{% endif %}</div>
