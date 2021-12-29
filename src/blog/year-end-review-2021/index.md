@@ -56,4 +56,4 @@ With 2021 out of the way, I am hoping for a better, brighter 2022. My focus will
 
 That does it for my 2021. 
 
-I’m curious to hear what you’re excited about in 2022. Let me know on Twitter, and I’ll see you again next year!
+I’m curious to hear what you’re excited about in 2022. [Let me know on Twitter](https://twitter.com/therealboone), and I’ll see you again next year!
