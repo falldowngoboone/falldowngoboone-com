@@ -66,6 +66,11 @@ h6 {
   font-weight: normal;
 }
 
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
 ul[class],
 ol[class]:not(.footnotes-list) {
   list-style: none;
@@ -111,7 +116,8 @@ iframe {
   border: 0;
 }
 
-sub, sup {
+sub,
+sup {
   line-height: 1;
 }
 

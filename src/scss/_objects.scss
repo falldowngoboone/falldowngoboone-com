@@ -69,36 +69,41 @@
   }
 }
 
-.l-content {
+.l-container {
   max-width: 60ch;
   margin-left: auto;
   margin-right: auto;
+}
 
-  & > * + * {
-    margin-top: 1.5rem;
-  }
-
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+.l-content {
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
     position: relative; // used for positioning anchor links
     padding-right: 1.4rem;
+    scroll-margin-top: var(--space);
   }
 
-  h2 {
-    margin-top: 3rem;
-    scroll-margin-top: 3rem;
+  & h2 {
+    --space: 3rem;
   }
 
-  h3 {
-    margin-top: 1.5rem;
-    scroll-margin-top: 1.5rem;
+  & h3 {
+    --space: 1.5rem;
   }
 
-  h2 + *,
-  h3 + * {
+  & h2 + *,
+  & h3 + * {
+    --space: 0.75rem;
+  }
+
+  & li + li {
+    margin-top: 0.75rem;
+  }
+
+  & li > * + * {
     margin-top: 0.75rem;
   }
 }

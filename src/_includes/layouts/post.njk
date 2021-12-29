@@ -18,7 +18,7 @@ eleventyComputed:
 {% if featuredImage %}
   <img src="{{ featuredImage.src }}" alt="{{ featureImage.alt }}">
 {% endif %}
-<div class="l-content">
+<div class="o-stack l-container l-content">
   {{ content | safe }}
   {% include "c-post-cta.njk" %}
   {% include "c-post-footer.njk" %}
