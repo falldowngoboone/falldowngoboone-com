@@ -16,4 +16,4 @@ eleventyComputed:
   title: Tagged “{{ tag }}”
 ---
 
-{% set postslist = collections[tag] | reverse %} {% include "postslist.njk" %}
+{% set postList = collections[tag] | reverse %} {% include "c-post-list.njk" %}

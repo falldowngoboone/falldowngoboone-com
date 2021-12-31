@@ -9,12 +9,18 @@ pagination:
   reverse: true
 ---
 
+<a class="o-visible-on-focus c-skip-link" href="#tag-navigation-end">
+  Skip tag navigation
+</a>
+<nav label="tags">
 <p>
   I like to write about{% for tag in collections.tagList %} {% if
   forloop.last%}and {% endif %}{% tagLink tag %}{%- if forloop.last -%}.{%- else
   -%}, {%- endif -%}{% endfor %}
 </p>
-{% set postslist = posts %}
-{% set postslistCounter = posts | length %}
-{% include "postslist.njk" %}
+<a id="tag-navigation-end" aria-hidden="true"></a>
+</nav>
+{% set postList = posts %}
+{% set postListCounter = posts | length %}
+{% include "c-post-list.njk" %}
 <div>{% if pagination.href.next %}<a href="{{ pagination.href.next }}">← Older posts</a>{% endif %}{% if pagination.href.previous and pagination.href.next %} • {% endif %}{% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">Newer posts →</a>{% endif %}</div>

@@ -1,0 +1,29 @@
+{% if not postListCounter %}
+  {% set postListCounter = postList | length %}
+{% endif %}
+{% set headingEl %}{{ headingLevel | default("h2") }}{% endset %}
+<div>
+  {% for post in postList %}
+    <article class="o-stack c-post-list__item">
+      <{{ headingEl }}>
+        <a class="c-post-list__link" href="{{ post.url | url }}">
+          {%- if post.data.title -%}
+            {{ post.data.title }}
+          {%- else -%}
+            <code>{{ post.url }}</code>
+          {%- endif -%}
+        </a>
+      </{{ headingEl }}>
+      <p>
+        {% if post.data.excerpt %}
+          {{ post.data.excerpt | markdownToHtml | safe }}
+        {% elif post.data.page.excerpt %}
+          {{ post.data.page.excerpt | markdownToHtml | safe }}
+        {% endif %}
+      </p>
+      <p>Read more
+        <span class="o-visually-hidden">of {{ post.data.title }}</span>
+        →</p>
+    </article>
+  {% endfor %}
+</div>

@@ -1,0 +1,45 @@
+.c-post-list__item {
+  --space: 0.75rem;
+  --color-border: transparent;
+
+  border-radius: 0.375rem;
+  padding: 1.5rem;
+  border: solid 2px var(--color-border);
+  margin-left: calc((1.5rem + 2px) * -1);
+  margin-right: calc((1.5rem + 2px) * -1);
+  position: relative;
+  transition: all 150ms;
+
+  a:not(.c-post-list__link) {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover,
+  &:focus-within {
+    --color-border: currentcolor;
+
+    background: var(--color-bg-secondary);
+    transform: scale(1.01);
+    box-shadow: 14px 14px;
+  }
+}
+
+.c-post-list__link {
+  text-decoration: none;
+  color: var(--color-subheading);
+
+  &:focus {
+    outline: none;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+}
