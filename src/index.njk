@@ -16,10 +16,12 @@ displayTitle: Full-stack front end development
 </header>
 {% if collections.post %}
 <div class="o-stack l-container">
-  <h2>All Posts</h2>
+  <h2>Recent Posts</h2>
   {% set postList = collections.post | reverse %}
+  {% set postList = postList.slice(0,20) %}
   {% set postListCounter = collections.post | length %}
   {% set headingLevel = "h3" %}
   {% include "c-post-list.njk" %}
+  <p>For older posts, visit the <a href="/blog">archive</a>.</p>
 </div>
 {% endif %}
