@@ -143,9 +143,7 @@ function addShortcodes(eleventyConfig) {
     const urlify = eleventyConfig.getFilter('url');
     const tagUrl = `/tags/${tag}`;
 
-    return `<a class="c-tag-link" href="${urlify(
-      tagUrl
-    )}"><span class="o-visually-hidden">Posts tagged </span>${tag}</a>`;
+    return `<a class="c-tag-link" href="${urlify(tagUrl)}">${tag}</a>`;
   });
 
   eleventyConfig.addShortcode('uid', function () {

@@ -7,11 +7,9 @@
 @use 'components.header' as c-header;
 @use 'components.nav' as c-nav;
 @use 'components.footer' as c-footer;
+@use 'components.lists' as c-lists;
 @use 'components.links' as c-links;
 @use 'components.hero' as c-hero;
-@use 'components.page' as c-page;
 @use 'components.post' as c-post;
-@use 'vendor.prism-fdgb' as prism with (
-  $font-code: settings.$font-mono
-);
+@use 'vendor.prism-fdgb' as prism with ($font-code: settings.$font-mono);
 @use 'utilities';

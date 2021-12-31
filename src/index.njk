@@ -17,9 +17,9 @@ displayTitle: Full-stack front end development
 {% if collections.post %}
 <div class="o-stack l-container">
   <h2>All Posts</h2>
-  {% set postslist = collections.post | reverse %}
-  {% set postslistCounter = collections.post | length %}
+  {% set postList = collections.post | reverse %}
+  {% set postListCounter = collections.post | length %}
   {% set headingLevel = "h3" %}
-  {% include "postslist.njk" %}
+  {% include "c-post-list.njk" %}
 </div>
 {% endif %}
