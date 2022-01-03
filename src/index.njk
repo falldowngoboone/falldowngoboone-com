@@ -26,11 +26,19 @@ displayTitle: Full-stack front end development
   </div>
   {% endif %}
   <div class="o-stack">
-  {% if collections.topTags %}
+    {% if collections.topTags %}
     <h2>Top Tags</h2>
     <ol>
       {% for tag in collections.topTags %}<li>{% tagLink tag.tag %} ({{ tag.count }})</li>{% endfor %}
     </ol>
-  {% endif %}
+    {% endif %}
+    <h2>Popular Posts</h2>
+    <ol>
+      <li><a href="/blog/talk-to-your-react-components-with-custom-events/">Talk to your React components with custom events</a></li>
+      <li><a href="/blog/share-variables-between-javascript-and-css/">Share variables between JavaScript and CSS</a></li>
+      <li><a href="/blog/the-curious-case-of-flexbox-gap-and-safari/">The curious case of flexbox gap and Safari</a></li>
+      <li><a href="/blog/native-form-validation-with-javascript/">Native form validation with JavaScript</a></li>
+      <li><a href="/blog/kicking-sass-to-the-curb/">Kicking Sass to the curb</a></li>
+    </ol>
   </div>
 </div>
