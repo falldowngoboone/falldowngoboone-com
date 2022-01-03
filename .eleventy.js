@@ -50,9 +50,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(rss);
   eleventyConfig.addPlugin(syntaxHighlighting);
 
-  eleventyConfig.addCollection('tagList', function (collection) {
+  eleventyConfig.addCollection('tagList', function (collectionApi) {
     let tagSet = new Set();
-    collection.getAll().forEach(function (item) {
+    collectionApi.getAll().forEach(function (item) {
       if ('tags' in item.data) {
         let tags = item.data.tags;
 
@@ -66,6 +66,18 @@ module.exports = function (eleventyConfig) {
 
     // returning an array in addCollection works in Eleventy 0.5.3
     return [...tagSet].sort();
+  });
+  eleventyConfig.addCollection('topTags', function (collectionApi) {
+    // some tags are artificially weighted (e.g. 'blogruary'); these can be removed here
+    const excludeTags = ['blogruary'];
+    const { tagList, ...collections } =
+      collectionApi.getAll()[0].data.collections;
+
+    return tagList
+      .filter((tag) => !excludeTags.includes(tag))
+      .map((tag) => ({ tag, count: collections[tag].length })) // e.g. {tag: 'tagName', count: 5}
+      .sort((a, b) => b.count - a.count) // most to least
+      .slice(0, 10);
   });
 
   addFilters(eleventyConfig);
