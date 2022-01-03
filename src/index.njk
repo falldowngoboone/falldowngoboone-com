@@ -14,13 +14,23 @@ displayTitle: Full-stack front end development
     talk shop, <a href="https://twitter.com/therealboone">drop me a line</a>!
   </p>
 </header>
-{% if collections.post %}
-<div class="o-stack l-container">
-  <h2>Recent Posts</h2>
-  {% set postList = collections.post.slice(-20) | reverse %}
-  {% set postListCounter = collections.post | length %}
-  {% set headingLevel = "h3" %}
-  {% include "c-post-list.njk" %}
-  <p>For older posts, visit the <a href="/blog">archive</a>.</p>
+<div class="l-split">
+  {% if collections.post %}
+  <div class="o-stack">
+    <h2>Recent Posts</h2>
+    {% set postList = collections.post.slice(-20) | reverse %}
+    {% set postListCounter = collections.post | length %}
+    {% set headingLevel = "h3" %}
+    {% include "c-post-list.njk" %}
+    <p>For older posts, visit the <a href="/blog">archive</a>.</p>
+  </div>
+  {% endif %}
+  <div class="o-stack">
+  {% if collections.topTags %}
+    <h2>Top Tags</h2>
+    <ol>
+      {% for tag in collections.topTags %}<li>{% tagLink tag.tag %} ({{ tag.count }})</li>{% endfor %}
+    </ol>
+  {% endif %}
+  </div>
 </div>
-{% endif %}

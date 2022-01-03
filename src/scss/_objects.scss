@@ -107,3 +107,19 @@
     margin-top: 0.75rem;
   }
 }
+
+.l-split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4.5rem;
+
+  & > *:first-child {
+    flex: 3;
+    min-width: 20rem;
+  }
+
+  & > *:last-child {
+    flex: 2;
+    min-width: 20rem;
+  }
+}
