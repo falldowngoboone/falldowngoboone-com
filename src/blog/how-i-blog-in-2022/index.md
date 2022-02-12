@@ -4,6 +4,7 @@ date: 2022-02-04
 tags: 
   - blogging
   - process
+excerpt: I'm starting a new blogging challenge this year.
 ---
 
 It’s a new year, and I’m eager to get back into the habit of blogging on my site. To start, I'm taking another look at my blogging process and what has changed since the last time I wrote about it.
