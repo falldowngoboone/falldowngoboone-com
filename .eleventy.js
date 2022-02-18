@@ -84,6 +84,7 @@ module.exports = function (eleventyConfig) {
   addShortcodes(eleventyConfig);
 
   return {
+    markdownTemplateEngine: 'njk',
     dir: {
       input: 'src',
       layouts: '_includes/layouts',
