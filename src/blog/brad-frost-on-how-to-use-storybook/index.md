@@ -1,11 +1,13 @@
-# Brad Frost on how to use Storybook
-
-Archived: No
-Last Edited: February 18, 2022 3:47 PM
-Status: Final Draft
-Tags: components
+---
+title: Brad Frost on how to use Storybook
+date: 2022-02-18
+tags: 
+  - components
+---
 
 Brad Frost recently appeared on the [new Storytime podcast](https://www.youtube.com/watch?v=jR0Gefa4lpg&t=1s) with Chantastic to talk about how he uses Storybook to build design systems. The show features a great discussion regarding how Frost’s [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) philosophy has been applied to the popular UI development tool. If you haven’t already, I highly recommend checking the episode out.
+
+---
 
 As a follow up to the discussion, Brad wrote a companion article that details [how he utilizes Storybook in design systems](https://bradfrost.com/blog/post/atomic-design-and-storybook/). This article was timely for me, as the team I work on is dealing with a crisis of faith regarding our Storybook implementation.
 
