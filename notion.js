@@ -7,23 +7,25 @@ const notion = new Client({
   auth: NOTION_TOKEN,
 });
 
-// block ID is now a param
 async function readBlocks(blockId) {
+  blockId = blockId.replaceAll('-', '');
+
   try {
-    const { results, ...blocks } = await notion.blocks.children.list({
+    const { results, ...blockResponse } = await notion.blocks.children.list({
       block_id: blockId,
     });
-    const expandedResults = [];
 
-    for (let block of results) {
+    const childRequests = results.map(async (block) => {
       if (block.has_children) {
-        block.children = await readBlocks(block.id.replaceAll('-', ''));
+        const children = await readBlocks(block.id);
+        return { ...block, children };
       }
+      return block;
+    });
 
-      expandedResults.push(block);
-    }
+    const expandedResults = await Promise.all(childRequests);
 
-    return { ...blocks, results: expandedResults }; // we need to return something
+    return { ...blockResponse, results: expandedResults };
   } catch (error) {
     console.log('error!');
     console.error(error.body);
