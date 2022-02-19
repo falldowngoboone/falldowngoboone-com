@@ -7,23 +7,36 @@ const notion = new Client({
   auth: NOTION_TOKEN,
 });
 
-async function readBlocks() {
+// block ID is now a param
+async function readBlocks(blockId) {
   try {
-    const blocks = await notion.blocks.children.list({
-      block_id: '7b9c0c66eebd47c6911ecd7f2defad6b', // An article page
+    const { results, ...blocks } = await notion.blocks.children.list({
+      block_id: blockId,
     });
+    const expandedResults = [];
 
-    console.log(blocks);
+    for (let block of results) {
+      if (block.has_children) {
+        block.children = await readBlocks(block.id.replaceAll('-', ''));
+      }
+
+      expandedResults.push(block);
+    }
+
+    return { ...blocks, results: expandedResults }; // we need to return something
   } catch (error) {
     console.log('error!');
     console.error(error.body);
   }
 }
 
-readBlocks();
+readBlocks('7b9c0c66eebd47c6911ecd7f2defad6b') // An article page
+  .then(console.log);
 
 // {
 //   object: 'list',
+//   next_cursor: null,
+//   has_more: false,
 //   results: [
 //     {
 //       object: 'block',
@@ -119,7 +132,8 @@ readBlocks();
 //       has_children: true,
 //       archived: false,
 //       type: 'bulleted_list_item',
-//       bulleted_list_item: [Object]
+//       bulleted_list_item: [Object],
+//       children: [Object]
 //     },
 //     {
 //       object: 'block',
@@ -131,7 +145,8 @@ readBlocks();
 //       has_children: true,
 //       archived: false,
 //       type: 'bulleted_list_item',
-//       bulleted_list_item: [Object]
+//       bulleted_list_item: [Object],
+//       children: [Object]
 //     },
 //     {
 //       object: 'block',
@@ -179,7 +194,8 @@ readBlocks();
 //       has_children: true,
 //       archived: false,
 //       type: 'bulleted_list_item',
-//       bulleted_list_item: [Object]
+//       bulleted_list_item: [Object],
+//       children: [Object]
 //     },
 //     {
 //       object: 'block',
@@ -191,7 +207,8 @@ readBlocks();
 //       has_children: true,
 //       archived: false,
 //       type: 'bulleted_list_item',
-//       bulleted_list_item: [Object]
+//       bulleted_list_item: [Object],
+//       children: [Object]
 //     },
 //     {
 //       object: 'block',
@@ -325,7 +342,5 @@ readBlocks();
 //       type: 'paragraph',
 //       paragraph: [Object]
 //     }
-//   ],
-//   next_cursor: null,
-//   has_more: false
+//   ]
 // }
