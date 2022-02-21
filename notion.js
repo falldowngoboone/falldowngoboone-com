@@ -12,7 +12,7 @@ async function readBlocks(blockId) {
   blockId = blockId.replaceAll('-', '');
 
   try {
-    const { results, ...blockResponse } = await notion.blocks.children.list({
+    const { results } = await notion.blocks.children.list({
       block_id: blockId,
     });
 
@@ -26,23 +26,37 @@ async function readBlocks(blockId) {
 
     const expandedResults = await Promise.all(childRequests);
 
-    return { ...blockResponse, results: expandedResults };
+    return expandedResults;
   } catch (error) {
     console.log('error!');
     console.error(error.body);
   }
 }
 
-async function readPage(pageId) {
-  const pageInfo = notion.pages.retrieve({
+async function readPageInfo(pageId) {
+  const { properties } = await notion.pages.retrieve({
     page_id: pageId,
   });
-  const pageContents = readBlocks(pageId);
+
+  return properties;
+}
+
+async function readPage(pageId) {
+  const pageInfo = readPageInfo(pageId);
+  const pageContent = readBlocks(pageId);
 
   try {
-    const [info, contents] = await Promise.all([pageInfo, pageContents]);
+    const [properties, content] = await Promise.all([pageInfo, pageContent]);
 
-    return { ...info, contents };
+    const title = properties.Name;
+    const date = properties['Publish Date'];
+    const excerpt = properties.Excerpt;
+    const tags = properties.Tags;
+
+    return {
+      frontMatter: { title, date, excerpt, tags },
+      content,
+    };
   } catch (error) {
     console.log('error!');
     console.error(error.body);
