@@ -19,7 +19,8 @@ async function readBlocks(blockId) {
     const childRequests = results.map(async (block) => {
       if (block.has_children) {
         const children = await readBlocks(block.id);
-        return { ...block, children };
+        const { type, [type]: typeContent } = block;
+        return { ...block, [type]: { ...typeContent, children } };
       }
       return block;
     });
@@ -63,6 +64,54 @@ async function readPage(pageId) {
   }
 }
 
+class Writer {
+  #writers;
+
+  constructor(writers) {
+    this.#writers = writers;
+  }
+
+  write(block, pad = '') {
+    if (!block) return '';
+
+    if (Array.isArray(block)) {
+      return pad + block.map(this.write, this).join('');
+    }
+
+    const { type, [type]: typeContent } = block;
+    const writer = this.#writers[type];
+
+    // apply annotations if present...
+
+    return writer?.(typeContent, this.write.bind(this)) || block;
+  }
+}
+
+const writer = new Writer({
+  paragraph({ text, children }, write) {
+    return [write(text), write(children)].join('\n\n');
+  },
+  heading_2({ text }, write) {
+    return `## ${write(text)}\n\n`;
+  },
+  heading_3({ text }, write) {
+    return `## ${write(text)}\n\n`;
+  },
+  bulleted_list_item({ text, children }, write) {
+    return [`- ${write(text)}`, write(children, '  ')].join(
+      children ? '\n\n' : '\n'
+    );
+  },
+  numbered_list_item({ text, children }, write) {
+    return [`1. ${write(text)}`, write(children, '   ')].join(
+      children ? '\n\n' : ''
+    );
+  },
+  text({ content, link }, write) {
+    return write(link ? `[${content}](${link.url})` : content);
+  },
+});
+
 readPage('7b9c0c66eebd47c6911ecd7f2defad6b') // An article page
-  .then((data) => JSON.stringify(data, null, 2))
+  .then((data) => writer.write(data.content))
   .then((data) => writeFile('test.json', data));
