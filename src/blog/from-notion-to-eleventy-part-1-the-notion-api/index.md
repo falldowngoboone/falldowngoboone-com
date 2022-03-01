@@ -21,7 +21,7 @@ Since I’ve never used the Notion API before, I need to come up with a plan. Af
 After I’ve established how to use the API, I’ll have a better idea how to build out a full publishing workflow, which I will implement in the next article. Let’s get started!
 
 {% aside %}
-If you haven’t already, be sure to check it out my recent article on my current blogging process. I go into more depth about how I set up my blogging Notion.
+If you haven’t already, be sure to check it out my recent article on [my current blogging process](https://www.falldowngoboone.com/blog/how-i-blog-in-2022/). I go into more depth about how I set up my blogging Notion.
 {% endaside %}
 
 ## The set up
@@ -402,6 +402,6 @@ I should note I purposely chose a page that was very small and contained simple 
 
 Dealing with these limits is outside the scope of this post, but I may in the future write a dedicated post on how to work with API limits (e.g. rate limits, pagination, etc.). If that’s something you’d like to read, let me know!
 
-If you’ve enjoyed this post, please consider sharing it with others that might like it. And if you have any comments, please reach out to me on Twitter. I love to discuss all things front end, and it quite frankly gives me the warm fuzzies to know other people are reading these posts.
+If you’ve enjoyed this post, please consider sharing it with others that might like it. And if you have any comments, please [reach out to me on Twitter](https://twitter.com/therealboone). I love to discuss all things front end, and it quite frankly gives me the warm fuzzies to know other people are reading these posts.
 
 Until next time!
