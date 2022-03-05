@@ -1,4 +1,4 @@
-@use "tools" as t;
+@use 'tools' as t;
 
 $font-code: 'Fira Code', Consolas, Menlo, Monaco, 'Andale Mono WT',
   'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono',
@@ -27,20 +27,9 @@ pre[class*='language-'] {
 }
 
 pre[class*='language-'] {
-  padding: 1.5rem 1rem;
+  @include t.bump-out();
+
   overflow: auto;
-  width: calc(100% + 2rem);
-  margin-left: -1rem;
-
-  @include t.md-up {
-    border-radius: 5px;
-  }
-
-  @include t.lg-up {
-    padding: 1.5rem;
-    width: calc(100% + 3rem);
-    margin-left: -1.5rem;
-  }
 }
 
 pre[class*='language-']::-moz-selection,
