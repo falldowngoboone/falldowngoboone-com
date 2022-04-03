@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "My personal website",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "npm run watch",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,7 +13,8 @@
     "watch": "npm-run-all clean --parallel watch:*",
     "watch:css": "npm run build:css -- --watch",
     "watch:ssg": "npm run build:ssg -- --serve --port=3000",
-    "debug": "DEBUG=Eleventy* npm run build:ssg"
+    "debug": "DEBUG=Eleventy* npm run build:ssg",
+    "publish:page": "node -r dotenv/config scripts/publish-page"
   },
   "repository": {
     "type": "git",
@@ -29,17 +29,18 @@
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0-beta.8",
     "@11ty/eleventy-plugin-rss": "^1.1.1",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@11ty/eleventy-upgrade-help": "^1.0.1",
     "luxon": "^1.25.0",
-    "markdown-it-anchor": "^7.1.0",
-    "markdown-it-attrs": "^3.0.3",
+    "markdown-it-anchor": "^8.4.1",
+    "markdown-it-attrs": "^4.1.3",
     "markdown-it-footnote": "^3.0.2",
     "npm-run-all": "^4.1.5",
     "reading-time": "^1.2.0",
     "sass": "^1.26.10"
   },
   "dependencies": {
-    "@notionhq/client": "^0.4.13"
+    "@notionhq/client": "^1.0.0",
+    "dotenv": "^16.0.0"
   }
 }
