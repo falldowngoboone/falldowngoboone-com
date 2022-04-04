@@ -7,35 +7,84 @@ const formatters = {
       ['tags:', ...tags.multi_select.map(({ name }) => `- ${name}`)],
     ];
   },
-  paragraph({ rich_text }) {
-    return formatRichText(rich_text);
+  paragraph({ block, writeLine, isLast, getConfig }) {
+    const { rich_text } = getConfig(block);
+
+    writeLine('');
+    writeLine(formatRichText(rich_text));
+    isLast && writeLine('');
   },
-  heading_1({ rich_text }) {
-    return `# ${formatRichText(rich_text)}`;
+  heading_1({ block, writeLine, isLast, getConfig }) {
+    const { rich_text } = getConfig(block);
+
+    writeLine('');
+    writeLine(`# ${formatRichText(rich_text)}`);
+    isLast && writeLine('');
   },
-  heading_2({ rich_text }) {
-    return `## ${formatRichText(rich_text)}`;
+  heading_2({ block, writeLine, isLast, getConfig }) {
+    const { rich_text } = getConfig(block);
+
+    writeLine('');
+    writeLine(`## ${formatRichText(rich_text)}`);
+    isLast && writeLine('');
   },
-  heading_3({ rich_text }) {
-    return `### ${formatRichText(rich_text)}`;
+  heading_3({ block, writeLine, isLast, getConfig }) {
+    const { rich_text } = getConfig(block);
+
+    writeLine('');
+    writeLine(`### ${formatRichText(rich_text)}`);
+    isLast && writeLine('');
   },
-  bulleted_list_item({ rich_text }) {
-    return `- ${formatRichText(rich_text)}`;
+  bulleted_list_item({ block, prev, writeLine, getConfig }) {
+    const { rich_text } = getConfig(block);
+
+    if (prev && !prev.type.includes('list_item')) {
+      writeLine('');
+    }
+
+    writeLine(`- ${formatRichText(rich_text)}`);
   },
-  numbered_list_item({ rich_text }) {
-    return `1. ${formatRichText(rich_text)}`;
+  numbered_list_item({ block, prev, writeLine, getConfig }) {
+    const { rich_text } = getConfig(block);
+
+    if (prev && !prev.type.includes('list_item')) {
+      writeLine('');
+    }
+
+    writeLine(`1. ${formatRichText(rich_text)}`);
   },
-  code({ rich_text, language }) {
-    return ['```' + language, formatRichText(rich_text), '```'];
+  code({ block, writeLine, isLast, getConfig }) {
+    const { rich_text, language } = getConfig(block);
+
+    writeLine('');
+    writeLine('```' + language);
+    writeLine(formatRichText(rich_text));
+    writeLine('```');
+    isLast && writeLine('');
   },
-  image({ caption, type, [type]: config }) {
-    return `![${formatRichText(caption)}](${config.url})`;
+  image({ block, writeLine, isLast, getConfig }) {
+    const { caption, type, [type]: config } = getConfig(block);
+
+    writeLine('');
+    writeLine(`![${formatRichText(caption)}](${config.url})`);
+    isLast && writeLine('');
   },
-  callout({ rich_text }) {
-    return ['<aside>', formatRichText(rich_text), '</aside>'];
+  // TODO: support multiple types of callouts
+  callout({ block, writeLine, isLast, getConfig }) {
+    const { rich_text } = getConfig(block);
+
+    writeLine('');
+    writeLine('<aside>');
+    writeLine(formatRichText(rich_text));
+    writeLine('</aside>');
+    isLast && writeLine('');
   },
-  quote({ rich_text }) {
-    return `> ${formatRichText(rich_text)}`;
+  quote({ block, writeLine, isLast, getConfig }) {
+    const { rich_text } = getConfig(block);
+
+    writeLine('');
+    writeLine(`> ${formatRichText(rich_text)}`);
+    isLast && writeLine('');
   },
 };
 
@@ -45,7 +94,7 @@ function formatRichText(array = []) {
 
   return array
     .map(({ type, [type]: config, annotations }, i, arr) => {
-      if (type !== 'text') return '';
+      if (type !== 'text') return ''; // TODO: support `mention` and `equation`
 
       const { content, link } = config;
       const prevSibling = array[i - 1];
