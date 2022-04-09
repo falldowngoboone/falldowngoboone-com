@@ -3,36 +3,23 @@
 // the page is printed by joining the array
 // TODO: represent page as a Buffer?
 
-const FRONT_MATTER_SEPARATOR = '---';
 const NEW_LINE = '\n';
+const SPACES = 4;
 
 class Printer {
   #writers;
+  #opts;
   #indentLevel = 0;
   #page = [];
 
-  constructor(writers) {
+  constructor(writers, opts) {
     this.#writers = writers;
+    this.#opts = opts;
   }
 
-  // TODO: move out of here? Or don't rely on formatters?
   #writeProperties(properties) {
-    const writer = this.#writers.properties;
-    const propertyLines = writer?.(properties) || [];
-
-    this.#writeLine(FRONT_MATTER_SEPARATOR);
-    propertyLines.forEach((line) => {
-      if (Array.isArray(line)) {
-        const [first, ...rest] = line;
-        this.#writeLine(first);
-        this.#indent();
-        rest.forEach((l) => this.#writeLine(l));
-        this.#dedent();
-      } else {
-        this.#writeLine(line);
-      }
-    });
-    this.#writeLine(FRONT_MATTER_SEPARATOR);
+    const { frontMatter } = this.#opts;
+    this.#writeLine(frontMatter(properties));
   }
 
   #writeContent(block, parent = null, index = 0, blocks = []) {
@@ -71,8 +58,7 @@ class Printer {
   }
 
   #writeLine(content = '') {
-    // TODO: dynamic spacing config?
-    this.#page.push(''.padStart(this.#indentLevel * 4));
+    this.#page.push(''.padStart(this.#indentLevel * SPACES));
     this.#page.push(content);
     this.#page.push(NEW_LINE);
   }
@@ -96,8 +82,8 @@ class Printer {
   }
 }
 
-function getPrinter(writers) {
-  return new Printer(writers);
+function getPrinter(writers, opts = {}) {
+  return new Printer(writers, opts);
 }
 
 export { getPrinter };

@@ -3,7 +3,7 @@ import { writeFile, mkdir } from 'fs/promises';
 
 import { getClient, slugify } from './client.mjs';
 import { getPrinter } from './printer.mjs';
-import { formatters } from './formatter-markdown.mjs';
+import { formatters, frontMatter } from './formatter-markdown.mjs';
 
 const CLIENT_TOKEN = process.env.CLIENT_TOKEN;
 
@@ -18,7 +18,7 @@ async function main() {
     auth: CLIENT_TOKEN,
   });
 
-  const printer = getPrinter(formatters);
+  const printer = getPrinter(formatters, { frontMatter });
 
   try {
     const data = await client.pages.fetch(pageId);

@@ -1,12 +1,4 @@
 const formatters = {
-  properties({ title, date, excerpt, tags }) {
-    return [
-      `title: "${title.title.map(({ plain_text }) => plain_text).join('')}"`,
-      `date: ${date.date?.start || today()}`,
-      `excerpt: ${formatRichText(excerpt.rich_text)}`,
-      ['tags:', ...tags.multi_select.map(({ name }) => `- ${name}`)],
-    ];
-  },
   paragraph({ block, writeLine, isLast, getConfig }) {
     const { rich_text } = getConfig(block);
 
@@ -88,6 +80,16 @@ const formatters = {
   },
 };
 
+function frontMatter({ title, date, excerpt, tags }) {
+  return `---
+title: "${title.title.map(({ plain_text }) => plain_text).join('')}"
+date: ${date.date?.start || today()}
+excerpt: ${formatRichText(excerpt.rich_text)}
+tags:
+${tags.multi_select.map(({ name }) => `  - ${name}`).join('\n')}
+---`;
+}
+
 function formatRichText(array = []) {
   // apply in reverse order
   // bold, italic, strikethrough, underline, code, then link
@@ -140,4 +142,4 @@ function today() {
   return date;
 }
 
-export { formatters };
+export { formatters, frontMatter };
