@@ -90,50 +90,58 @@ ${tags.multi_select.map(({ name }) => `  - ${name}`).join('\n')}
 ---`;
 }
 
-function formatRichText(array = []) {
-  // apply in reverse order
-  // bold, italic, strikethrough, underline, code, then link
-
-  return array
-    .map(({ type, [type]: config, annotations }, i, arr) => {
+function formatRichText(richTextObjects = []) {
+  return richTextObjects
+    .map(({ type, [type]: config, annotations }, i) => {
       if (type !== 'text') return ''; // TODO: support `mention` and `equation`
 
-      const { content, link } = config;
-      const prevSibling = array[i - 1];
-      const nextSibling = array[i + 1];
+      const prev = richTextObjects[i - 1];
+      const next = richTextObjects[i + 1];
 
-      let formatted = content;
+      const formatFromConfig = createFormatFactory(
+        config,
+        prev?.[prev?.type],
+        next?.[next?.type]
+      );
+      const formatFromAnnotations = createFormatFactory(
+        annotations,
+        prev?.annotations,
+        next?.annotations
+      );
 
-      if (annotations.code) {
-        if (!prevSibling?.annotations.code) formatted = '`' + formatted;
-        if (!nextSibling?.annotations.code) formatted = formatted + '`';
-      }
-      if (annotations.underline) {
-        // no-op for now
-      }
-      if (annotations.strikethrough) {
-        if (!prevSibling?.annotations.strikethrough)
-          formatted = '~~' + formatted;
-        if (!nextSibling?.annotations.strikethrough)
-          formatted = formatted + '~~';
-      }
-      if (annotations.italic) {
-        if (!prevSibling?.annotations.italic) formatted = '*' + formatted;
-        if (!nextSibling?.annotations.italic) formatted = formatted + '*';
-      }
-      if (annotations.bold) {
-        if (!prevSibling?.annotations.bold) formatted = '**' + formatted;
-        if (!nextSibling?.annotations.bold) formatted = formatted + '**';
-      }
+      const link = formatFromConfig('link', '[', `](${config.link?.url})`);
+      const bold = formatFromAnnotations('bold', '**');
+      const italic = formatFromAnnotations('italic', '*');
+      const strikethrough = formatFromAnnotations('strikethrough', '~~');
+      const underline = formatFromAnnotations('underline', ''); // no-op for Markdown
+      const code = formatFromAnnotations('code', '`');
 
-      if (link) {
-        if (!prevSibling?.href) formatted = '[' + formatted;
-        if (!nextSibling?.href) formatted = formatted + `](${link.url})`;
-      }
+      // applied in reverse order
+      const formatter = compose(
+        link,
+        bold,
+        italic,
+        strikethrough,
+        underline,
+        code
+      );
 
-      return formatted;
+      return formatter(config.content);
     })
     .join('');
+}
+
+function compose(...fns) {
+  return (x) => fns.reduceRight((acc, fn) => fn(acc), x);
+}
+
+function createFormatFactory(current, prev, next) {
+  return (key, startToken, endToken = startToken) => {
+    const pre = current[key] && !prev?.[key] ? startToken : '';
+    const post = current[key] && !next?.[key] ? endToken : '';
+
+    return (content) => `${pre}${content}${post}`;
+  };
 }
 
 function today() {
