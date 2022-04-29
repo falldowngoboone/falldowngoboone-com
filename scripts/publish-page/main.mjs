@@ -1,7 +1,7 @@
 //@ts-check
 import { writeFile, mkdir } from 'fs/promises';
 
-import { getClient, slugify } from './client.mjs';
+import { getClient } from './client.mjs';
 import { getPrinter } from './printer.mjs';
 import { formatters, frontMatter } from './formatter-markdown.mjs';
 
@@ -22,8 +22,7 @@ async function main() {
 
   try {
     const data = await client.pages.fetch(pageId);
-    const slug = slugify(data);
-    const dir = `./src/blog/${slug}`;
+    const dir = `./src/blog/${data.slug}`;
 
     await mkdir(dir, { recursive: true });
     return await writeFile(`${dir}/index.md`, printer.print(data));

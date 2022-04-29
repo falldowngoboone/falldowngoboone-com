@@ -46,12 +46,15 @@ async function readPage(client, pageId) {
   try {
     const [properties, content] = await Promise.all([pageInfo, pageContent]);
 
-    const title = properties.Name;
-    const date = properties['Publish Date'];
-    const excerpt = properties.Excerpt;
-    const tags = properties.Tags;
+    const {
+      Name: title,
+      ['Publish Date']: date,
+      Excerpt: excerpt,
+      Tags: tags,
+    } = properties;
 
     return {
+      slug: getSlug(title),
       frontMatter: { title, date, excerpt, tags },
       content,
     };
@@ -77,14 +80,13 @@ function getClient(options) {
   };
 }
 
-function getSlug({ frontMatter }) {
-  const { title } = frontMatter;
+function getSlug({ title }) {
   return slugify(
-    title.title
+    title
       .map(({ plain_text }) => plain_text)
       .join('')
       .toLowerCase()
   );
 }
 
-export { getClient, getSlug as slugify };
+export { getClient };
