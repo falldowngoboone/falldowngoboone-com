@@ -21,7 +21,6 @@ async function readBlocks(client, blockId) {
 
     return expandedResults;
   } catch (error) {
-    console.log('From readBlocks, error!');
     handleClientError(error);
   }
 }
@@ -34,7 +33,6 @@ async function readPageInfo(client, pageId) {
 
     return properties;
   } catch (error) {
-    console.log('From readPageInfo, error!');
     handleClientError(error);
   }
 }
@@ -59,11 +57,11 @@ async function readPage(client, pageId) {
       content,
     };
   } catch (error) {
-    console.log('From readPage, error!');
     handleClientError(error);
   }
 }
 
+// TODO: better error handling
 function handleClientError(error) {
   console.error(error.body || error);
 }
