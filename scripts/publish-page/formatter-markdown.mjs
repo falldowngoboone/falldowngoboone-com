@@ -66,9 +66,9 @@ const formatters = {
     const { rich_text } = getConfig(block);
 
     writeLine('');
-    writeLine('<aside>');
+    writeLine('{% aside %}');
     writeLine(formatRichText(rich_text));
-    writeLine('</aside>');
+    writeLine('{% endaside %}');
     isLast && writeLine('');
   },
   quote({ block, writeLine, isLast, getConfig }) {
