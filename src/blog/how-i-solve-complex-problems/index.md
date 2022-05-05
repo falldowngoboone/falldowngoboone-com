@@ -2,7 +2,7 @@
 title: How I solve complex problems
 excerpt: |
   Solving complex problems is something every developer will do. This is my approach.
-Publish Date: 2022-03-12
+date: 2022-03-12
 tags:
   - process
 ---
