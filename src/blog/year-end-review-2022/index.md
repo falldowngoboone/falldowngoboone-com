@@ -7,6 +7,10 @@ tags:
   - process
 ---
 
+What. Just. Happened?
+
+---
+
 And I thought [2021](https://www.falldowngoboone.com/blog/year-end-review-2021/) was crazy.
 
 2022 was a roller coaster of emotion for many people. We saw historical weather events, political events, everything. I would like to, for once, have a year that is not historic.
@@ -50,4 +54,4 @@ My year was wild, filled with terrific ups and terrifying downs. What follows is
 
 Well, I’m done for 2022. It’s been real, and it’s been fun, but I’m ready for a boring year. Seriously.
 
-I’m curious to hear what you’re excited about in 2023. [Let me know on Twitter](https://twitter.com/therealboone) (assuming it continues to work), and I’ll see you again next year!
+What are you excited about in 2023? [Let me know on Twitter](https://twitter.com/therealboone) (assuming it continues to work), and I’ll see you again next year!
